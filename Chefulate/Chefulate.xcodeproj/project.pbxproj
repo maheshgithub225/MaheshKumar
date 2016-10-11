@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B51DAD42400003D984 /* AppDelegate.swift */; };
+		BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B71DAD42400003D984 /* ViewController.swift */; };
+		BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8B91DAD42400003D984 /* Main.storyboard */; };
+		BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */; };
+		BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8BF1DAD42400003D984 /* Assets.xcassets */; };
+		BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */; };
+		BDDCC8CE1DAD42400003D984 /* ChefulateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8CD1DAD42400003D984 /* ChefulateTests.swift */; };
+		BDDCC8D91DAD42400003D984 /* ChefulateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDDCC8CA1DAD42400003D984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDDCC8AA1DAD42400003D984 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDDCC8B11DAD42400003D984;
+			remoteInfo = Chefulate;
+		};
+		BDDCC8D51DAD42400003D984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDDCC8AA1DAD42400003D984 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDDCC8B11DAD42400003D984;
+			remoteInfo = Chefulate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDDCC8B21DAD42400003D984 /* Chefulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDCC8B51DAD42400003D984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDDCC8B71DAD42400003D984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDDCC8BA1DAD42400003D984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDDCC8BD1DAD42400003D984 /* Chefulate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chefulate.xcdatamodel; sourceTree = "<group>"; };
+		BDDCC8BF1DAD42400003D984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDDCC8C21DAD42400003D984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDDCC8C41DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDDCC8C91DAD42400003D984 /* ChefulateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefulateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDCC8CD1DAD42400003D984 /* ChefulateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefulateTests.swift; sourceTree = "<group>"; };
+		BDDCC8CF1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDDCC8D41DAD42400003D984 /* ChefulateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefulateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefulateUITests.swift; sourceTree = "<group>"; };
+		BDDCC8DA1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDDCC8AF1DAD42400003D984 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8C61DAD42400003D984 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8D11DAD42400003D984 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDDCC8A91DAD42400003D984 = {
+			isa = PBXGroup;
+			children = (
+				BDDCC8B41DAD42400003D984 /* Chefulate */,
+				BDDCC8CC1DAD42400003D984 /* ChefulateTests */,
+				BDDCC8D71DAD42400003D984 /* ChefulateUITests */,
+				BDDCC8B31DAD42400003D984 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDDCC8B31DAD42400003D984 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDDCC8B21DAD42400003D984 /* Chefulate.app */,
+				BDDCC8C91DAD42400003D984 /* ChefulateTests.xctest */,
+				BDDCC8D41DAD42400003D984 /* ChefulateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
+			isa = PBXGroup;
+			children = (
+				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
+				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
+				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				BDDCC8BF1DAD42400003D984 /* Assets.xcassets */,
+				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
+				BDDCC8C41DAD42400003D984 /* Info.plist */,
+				BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */,
+			);
+			path = Chefulate;
+			sourceTree = "<group>";
+		};
+		BDDCC8CC1DAD42400003D984 /* ChefulateTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDDCC8CD1DAD42400003D984 /* ChefulateTests.swift */,
+				BDDCC8CF1DAD42400003D984 /* Info.plist */,
+			);
+			path = ChefulateTests;
+			sourceTree = "<group>";
+		};
+		BDDCC8D71DAD42400003D984 /* ChefulateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */,
+				BDDCC8DA1DAD42400003D984 /* Info.plist */,
+			);
+			path = ChefulateUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDDCC8B11DAD42400003D984 /* Chefulate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDDCC8DD1DAD42400003D984 /* Build configuration list for PBXNativeTarget "Chefulate" */;
+			buildPhases = (
+				BDDCC8AE1DAD42400003D984 /* Sources */,
+				BDDCC8AF1DAD42400003D984 /* Frameworks */,
+				BDDCC8B01DAD42400003D984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chefulate;
+			productName = Chefulate;
+			productReference = BDDCC8B21DAD42400003D984 /* Chefulate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDDCC8C81DAD42400003D984 /* ChefulateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDDCC8E01DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateTests" */;
+			buildPhases = (
+				BDDCC8C51DAD42400003D984 /* Sources */,
+				BDDCC8C61DAD42400003D984 /* Frameworks */,
+				BDDCC8C71DAD42400003D984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDDCC8CB1DAD42400003D984 /* PBXTargetDependency */,
+			);
+			name = ChefulateTests;
+			productName = ChefulateTests;
+			productReference = BDDCC8C91DAD42400003D984 /* ChefulateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDDCC8D31DAD42400003D984 /* ChefulateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDDCC8E31DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateUITests" */;
+			buildPhases = (
+				BDDCC8D01DAD42400003D984 /* Sources */,
+				BDDCC8D11DAD42400003D984 /* Frameworks */,
+				BDDCC8D21DAD42400003D984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDDCC8D61DAD42400003D984 /* PBXTargetDependency */,
+			);
+			name = ChefulateUITests;
+			productName = ChefulateUITests;
+			productReference = BDDCC8D41DAD42400003D984 /* ChefulateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDDCC8AA1DAD42400003D984 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Johnathan Taylor Sutton";
+				TargetAttributes = {
+					BDDCC8B11DAD42400003D984 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					BDDCC8C81DAD42400003D984 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BDDCC8B11DAD42400003D984;
+					};
+					BDDCC8D31DAD42400003D984 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BDDCC8B11DAD42400003D984;
+					};
+				};
+			};
+			buildConfigurationList = BDDCC8AD1DAD42400003D984 /* Build configuration list for PBXProject "Chefulate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDDCC8A91DAD42400003D984;
+			productRefGroup = BDDCC8B31DAD42400003D984 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDDCC8B11DAD42400003D984 /* Chefulate */,
+				BDDCC8C81DAD42400003D984 /* ChefulateTests */,
+				BDDCC8D31DAD42400003D984 /* ChefulateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDDCC8B01DAD42400003D984 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
+				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
+				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8C71DAD42400003D984 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8D21DAD42400003D984 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDDCC8AE1DAD42400003D984 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
+				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
+				BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8C51DAD42400003D984 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDCC8CE1DAD42400003D984 /* ChefulateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDDCC8D01DAD42400003D984 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDDCC8D91DAD42400003D984 /* ChefulateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDDCC8CB1DAD42400003D984 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDDCC8B11DAD42400003D984 /* Chefulate */;
+			targetProxy = BDDCC8CA1DAD42400003D984 /* PBXContainerItemProxy */;
+		};
+		BDDCC8D61DAD42400003D984 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDDCC8B11DAD42400003D984 /* Chefulate */;
+			targetProxy = BDDCC8D51DAD42400003D984 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDDCC8B91DAD42400003D984 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDDCC8BA1DAD42400003D984 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDDCC8C21DAD42400003D984 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDDCC8DB1DAD42400003D984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDDCC8DC1DAD42400003D984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDDCC8DE1DAD42400003D984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Chefulate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.Chefulate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BDDCC8DF1DAD42400003D984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Chefulate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.Chefulate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BDDCC8E11DAD42400003D984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChefulateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.ChefulateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chefulate.app/Chefulate";
+			};
+			name = Debug;
+		};
+		BDDCC8E21DAD42400003D984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChefulateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.ChefulateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chefulate.app/Chefulate";
+			};
+			name = Release;
+		};
+		BDDCC8E41DAD42400003D984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ChefulateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.ChefulateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Chefulate;
+			};
+			name = Debug;
+		};
+		BDDCC8E51DAD42400003D984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ChefulateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.okstate.cs.bem.ChefulateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Chefulate;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDDCC8AD1DAD42400003D984 /* Build configuration list for PBXProject "Chefulate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDCC8DB1DAD42400003D984 /* Debug */,
+				BDDCC8DC1DAD42400003D984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDDCC8DD1DAD42400003D984 /* Build configuration list for PBXNativeTarget "Chefulate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDCC8DE1DAD42400003D984 /* Debug */,
+				BDDCC8DF1DAD42400003D984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BDDCC8E01DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDCC8E11DAD42400003D984 /* Debug */,
+				BDDCC8E21DAD42400003D984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BDDCC8E31DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDCC8E41DAD42400003D984 /* Debug */,
+				BDDCC8E51DAD42400003D984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BDDCC8BD1DAD42400003D984 /* Chefulate.xcdatamodel */,
+			);
+			currentVersion = BDDCC8BD1DAD42400003D984 /* Chefulate.xcdatamodel */;
+			path = Chefulate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BDDCC8AA1DAD42400003D984 /* Project object */;
+}
