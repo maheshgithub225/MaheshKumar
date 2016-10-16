@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93A8317C1DB37526002BF8DE /* dark red.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* dark red.png */; };
+		93A8317E1DB3752E002BF8DE /* chefulate enlarged.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317D1DB3752E002BF8DE /* chefulate enlarged.png */; };
+		93A831801DB37607002BF8DE /* drawsignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A8317F1DB37607002BF8DE /* drawsignin.swift */; };
 		BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B51DAD42400003D984 /* AppDelegate.swift */; };
 		BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B71DAD42400003D984 /* ViewController.swift */; };
 		BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8B91DAD42400003D984 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93A8317B1DB37526002BF8DE /* dark red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark red.png"; sourceTree = "<group>"; };
+		93A8317D1DB3752E002BF8DE /* chefulate enlarged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chefulate enlarged.png"; sourceTree = "<group>"; };
+		93A8317F1DB37607002BF8DE /* drawsignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drawsignin.swift; sourceTree = "<group>"; };
 		BDDCC8B21DAD42400003D984 /* Chefulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8B51DAD42400003D984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDCC8B71DAD42400003D984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93A8317A1DB37510002BF8DE /* pics */ = {
+			isa = PBXGroup;
+			children = (
+				93A8317B1DB37526002BF8DE /* dark red.png */,
+				93A8317D1DB3752E002BF8DE /* chefulate enlarged.png */,
+				93A8317F1DB37607002BF8DE /* drawsignin.swift */,
+			);
+			name = pics;
+			sourceTree = "<group>";
+		};
 		BDDCC8A91DAD42400003D984 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +115,7 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
+				93A8317A1DB37510002BF8DE /* pics */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
@@ -235,9 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A8317C1DB37526002BF8DE /* dark red.png in Resources */,
 				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
 				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
 				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
+				93A8317E1DB3752E002BF8DE /* chefulate enlarged.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
+				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
 				BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */,
 			);
@@ -507,6 +527,7 @@
 				BDDCC8DF1DAD42400003D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDDCC8E01DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +536,7 @@
 				BDDCC8E21DAD42400003D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDDCC8E31DAD42400003D984 /* Build configuration list for PBXNativeTarget "ChefulateUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +545,7 @@
 				BDDCC8E51DAD42400003D984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
