@@ -22,7 +22,7 @@
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chefulatelogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-GR-hoj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheflogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-GR-hoj">
                                 <frame key="frameInset" minX="54" minY="161" width="307" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -62,6 +62,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-uY-W2r" userLabel="register">
+                                <frame key="frameInset" minX="99" minY="639" width="216" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheffont.png" translatesAutoresizingMaskIntoConstraints="NO" id="jdm-zr-Kk3">
+                                <frame key="frameInset" minX="87" minY="51" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -69,6 +82,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDe-71-lJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.58695652173915"/>
+        </scene>
+        <!--Conversion View Controller-->
+        <scene sceneID="wEX-X3-gVh">
+            <objects>
+                <viewController id="khf-Sw-aXj" customClass="ConversionViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mha-GK-a7j"/>
+                        <viewControllerLayoutGuide type="bottom" id="mcr-pl-DY6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="db1-OU-TWc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="darkred.png" translatesAutoresizingMaskIntoConstraints="NO" id="ud2-wo-IQd">
+                                <frame key="frameInset" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyu-Ep-Zxn">
+                                <frame key="frameInset" minX="-1" minY="50" height="216" maxX="3"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="khf-Sw-aXj" id="0I6-EV-pjt"/>
+                                    <outlet property="delegate" destination="khf-Sw-aXj" id="FTZ-Qv-E2Q"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-Yp-Gfo">
+                                <frame key="frameInset" minX="159" minY="300" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dropBox" destination="cyu-Ep-Zxn" id="VGF-1Q-hoe"/>
+                        <outlet property="textbox" destination="1ff-Yp-Gfo" id="XPt-9O-GRr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubV-BJ-faV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="836"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -86,7 +142,7 @@
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chefulatelogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-6R-Ap6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheflogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="lXt-6R-Ap6">
                                 <frame key="frameInset" minX="54" minY="112" width="307" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -114,9 +170,14 @@
                                     <segue destination="HDz-T0-GNb" kind="show" id="SaX-yk-EEr"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheffont.png" translatesAutoresizingMaskIntoConstraints="NO" id="cyc-6N-wbq">
+                                <frame key="frameInset" minX="75" width="265" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
+                            <outlet property="cheffont" destination="cyc-6N-wbq" id="APd-pi-4hq"/>
                             <outlet property="cheflogo" destination="lXt-6R-Ap6" id="zh4-wB-1Y2"/>
                             <outlet property="darkred" destination="6BV-qQ-AXY" id="9to-XM-UQ7"/>
                             <outlet property="regi" destination="tTO-5B-XdI" id="wT0-hr-6oF"/>
@@ -128,15 +189,15 @@
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="t7L-GG-Pi6">
             <objects>
-                <viewController id="HDz-T0-GNb" sceneMemberID="viewController">
+                <viewController id="HDz-T0-GNb" customClass="registerViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fyi-Dg-FpV"/>
                         <viewControllerLayoutGuide type="bottom" id="n4p-lt-PHG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vnl-oO-UHa">
+                    <view key="view" contentMode="scaleToFill" id="vnl-oO-UHa" customClass="draw_register_view" customModule="Chefulate" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -151,21 +212,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2I-Vd-BCR" userLabel="usernametext">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2I-Vd-BCR" userLabel="passwordtext">
                                 <frame key="frameInset" minX="149" minY="178" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-lD-nlq" userLabel="usernametext">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-lD-nlq" userLabel="emailtext">
                                 <frame key="frameInset" minX="149" minY="239" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-6c-16e" userLabel="usernametext">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiN-6c-16e" userLabel="confirmtext">
                                 <frame key="frameInset" minX="149" minY="317" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -207,7 +268,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="accept terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egP-Qd-0QP" userLabel="accept teerms">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="accept terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egP-Qd-0QP">
                                 <frame key="frameInset" minX="134" minY="473" width="147" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -239,15 +300,42 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQW-u4-7pF" userLabel="usernametext">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQW-u4-7pF" userLabel="birthdatetext">
                                 <frame key="frameInset" minX="149" minY="406" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="HHd-cO-WWp">
+                                <frame key="frameInset" minX="143" minY="502" width="128" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheffont.png" translatesAutoresizingMaskIntoConstraints="NO" id="hk2-g0-YXH">
+                                <frame key="frameInset" minX="110" width="194" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="Iagree" destination="q5Q-9K-5TO" id="YPm-Lt-Mge"/>
+                            <outlet property="acceptteerms" destination="A72-8c-BOg" id="xam-c0-64j"/>
+                            <outlet property="acceptterms" destination="egP-Qd-0QP" id="RMf-Yq-wsS"/>
+                            <outlet property="birthdate" destination="2PX-Ne-qhl" id="Hri-X7-bzM"/>
+                            <outlet property="birthdatetext" destination="BQW-u4-7pF" id="Abr-93-YF4"/>
+                            <outlet property="cancel" destination="40O-3D-ycv" id="etE-AW-Mfq"/>
+                            <outlet property="checkmark" destination="HHd-cO-WWp" id="sNS-f0-FmK"/>
+                            <outlet property="cheffont" destination="hk2-g0-YXH" id="aZ7-zU-4kL"/>
+                            <outlet property="confirmemail" destination="Rgp-hU-e6Z" id="faj-EJ-0U0"/>
+                            <outlet property="confirmtext" destination="fiN-6c-16e" id="LJF-jj-oRN"/>
+                            <outlet property="darkred" destination="QM5-Xg-5W3" id="hj6-ze-ojK"/>
+                            <outlet property="email" destination="wmG-Em-uvD" id="AcQ-4k-323"/>
+                            <outlet property="emailtext" destination="kNf-lD-nlq" id="uW8-yP-fyZ"/>
+                            <outlet property="password" destination="9Nr-qe-qTC" id="AUv-Gh-ivn"/>
+                            <outlet property="passwordtext" destination="z2I-Vd-BCR" id="cMu-nU-05t"/>
+                            <outlet property="username" destination="MPn-mK-EXJ" id="APs-UD-a7W"/>
+                            <outlet property="usernametext" destination="I0Z-6T-Xjr" id="aXM-Iv-tj5"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53c-nT-on7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,7 +344,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chefulatelogo.png" width="2000" height="2000"/>
+        <image name="checkmark.png" width="2400" height="2400"/>
+        <image name="cheffont.png" width="960" height="432"/>
+        <image name="cheflogo.png" width="2000" height="2000"/>
         <image name="darkred.png" width="2000" height="2000"/>
         <image name="squircle.png" width="2000" height="2000"/>
     </resources>

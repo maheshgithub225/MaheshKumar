@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
-		93A8317E1DB3752E002BF8DE /* chefulatelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317D1DB3752E002BF8DE /* chefulatelogo.png */; };
 		93A831801DB37607002BF8DE /* drawsignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A8317F1DB37607002BF8DE /* drawsignin.swift */; };
 		93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBA51DB41F3A00E2140B /* squircle.png */; };
+		93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9DBA71DB5CEE000E2140B /* registerViewController.swift */; };
+		93D9DBAA1DB5D07C00E2140B /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBA91DB5D07C00E2140B /* checkmark.png */; };
+		93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9DBAB1DB5D2D800E2140B /* ConversionViewController.swift */; };
+		93D9DBAE1DB5EC5800E2140B /* cheffont.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBAD1DB5EC5700E2140B /* cheffont.png */; };
+		93D9DBB21DB5EF3B00E2140B /* cheficon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBAF1DB5EF3B00E2140B /* cheficon.png */; };
+		93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */; };
+		93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB51DB5EFF000E2140B /* cheflogo.png */; };
+		93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */; };
 		BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B51DAD42400003D984 /* AppDelegate.swift */; };
 		BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B71DAD42400003D984 /* ViewController.swift */; };
 		BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8B91DAD42400003D984 /* Main.storyboard */; };
@@ -40,9 +47,16 @@
 
 /* Begin PBXFileReference section */
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
-		93A8317D1DB3752E002BF8DE /* chefulatelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chefulatelogo.png; sourceTree = "<group>"; };
 		93A8317F1DB37607002BF8DE /* drawsignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drawsignin.swift; sourceTree = "<group>"; };
 		93D9DBA51DB41F3A00E2140B /* squircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squircle.png; sourceTree = "<group>"; };
+		93D9DBA71DB5CEE000E2140B /* registerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
+		93D9DBA91DB5D07C00E2140B /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		93D9DBAB1DB5D2D800E2140B /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		93D9DBAD1DB5EC5700E2140B /* cheffont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheffont.png; sourceTree = "<group>"; };
+		93D9DBAF1DB5EF3B00E2140B /* cheficon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheficon.png; sourceTree = "<group>"; };
+		93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chefulatewithslogan.png; sourceTree = "<group>"; };
+		93D9DBB51DB5EFF000E2140B /* cheflogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheflogo.png; sourceTree = "<group>"; };
+		93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = draw_register_view.swift; sourceTree = "<group>"; };
 		BDDCC8B21DAD42400003D984 /* Chefulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8B51DAD42400003D984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDCC8B71DAD42400003D984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,9 +102,12 @@
 			isa = PBXGroup;
 			children = (
 				93A8317B1DB37526002BF8DE /* darkred.png */,
-				93A8317D1DB3752E002BF8DE /* chefulatelogo.png */,
+				93D9DBAD1DB5EC5700E2140B /* cheffont.png */,
+				93D9DBA91DB5D07C00E2140B /* checkmark.png */,
 				93D9DBA51DB41F3A00E2140B /* squircle.png */,
-				93A8317F1DB37607002BF8DE /* drawsignin.swift */,
+				93D9DBAF1DB5EF3B00E2140B /* cheficon.png */,
+				93D9DBB51DB5EFF000E2140B /* cheflogo.png */,
+				93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */,
 			);
 			name = pics;
 			sourceTree = "<group>";
@@ -118,10 +135,14 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
+				93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */,
 				93A8317A1DB37510002BF8DE /* pics */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
+				93A8317F1DB37607002BF8DE /* drawsignin.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				93D9DBAB1DB5D2D800E2140B /* ConversionViewController.swift */,
+				93D9DBA71DB5CEE000E2140B /* registerViewController.swift */,
 				BDDCC8BF1DAD42400003D984 /* Assets.xcassets */,
 				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
 				BDDCC8C41DAD42400003D984 /* Info.plist */,
@@ -258,9 +279,13 @@
 				93A8317C1DB37526002BF8DE /* darkred.png in Resources */,
 				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
 				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
+				93D9DBAA1DB5D07C00E2140B /* checkmark.png in Resources */,
+				93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */,
+				93D9DBAE1DB5EC5800E2140B /* cheffont.png in Resources */,
 				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
+				93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */,
+				93D9DBB21DB5EF3B00E2140B /* cheficon.png in Resources */,
 				93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */,
-				93A8317E1DB3752E002BF8DE /* chefulatelogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +312,10 @@
 			files = (
 				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
+				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
+				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,
+				93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */,
 				BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

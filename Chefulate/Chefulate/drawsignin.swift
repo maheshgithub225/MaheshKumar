@@ -15,6 +15,7 @@ class drawsignin: UIView {
     @IBOutlet weak var darkred: UIImageView!
     @IBOutlet weak var regi: UIButton!
     @IBOutlet weak var cheflogo: UIImageView!
+    @IBOutlet weak var cheffont: UIImageView!
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -25,9 +26,6 @@ class drawsignin: UIView {
     */
     let screenSize: CGRect = UIScreen.main.bounds
   
-    let capture=UIImage(named: "dark red.png")
-    let capturetwo=UIImage(named: "chefulate enlarged.png")
-    
     
     override func draw(_ rect: CGRect) {
         let screenWidth = screenSize.width
@@ -47,12 +45,15 @@ class drawsignin: UIView {
         let ptwo = CGRect(x:screenWidth/7.66,y:screenHeight/6.57,width:screenWidth/1.34,height:screenHeight/2.35)
         let button_frame = CGRect(x:(screenWidth/5.83),y:screenHeight/1.98, width: screenWidth/1.58, height: screenHeight/10.08)
         let button_frametwo = CGRect(x:(screenWidth/5.83),y:screenHeight/1.46, width: screenWidth/1.58, height: screenHeight/10.08)
+        let logo_frame=CGRect(x:screenWidth/5.52,y:0,width:screenWidth/1.56,height:screenHeight/5.58)
         register.frame = button_frame
         register.layer.cornerRadius = 5
         cheflogo.frame = ptwo
         regi.frame = button_frametwo
         regi.layer.cornerRadius = 5
         darkred.frame = p
+        cheffont.frame = logo_frame
+        
       //  capture.draw(in: p)
       //  capturetwo.draw(in: ptwo)
   //self.addSubview(button)
