@@ -46,12 +46,12 @@ class drawsignin: UIView {
         let button_frame = CGRect(x:(screenWidth/5.83),y:screenHeight/1.98, width: screenWidth/1.58, height: screenHeight/10.08)
         let button_frametwo = CGRect(x:(screenWidth/5.83),y:screenHeight/1.46, width: screenWidth/1.58, height: screenHeight/10.08)
         let logo_frame=CGRect(x:screenWidth/5.52,y:0,width:screenWidth/1.56,height:screenHeight/5.58)
-        register.frame = button_frame
-        register.layer.cornerRadius = 5
+        //register.frame = button_frame
+        //register.layer.cornerRadius = 5
         cheflogo.frame = ptwo
         regi.frame = button_frametwo
         regi.layer.cornerRadius = 5
-        darkred.frame = p
+       // darkred.frame = p
         cheffont.frame = logo_frame
         
       //  capture.draw(in: p)

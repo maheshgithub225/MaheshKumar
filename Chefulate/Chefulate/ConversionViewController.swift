@@ -19,6 +19,7 @@
 import UIKit
 
 class ConversionViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate{
+    @IBOutlet weak var ingredientScroller: UIScrollView!
     @IBOutlet weak var myPicker: UIPickerView!
     
     @IBOutlet weak var myPickertwo: UIPickerView!

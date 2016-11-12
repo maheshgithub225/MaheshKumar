@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F0F2B091DD17C200070F03F /* Chef-Calc.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F2B081DD17C200070F03F /* Chef-Calc.png */; };
-		2F0F2B0B1DD17C310070F03F /* Chef-title.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F2B0A1DD17C310070F03F /* Chef-title.png */; };
 		2F0F2B0E1DD1A3CE0070F03F /* arrows.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */; };
 		2F0F2B101DD1B3E20070F03F /* add_more_ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F2B0F1DD1B3E20070F03F /* add_more_ingredients.swift */; };
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
@@ -30,6 +28,7 @@
 		BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */; };
 		BDDCC8CE1DAD42400003D984 /* ChefulateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8CD1DAD42400003D984 /* ChefulateTests.swift */; };
 		BDDCC8D91DAD42400003D984 /* ChefulateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */; };
+		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F0F2B081DD17C200070F03F /* Chef-Calc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chef-Calc.png"; path = "../../../../Downloads/Chef-Calc.png"; sourceTree = "<group>"; };
-		2F0F2B0A1DD17C310070F03F /* Chef-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chef-title.png"; path = "../../../../Downloads/Chef-title.png"; sourceTree = "<group>"; };
 		2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows.PNG; sourceTree = "<group>"; };
 		2F0F2B0F1DD1B3E20070F03F /* add_more_ingredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = add_more_ingredients.swift; path = ../add_more_ingredients.swift; sourceTree = "<group>"; };
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
@@ -79,6 +76,7 @@
 		BDDCC8D41DAD42400003D984 /* ChefulateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefulateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefulateUITests.swift; sourceTree = "<group>"; };
 		BDDCC8DA1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,13 +118,11 @@
 			children = (
 				2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */,
 				93A8317B1DB37526002BF8DE /* darkred.png */,
-				2F0F2B081DD17C200070F03F /* Chef-Calc.png */,
 				93D9DBAD1DB5EC5700E2140B /* cheffont.png */,
 				93D9DBA91DB5D07C00E2140B /* checkmark.png */,
 				93D9DBA51DB41F3A00E2140B /* squircle.png */,
 				93D9DBAF1DB5EF3B00E2140B /* cheficon.png */,
 				93D9DBB51DB5EFF000E2140B /* cheflogo.png */,
-				2F0F2B0A1DD17C310070F03F /* Chef-title.png */,
 				93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */,
 			);
 			name = pics;
@@ -160,6 +156,7 @@
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */,
 				2F0F2B0F1DD1B3E20070F03F /* add_more_ingredients.swift */,
 				93D9DBAB1DB5D2D800E2140B /* ConversionViewController.swift */,
 				93D9DBA71DB5CEE000E2140B /* registerViewController.swift */,
@@ -303,9 +300,7 @@
 				2F0F2B0E1DD1A3CE0070F03F /* arrows.PNG in Resources */,
 				93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */,
 				93D9DBAE1DB5EC5800E2140B /* cheffont.png in Resources */,
-				2F0F2B0B1DD17C310070F03F /* Chef-title.png in Resources */,
 				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
-				2F0F2B091DD17C200070F03F /* Chef-Calc.png in Resources */,
 				93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */,
 				93D9DBB21DB5EF3B00E2140B /* cheficon.png in Resources */,
 				93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */,
@@ -333,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */,
 				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
