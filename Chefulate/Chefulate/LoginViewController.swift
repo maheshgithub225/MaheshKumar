@@ -8,11 +8,11 @@
 
 import UIKit
 import Foundation
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var userName: UITextField!
@@ -53,7 +53,20 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(conversiontable.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
 
     /*
     // MARK: - Navigation
