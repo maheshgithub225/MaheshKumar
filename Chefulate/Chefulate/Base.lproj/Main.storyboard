@@ -197,6 +197,9 @@
                                 <state key="normal" title="Submit Recipe">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitRecipe:" destination="khf-Sw-aXj" eventType="touchUpInside" id="9xN-mO-uAc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpL-FI-pao">
                                 <frame key="frameInset" minX="36" minY="151" width="62" height="25"/>
