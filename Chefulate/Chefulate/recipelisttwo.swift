@@ -10,9 +10,29 @@ import UIKit
 
 class recipelisttwo: UITableViewController {
 var kflag=0
+    var masterarray = [ingredient]()
     var counter = 1
+    var id = 7
+    var countertwo = 1
+    var counterthree = 1
+    var g:String = ""
+    var servingsize:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.countrecipes()
+        
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+           self.countertwo = 0
+            
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: when) {
+          self.selectdb()
+            
+            self.tableView.reloadData()
+        }
+        
         selectdb()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,13 +50,36 @@ var kflag=0
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return masterarray.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(counter)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+        if countertwo == 0 {
+           
+            
+            //   if  indexPath[1] == 0{
+            //   cell.textLabel?.text = "\(masterarray[(indexPath[1]])"
+            //   }
+            //  else{
+            cell.textLabel?.text = "\(masterarray[indexPath[1]].ingredientdisplay())"
+            cell.detailTextLabel?.text="\(masterarray[indexPath[1]].seconddisplay())"
+            //  }
+        }
+        
+        // cell.textLabel?.text = "\(masterarray[indexPath[1]])"
+        //  cell.detailTextLabel?.text="\(laparray[indexPath[1]].display_time())"
+        
+        return cell
+    }
+
     func alert(){
         
         
@@ -63,7 +106,36 @@ var kflag=0
         return true
         
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+
+        
+        //checks to see if the train_car class property bool "is pressed" is checked for each row in order to highlight rows.  The color change actually occurs within cellsforrows function
+        
+        if  masterarray[indexPath[1]].ispressed == false {
+            
+            cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+            cell.textLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+            cell.detailTextLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+            masterarray[indexPath[1]].ispressed = true
+           kflag=1
+            g = masterarray[indexPath[1]].recipe_id
+            servingsize=masterarray[indexPath[1]].serving_size
+            self.tableView.reloadData()
+        }
+        
+        else if masterarray[indexPath[1]].ispressed == true{
+            
+           cell.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
+            cell.textLabel?.backgroundColor = UIColor.white
+            cell.detailTextLabel?.backgroundColor = UIColor.white
+            masterarray[indexPath[1]].ispressed = false
+            kflag=0
+            self.tableView.reloadData()
+        }
+        
+    }
+
    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,8 +193,8 @@ var kflag=0
     */
     func selectdb(){
        
-        
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
+        if countertwo == 0{
+        let url = URL(string: "https://cs.okstate.edu/~rbryanm/chefselectall.php/\(id)")!
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: url){(data,response,error)in
@@ -137,7 +209,7 @@ var kflag=0
             do{
                 
                 
-                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? Array<Any>
                 /*
                 for index in stride(from: 0, to: self.counter, by: +1) {
                     print("TTTTTTT")
@@ -158,11 +230,30 @@ var kflag=0
                 }
                 */
                 print("LLLLLLLLL")
-                var devices = json?.object(forKey: "Recipie_ID") as! Array<Any>
+               
+                for index in stride(from: 0, to: self.counter, by: +1) {
+                    
+                    var sd: String = "\(json?[index])"
+                    print(sd)
+                    
+                    let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
                 
-                
-                        print("\(devices[0])")
-                
+                    print("\( fullNameArr[0])")
+                   // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
+                    var ca = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
+                    var ea = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
+                    var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
+                    var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
+                    print("TTTTT")
+                    print("\(ca[3])")
+                    print("TTTTT")
+                    print("\(ga[0])")
+                    print("TTTTT")
+                    print("\(fa[3])")
+                    var recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ga[0], init_serving_size: fa[3])
+                    self.masterarray.append(recipe)
+                    
+                }
                 
                 
             }
@@ -172,7 +263,7 @@ var kflag=0
             }
             DispatchQueue.main.async(execute: { () -> Void in
                 
-                self.counter = 0
+                self.counterthree = 0
                 self.tableView.reloadData()
                 
             })
@@ -181,6 +272,102 @@ var kflag=0
         task.resume()
         
     }
+    }
+    
+    func countrecipes(){
+        
+            let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/7")!
+            let config = URLSessionConfiguration.default
+            let session = URLSession(configuration: config)
+            let task = session.dataTask(with: url){(data,response,error)in
+                guard error == nil else{
+                    print("error in session call:\(error)")
+                    return
+                }
+                guard let result = data else{
+                    print("no data received")
+                    return
+                }
+                do{
+                    
+                    
+                    let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                    print("LLLL")
+                    print("\(json)")
+                    var sd:String = "\(json)"
+                      var Da:[String] = sd.characters.split{$0 == "\""}.map(String.init)
+                    print("second")
+                    print("\(Da[2])")
+                    var ca = Da[2].characters.split{$0 == " "}.map(String.init)
+                    print("third")
+                    print("\(ca[1])")
+                    var ea = ca[1].characters.split{$0 == ";"}.map(String.init)
+                    print("fourth")
+                    print("\(ea[0])")
+                    self.counter = Int(ea[0])!
+                    /*
+                     for index in stride(from: 0, to: self.counter, by: +1) {
+                     print("TTTTTTT")
+                     var sd: String = "\(json?[index])"
+                     print(sd)
+                     
+                     let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
+                     
+                     print(fullNameArr[0])
+                     //   var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
+                     //   var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
+                     //   var ea = fullNameArr[2].characters.split{$0 == " "}.map(String.init)
+                     //   var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
+                     
+                     //  var recipe:recipe_ingredient = recipe_ingredient(init_ingredient: Da[1], init_measurement: ca[3], init_quantity: ea[3])
+                     //  masterarray.append(car)
+                     
+                     }
+                     */
+                 //   print("LLLLLLLLL")
+                    
+                  /*
+                        
+                   //     var sd: String = "\(json?[index])"
+                        print(sd)
+                        
+                        let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
+                        
+                        print("\( fullNameArr[0])")
+                        // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
+                        var ca = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
+                        var ea = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
+                        var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
+                        print("TTTTT")
+                        print("\(ca[3])")
+                        print("TTTTT")
+                        print("\(ea[3])")
+                        print("TTTTT")
+                        print("\(fa[3])")
+                        //var car:train_car = train_car(init_date: Da[1], init_id: ca[3], init_car_number: ea[3], init_road: fa[3])
+                        // masterarray.append(car)
+ */
+                        
+                    }
+                    
+                    
+                
+                    
+                catch{
+                    print("error serializing jon data: \(error)")
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    
+                    self.countertwo = 0
+                    self.tableView.reloadData()
+                    
+                })
+                
+            }
+            task.resume()
+            
+        }
+    
     
 
 

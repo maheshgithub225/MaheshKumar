@@ -15,11 +15,12 @@ class recipe_ingredient{
     var ingredient:String = ""
     var measurement:String = ""
     var quantity:String = ""
-    init(init_ingredient: String, init_measurement:String,init_quantity: String){
+    var recipe_id:String = ""
+    init(init_ingredient: String, init_measurement:String,init_quantity: String,init_recipe_id: String){
         self.ingredient = init_ingredient
         self.measurement = init_measurement
         self.quantity = init_quantity
-        
+        self.recipe_id = init_recipe_id
        
     }
     func ingredientdisplay() -> String{
@@ -31,3 +32,35 @@ class recipe_ingredient{
     
     
 }
+
+
+class ingredient{
+   
+    
+   
+    var recipe_id:String = ""
+     var ingredient:String = ""
+     var serving_size:String = ""
+    var ispressed:Bool = false
+    init(init_recipe_id: String, init_ingredient:String,init_serving_size: String){
+        self.ingredient = init_ingredient
+        self.serving_size = init_serving_size
+        
+        self.recipe_id = init_recipe_id
+        
+    }
+    func ingredientdisplay() -> String{
+        return "Recipe #:\(recipe_id)   \(ingredient) "
+    }
+    func seconddisplay() -> String{
+        return "Serving size: \(serving_size)   "
+    }
+
+
+
+}
+
+
+
+
+
