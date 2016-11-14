@@ -31,6 +31,7 @@
 		BDDCC8D91DAD42400003D984 /* ChefulateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
+		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		BDDCC8DA1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
+		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */,
 				2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */,
@@ -339,6 +342,7 @@
 				CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */,
 				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
+				CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
 				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,

@@ -67,10 +67,6 @@ let pickerData = ["pounds","ounces","tbsp","tsp","cups"]
         return 5
         }
         return 5
-        
-        
-        
-        
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == myPicker{

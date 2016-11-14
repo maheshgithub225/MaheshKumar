@@ -29,15 +29,9 @@ class recipe_ingredient{
     func locate() -> String{
         return ""
     }
-    
-    
 }
-
-
 class ingredient{
-   
     
-   
     var recipe_id:String = ""
      var ingredient:String = ""
      var serving_size:String = ""
@@ -55,9 +49,6 @@ class ingredient{
     func seconddisplay() -> String{
         return "Serving size: \(serving_size)   "
     }
-
-
-
 }
 
 
