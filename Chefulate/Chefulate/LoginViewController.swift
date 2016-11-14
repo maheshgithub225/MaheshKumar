@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
         
     }
     func getalertData(){
-        let data = self.json["DATA"] as! String
+        let data = self.json["DATA"] as! NSString
         if data == "Email Does Not Exist" {
             let alertControl4 = UIAlertController(title: "Login Invalid", message: "Email Does not Exist", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Okay", style: .destructive){
@@ -108,10 +108,10 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(conversiontable.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
+    //    func hideKeyboardWhenTappedAround() {
+    //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(conversiontable.dismissKeyboard))
+    //        view.addGestureRecognizer(tap)
+    //    }
     
     func dismissKeyboard() {
         view.endEditing(true)
