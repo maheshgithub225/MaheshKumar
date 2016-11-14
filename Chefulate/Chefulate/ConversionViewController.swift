@@ -87,12 +87,12 @@ let pickerData = ["pounds","ounces","tbsp","tsp","cups"]
         
         
     }
-    @IBAction func myUnwindAction(segue: UIStoryboardSegue){
-        if let source = segue.source as? add_more_ingredients{
-            //count = source.count
-            //print("unwind count \(count)")
-        }
-       
+//    @IBAction func myUnwindAction(segue: UIStoryboardSegue){
+//        if let source = segue.source as? add_more_ingredients{
+//            //count = source.count
+//            //print("unwind count \(count)")
+//        }
+    
     }
 
     /*
@@ -104,5 +104,3 @@ let pickerData = ["pounds","ounces","tbsp","tsp","cups"]
         // Pass the selected object to the new view controller.
     }
     */
-
-}

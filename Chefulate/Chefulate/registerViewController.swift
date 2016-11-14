@@ -50,6 +50,10 @@ class registerViewController: UIViewController {
                 print("Error Serializing JSON data : \(error)")
             }
         }
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
+        self.present(vc, animated: true, completion: nil)
         task.resume()
     }
     
