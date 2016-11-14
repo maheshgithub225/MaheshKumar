@@ -1,16 +1,14 @@
-//
 //  registerViewController.swift
 //  Chefulate
-//
 //  Created by Bryan Reynolds on 10/17/16.
 //  Copyright © 2016 Johnathan Taylor Sutton. All rights reserved.
-//
+
 
 import UIKit
 import Foundation
 
 class registerViewController: UIViewController {
-
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var confirmEmail: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -20,24 +18,23 @@ class registerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     @IBAction func signUpButton(_ sender: AnyObject) {
-        getUserData()
+        addUserData()
     }
     
-    func getUserData(){
+    func addUserData(){
+        let Email = self.email.text!
+        let Password = self.password.text!
+        let Firstname = self.firstName.text!
+        let Lastname = self.lastName.text!
         
-        let Email = self.email.text
-        let Password = self.password.text
-        let Firstname = self.firstName.text
-        let Lastname = self.lastName.text
-        
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Password)/\(Firstname)/\(Lastname)")
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Password)/\(Firstname)/\(Lastname)")!
+        print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let task = session.dataTask(with: url!){(data,response,error)in
+        let task = session.dataTask(with: url){(data,response,error)in
             guard error == nil else{
                 print("Error in session call: \(error)")
                 return
@@ -48,13 +45,14 @@ class registerViewController: UIViewController {
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                    print("JSON data returned : \(json)")
+                print("JSON data returned : \(json)")
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
         }
         task.resume()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
