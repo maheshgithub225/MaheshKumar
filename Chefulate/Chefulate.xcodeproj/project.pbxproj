@@ -32,6 +32,8 @@
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
+		CD9E072A1DDA98C9009A8F92 /* Screen Shot 2016-11-14 at 7.10.28 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9E07291DDA98C9009A8F92 /* Screen Shot 2016-11-14 at 7.10.28 PM.png */; };
+		CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
+		CD9E07291DDA98C9009A8F92 /* Screen Shot 2016-11-14 at 7.10.28 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2016-11-14 at 7.10.28 PM.png"; path = "../../../../Desktop/Screen Shot 2016-11-14 at 7.10.28 PM.png"; sourceTree = "<group>"; };
+		CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */,
+				CD9E07291DDA98C9009A8F92 /* Screen Shot 2016-11-14 at 7.10.28 PM.png */,
 				93A8317B1DB37526002BF8DE /* darkred.png */,
 				93D9DBAD1DB5EC5700E2140B /* cheffont.png */,
 				93D9DBA91DB5D07C00E2140B /* checkmark.png */,
@@ -162,6 +167,7 @@
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */,
 				CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */,
@@ -313,6 +319,7 @@
 				93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */,
 				93D9DBB21DB5EF3B00E2140B /* cheficon.png in Resources */,
 				93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */,
+				CD9E072A1DDA98C9009A8F92 /* Screen Shot 2016-11-14 at 7.10.28 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +352,7 @@
 				CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
+				CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */,
 				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,
 				2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */,
 				93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */,

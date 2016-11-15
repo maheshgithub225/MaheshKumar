@@ -14,13 +14,23 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         flag = false
+        
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     var json : NSDictionary = NSDictionary()
     var flag = Bool()
+    var GuestFlag = Bool()
     
+    @IBAction func GuestLogin(_ sender: AnyObject) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        GuestFlag = true
+        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
+        self.present(vc, animated: true, completion: nil)
+        
+        
+    }
     @IBAction func signIn(_ sender: AnyObject) {
         let alertControl1 = UIAlertController(title: "Login Invalid", message: "Please enter right password", preferredStyle: .alert)
         let alertControl2 = UIAlertController(title: "Login Invalid", message: "Please enter correct Email ID", preferredStyle: .alert)
