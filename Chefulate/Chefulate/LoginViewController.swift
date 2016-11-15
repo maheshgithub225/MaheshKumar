@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     var flag = Bool()
     
     @IBAction func signIn(_ sender: AnyObject) {
-        
         let alertControl1 = UIAlertController(title: "Login Invalid", message: "Please enter right password", preferredStyle: .alert)
         let alertControl2 = UIAlertController(title: "Login Invalid", message: "Please enter correct Email ID", preferredStyle: .alert)
         let alertControl3 = UIAlertController(title: "Login Invalid", message: "Email ID and Password cannot be blank", preferredStyle: .alert)
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController {
         let okay = UIAlertAction(title: "Okay", style: .destructive){
             (result : UIAlertAction) in debugPrint("Okay")
         }
-        
         if userName.text == "" && password.text != "" {
             alertControl1.addAction(okay)
             self.present(alertControl1, animated: true, completion: nil)
@@ -43,9 +41,8 @@ class LoginViewController: UIViewController {
             self.present(alertControl3, animated: true, completion: nil)
         } else {
             getLoginData()
-            if self.flag == true {
-                self.getalertData()
-            }
+            while self.flag == false {}
+            self.getalertData()
         }
     }
     func getLoginData(){
@@ -75,11 +72,10 @@ class LoginViewController: UIViewController {
             }
         }
         task.resume()
-        
     }
     
     func getalertData(){
-        var data = self.json["DATA"] as! NSString
+        let data = self.json["DATA"] as! NSString
         if data == "Email Does Not Exist" {
             let alertControl4 = UIAlertController(title: "Login Invalid", message: "Email Does not Exist", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Okay", style: .destructive){
@@ -87,7 +83,7 @@ class LoginViewController: UIViewController {
             }
             alertControl4.addAction(okay)
             self.present(alertControl4, animated: true, completion: nil)
-            data = ""
+            return
         } else if data == "Invalid Email" {
             let alertControl5 = UIAlertController(title: "Login Invalid", message: "Invalid Email", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Okay", style: .destructive){
@@ -95,12 +91,12 @@ class LoginViewController: UIViewController {
             }
             alertControl5.addAction(okay)
             self.present(alertControl5, animated: true, completion: nil)
-            data = ""
-        }else {
+            return
+        }else{
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
             self.present(vc, animated: true, completion: nil)
-            }
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

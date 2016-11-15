@@ -113,7 +113,7 @@
         <!--View Controller-->
         <scene sceneID="1JI-fR-Y83">
             <objects>
-                <viewController storyboardIdentifier="MyRecipeViewController" id="0Hr-UB-uGu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyRecipesViewController" id="0Hr-UB-uGu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k9g-cv-Hfr"/>
                         <viewControllerLayoutGuide type="bottom" id="WNd-mq-g4l"/>
@@ -510,7 +510,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xK6-vN-mxr">
-                                <frame key="frameInset" minX="135" minY="468" height="45" maxX="130"/>
+                                <frame key="frameInset" minX="134.5" minY="468" height="45" maxX="130"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -946,7 +946,7 @@
         <image name="squircle.png" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5KI-cl-d2y"/>
-        <segue reference="4s6-7e-No7"/>
+        <segue reference="vZv-Fz-3U4"/>
+        <segue reference="2aS-3N-kN3"/>
     </inferredMetricsTieBreakers>
 </document>
