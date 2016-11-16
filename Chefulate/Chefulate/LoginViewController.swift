@@ -30,15 +30,6 @@ class LoginViewController: UIViewController {
             // set a variable in the second view controller with the String to pass
         }
     }
-
-    
-    @IBAction func GuestLogin(_ sender: AnyObject) {
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let searchView = SearchViewController()
-//        searchView.guestflag = "true"
-//        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
-//        self.present(vc, animated: true, completion: nil)
-    }
     
     @IBAction func signIn(_ sender: AnyObject) {
         let alertControl1 = UIAlertController(title: "Login Invalid", message: "Please enter right password", preferredStyle: .alert)
