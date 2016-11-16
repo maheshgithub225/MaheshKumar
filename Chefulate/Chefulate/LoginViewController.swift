@@ -14,23 +14,32 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         flag = false
-        
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     var json : NSDictionary = NSDictionary()
     var flag = Bool()
-    var GuestFlag = Bool()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "guestUser" {
+            // get a reference to the second view controller
+            let secondViewController = segue.destination as! SearchViewController
+            
+            secondViewController.guestflag = "true"
+            // set a variable in the second view controller with the String to pass
+        }
+    }
+
     
     @IBAction func GuestLogin(_ sender: AnyObject) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        GuestFlag = true
-        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
-        self.present(vc, animated: true, completion: nil)
-        
-        
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let searchView = SearchViewController()
+//        searchView.guestflag = "true"
+//        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
+//        self.present(vc, animated: true, completion: nil)
     }
+    
     @IBAction func signIn(_ sender: AnyObject) {
         let alertControl1 = UIAlertController(title: "Login Invalid", message: "Please enter right password", preferredStyle: .alert)
         let alertControl2 = UIAlertController(title: "Login Invalid", message: "Please enter correct Email ID", preferredStyle: .alert)
@@ -55,6 +64,7 @@ class LoginViewController: UIViewController {
             self.getalertData()
         }
     }
+    
     func getLoginData(){
         let emailID = self.userName.text!
         let Password = self.password.text!

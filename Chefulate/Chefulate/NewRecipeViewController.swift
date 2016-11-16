@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import Foundation
 
-class NewRecipeViewController: UIViewController {
+class NewRecipeViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     @IBOutlet weak var RecipeTitle: UITextField!
     @IBOutlet weak var Ingredient1: UITextField!
-    
-
+    @IBOutlet weak var amount: UITextField!
+    @IBOutlet weak var pickerData: UIPickerView!
+   
+    var Units : NSString = NSString()
+    let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        pickerData.dataSource = self
+        pickerData.delegate = self
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +32,21 @@ class NewRecipeViewController: UIViewController {
     @IBAction func submitRecipe(_ sender: AnyObject) {
         addRecipeData()
     }
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return PickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Units = PickerData[row] as NSString
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return PickerData.count
+    }
+
     func addRecipeData(){
         let NewRecipeTitle = RecipeTitle.text!
         let ing1 = Ingredient1.text!

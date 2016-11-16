@@ -9,13 +9,15 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    var guestflag = Bool()
+    var guestflag : String = String()
     var LoginView = LoginViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if LoginView.GuestFlag == true{
+        if guestflag == "true"{
             myRecipes.isEnabled = false
             newRecipe.isEnabled = false
+            myRecipes.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
+            newRecipe.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
         }
         // Do any additional setup after loading the view.
     }
