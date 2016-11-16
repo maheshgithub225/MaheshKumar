@@ -6,35 +6,50 @@
 //  Copyright © 2016 bryan reynolds. All rights reserved.
 //
 
+
 import Foundation
+
 
 class recipe_ingredient{
     
     //var recipe_name = ""
-   // var serving_size = ""
+    // var serving_size = ""
     var ingredient:String = ""
     var measurement:String = ""
     var quantity:String = ""
     var recipe_id:String = ""
-    init(init_ingredient: String, init_measurement:String,init_quantity: String,init_recipe_id: String){
+    var fraction:String = ""
+    var original:String = ""
+    var y:Double = 0
+    init(init_ingredient: String, init_measurement:String,init_quantity: String,init_original:String){
         self.ingredient = init_ingredient
         self.measurement = init_measurement
         self.quantity = init_quantity
-        self.recipe_id = init_recipe_id
-       
+        self.original = init_original
+        
+        
     }
     func ingredientdisplay() -> String{
-        return "\(ingredient)   \(quantity) \(measurement)"
+        return "\(ingredient)   \(quantity)   \(fraction) \(measurement)"
     }
     func locate() -> String{
         return ""
     }
+    
+    
 }
+
+
+
+
 class ingredient{
     
+    
+    
     var recipe_id:String = ""
-     var ingredient:String = ""
-     var serving_size:String = ""
+    var ingredient:String = ""
+    var serving_size:String = ""
+    
     var ispressed:Bool = false
     init(init_recipe_id: String, init_ingredient:String,init_serving_size: String){
         self.ingredient = init_ingredient
@@ -49,7 +64,20 @@ class ingredient{
     func seconddisplay() -> String{
         return "Serving size: \(serving_size)   "
     }
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+
 
 
 

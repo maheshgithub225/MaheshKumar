@@ -10,6 +10,7 @@
 		2F0F2B0E1DD1A3CE0070F03F /* arrows.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */; };
 		2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */; };
 		2F1D5C4F1DD85A1A00AFDBB8 /* recipelisttwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */; };
+		2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */; };
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
 		93A831801DB37607002BF8DE /* drawsignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A8317F1DB37607002BF8DE /* drawsignin.swift */; };
 		93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBA51DB41F3A00E2140B /* squircle.png */; };
@@ -56,6 +57,7 @@
 		2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows.PNG; sourceTree = "<group>"; };
 		2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipe_conversion.swift; sourceTree = "<group>"; };
 		2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipelisttwo.swift; sourceTree = "<group>"; };
+		2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversiontable.swift; path = ../conversiontable.swift; sourceTree = "<group>"; };
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
 		93A8317F1DB37607002BF8DE /* drawsignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drawsignin.swift; sourceTree = "<group>"; };
 		93D9DBA51DB41F3A00E2140B /* squircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squircle.png; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
 				CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */,
+				2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */,
 				CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */,
@@ -344,6 +347,7 @@
 				CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */,
 				CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */,
 				BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */,
+				2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */,
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
 				CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
