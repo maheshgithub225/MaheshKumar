@@ -34,6 +34,7 @@
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
 		CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */; };
+		CD9E07301DDE28ED009A8F92 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E072F1DDE28ED009A8F92 /* IngredientsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CD9E072F1DDE28ED009A8F92 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
+				CD9E072F1DDE28ED009A8F92 /* IngredientsTableViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
 				CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */,
 				2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */,
@@ -356,6 +359,7 @@
 				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,
 				2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */,
 				93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */,
+				CD9E07301DDE28ED009A8F92 /* IngredientsTableViewController.swift in Sources */,
 				BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

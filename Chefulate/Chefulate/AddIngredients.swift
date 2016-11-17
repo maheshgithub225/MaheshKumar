@@ -22,7 +22,13 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         super.viewDidLoad()
         pickerData.dataSource = self
         pickerData.delegate = self
+        ingredientName.delegate = self
         // Do any additional setup after loading the view.
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "IngredientsList") as UIViewController
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func saveCloseButton(_ sender: AnyObject) {
