@@ -25,8 +25,8 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         confirmEmail.delegate = self
     }
     @IBAction func signUpButton(_ sender: AnyObject) {
-        if (firstName.text?.isEmpty)!{
-            self.firstName.text = "First Name is Missing"
+        if(firstName.text?.isEmpty)!{
+            firstName.text = "First Name is Missing"
             firstName.textColor = UIColor.red
             firstName.isHidden = false
             firstName.backgroundColor = UIColor.blue
@@ -36,20 +36,21 @@ class registerViewController: UIViewController, UITextFieldDelegate {
             email.textColor = UIColor.red
             email.isHidden = false
             email.backgroundColor = UIColor.blue
-        }else if(confirmEmail.text?.isEmpty)! {
-            confirmEmail.text = "Confirm Email is Missing"
+        }else if confirmEmail.text != email.text {
+            confirmEmail.text = "Email do not match"
             confirmEmail.textColor = UIColor.red
             confirmEmail.isHidden = false
             confirmEmail.backgroundColor = UIColor.blue
         }else if(password.text?.isEmpty)!{
-            
+            password.isSecureTextEntry = false
             password.text = "Password is Missing"
             password.textColor = UIColor.red
             password.isHidden = false
             password.backgroundColor = UIColor.blue
-        }else if(confirmPassword.text?.isEmpty)! {
+        }else if confirmPassword.text != password.text {
+            confirmPassword.isSecureTextEntry = false
             confirmPassword.textColor = UIColor.red
-            confirmPassword.text = "Confirm Password is Missing"
+            confirmPassword.text = "Passwords do not match"
             confirmPassword.isHidden = false
             confirmPassword.backgroundColor = UIColor.blue
         }else{
@@ -58,37 +59,36 @@ class registerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if self.firstName.text == "First Name is Missing"{
-            firstName.text = ""
-            firstName.textColor = UIColor.black
-            firstName.backgroundColor = UIColor.white
-            firstName.resignFirstResponder()
-        }
+        
         if email.text == "Email ID is Missing"{
             email.text = ""
             email.textColor = UIColor.black
             email.backgroundColor = UIColor.white
-            email.resignFirstResponder()
         }
-        if confirmEmail.text == "Confirm Email is Missing"{
+        if firstName.text == "First Name is Missing"{
+            firstName.text = ""
+            firstName.textColor = UIColor.black
+            firstName.backgroundColor = UIColor.white
+        }
+        if confirmEmail.text == "Email do not match"{
             confirmEmail.text = ""
             confirmEmail.textColor = UIColor.black
             confirmEmail.backgroundColor = UIColor.white
             confirmEmail.resignFirstResponder()
         }
         if password.text == "Password is Missing"{
-            password.isSecureTextEntry = false
             password.text = ""
             password.textColor = UIColor.black
             password.backgroundColor = UIColor.white
+            password.isSecureTextEntry = true
         }
-        if confirmPassword.text == "Confirm Password is Missing"{
-            confirmPassword.isSecureTextEntry = false
+        if confirmPassword.text == "Passwords do not match"{
             confirmPassword.text = ""
             confirmPassword.textColor = UIColor.black
             confirmPassword.backgroundColor = UIColor.white
+            confirmPassword.isSecureTextEntry = true
         }
-       
+        
     }
     
     func addUserData(){
