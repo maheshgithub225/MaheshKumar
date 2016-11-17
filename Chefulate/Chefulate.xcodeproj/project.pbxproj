@@ -22,6 +22,7 @@
 		93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */; };
 		93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB51DB5EFF000E2140B /* cheflogo.png */; };
 		93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */; };
+		BD06130A1DDE2D7C009AFC3D /* SearchRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0613091DDE2D7C009AFC3D /* SearchRecipeTableViewController.swift */; };
 		BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B51DAD42400003D984 /* AppDelegate.swift */; };
 		BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B71DAD42400003D984 /* ViewController.swift */; };
 		BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8B91DAD42400003D984 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chefulatewithslogan.png; sourceTree = "<group>"; };
 		93D9DBB51DB5EFF000E2140B /* cheflogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheflogo.png; sourceTree = "<group>"; };
 		93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = draw_register_view.swift; sourceTree = "<group>"; };
+		BD0613091DDE2D7C009AFC3D /* SearchRecipeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeTableViewController.swift; sourceTree = "<group>"; };
 		BDDCC8B21DAD42400003D984 /* Chefulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8B51DAD42400003D984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDDCC8B71DAD42400003D984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
 				CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */,
+				BD0613091DDE2D7C009AFC3D /* SearchRecipeTableViewController.swift */,
 				2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */,
 				CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
@@ -357,6 +360,7 @@
 				2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */,
 				93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */,
 				BDDCC8BE1DAD42400003D984 /* Chefulate.xcdatamodeld in Sources */,
+				BD06130A1DDE2D7C009AFC3D /* SearchRecipeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
