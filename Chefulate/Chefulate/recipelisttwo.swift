@@ -2,7 +2,7 @@
 //  recipelisttwo.swift
 //  Chefulate
 //
-//  Created by Jayme Crosby on 11/13/16.
+//  Created by Bryan Reynolds on 11/13/16.
 //  Copyright © 2016 Johnathan Taylor Sutton. All rights reserved.
 //
 
@@ -35,13 +35,7 @@ class recipelisttwo: UITableViewController {
             self.tableView.reloadData()
         }
         
-        //  selectdb()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       
     }
     
     
@@ -122,8 +116,6 @@ class recipelisttwo: UITableViewController {
         
         
         
-        //checks to see if the train_car class property bool "is pressed" is checked for each row in order to highlight rows.  The color change actually occurs within cellsforrows function
-        
         if  masterarray[indexPath[1]].ispressed == false {
             
             cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
@@ -148,51 +140,8 @@ class recipelisttwo: UITableViewController {
         
     }
     
+
     
-    
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     
-     // Configure the cell...
-     
-     
-     return cell
-     }
-     */
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    
-    
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     func selectdb(){
         
         if countertwo == 0{
@@ -212,25 +161,7 @@ class recipelisttwo: UITableViewController {
                     
                     
                     let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? Array<Any>
-                    /*
-                     for index in stride(from: 0, to: self.counter, by: +1) {
-                     print("TTTTTTT")
-                     var sd: String = "\(json?[index])"
-                     print(sd)
-                     
-                     let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
-                     
-                     print(fullNameArr[0])
-                     //   var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
-                     //   var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
-                     //   var ea = fullNameArr[2].characters.split{$0 == " "}.map(String.init)
-                     //   var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                     
-                     //  var recipe:recipe_ingredient = recipe_ingredient(init_ingredient: Da[1], init_measurement: ca[3], init_quantity: ea[3])
-                     //  masterarray.append(car)
-                     
-                     }
-                     */
+                 
                     print("LLLLLLLLL")
                     
                     for index in stride(from: 0, to: self.counter, by: +1) {
@@ -244,15 +175,16 @@ class recipelisttwo: UITableViewController {
                         // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
                         var ca = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
                         var ea = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
-                        var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
+                        
                         var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
+                        var ta = fullNameArr[4].characters.split{$0 == "\""}.map(String.init)
                         print("TTTTT")
-                        print("\(ca[3])")
+                        print("\(ta[3])")
                         print("TTTTT")
-                        print("\(ga[0])")
+                        
                         print("TTTTT")
                         print("\(fa[3])")
-                        var recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ga[0], init_serving_size: fa[3])
+                        var recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ta[3], init_serving_size: fa[3])
                         self.masterarray.append(recipe)
                         
                     }

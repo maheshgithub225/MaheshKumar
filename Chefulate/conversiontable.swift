@@ -2,7 +2,7 @@
 //  conversiontable.swift
 //  Chefulate
 //
-//  Created by Jayme Crosby on 11/13/16.
+//  Created by Bryan Reynolds on 11/13/16.
 //  Copyright © 2016 Johnathan Taylor Sutton. All rights reserved.
 //
 
@@ -42,31 +42,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         viewc.delegate = self
         viewc.dataSource = self
         self.hideKeyboardWhenTappedAround()
-        // self.countrecipes()
-        /*
-         print("OOOO")
-         var when = DispatchTime.now() + 1.0
-         countrecipes()
-         DispatchQueue.main.asyncAfter(deadline: when) {
-         if self.counterfour == 1{
-         self.selectdb()
-         }
-         }
-         //  self.table.reloadData()
-         let n = DispatchTime.now() + 2.0
-         DispatchQueue.main.asyncAfter(deadline: n) {
-         
-         
-         self.counterthree = 0
-         self.viewc.reloadData()
-         print("\(self.masterarray[0])")
-         }
-         */
-        
-        
-        
-        // Do any additional setup after loading the view.
-    }
+           }
     
     
     override func didReceiveMemoryWarning() {
@@ -147,7 +123,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             print("unwind")
             print(g)
             id=g
-            //  print("unwind count \(count)")
+         
         }
         //  counter=1
         countrecipes()
@@ -193,14 +169,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                     for index in stride(from: 0, to: self.counter, by: +1) {
                         
                         var sd: String = "\(json?[index])"
-                        //   print(sd)
-                        
+                    
                         let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
                         
-                        //  print("\( fullNameArr[0])")
-                        //  print("EEEEE")
-                        // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
-                        var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
+                                               var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
                         var ea = fullNameArr[2].characters.split{$0 == "\""}.map(String.init)
                         //var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
                         var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
@@ -232,16 +204,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
    
     
-    /*
-     // MARK: - Navigation
-     
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+ 
     
     func convert_measurements(){
         print("scaling \(scaling)")
@@ -397,12 +360,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                 print("fourth")
                 print("\(ea[0])")
                 self.counter = Int(ea[0])!
-                
-                
-                
-                
-                
-                
+               
             }
                 
                 
