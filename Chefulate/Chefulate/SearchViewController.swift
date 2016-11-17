@@ -11,6 +11,11 @@ import UIKit
 class SearchViewController: UIViewController {
     var guestflag : String = String()
     var LoginView = LoginViewController()
+    
+    @IBOutlet weak var nav: UINavigationBar!
+    @IBOutlet weak var myRecipes: UIButton!
+    @IBOutlet weak var newRecipe: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if guestflag == "true"{
@@ -21,9 +26,10 @@ class SearchViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
-    @IBOutlet weak var myRecipes: UIButton!
-    @IBOutlet weak var newRecipe: UIButton!
+
+    @IBAction func homeUnwind(segue: UIStoryboardSegue){
+        print("Home")
+    }
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
