@@ -51,7 +51,6 @@ class IngredientsTableViewController: UITableViewController {
             }catch {
                 print("Error serializing JSON data : \(error)")
             }
-
         }
         task.resume()
     }
@@ -78,7 +77,6 @@ class IngredientsTableViewController: UITableViewController {
         let fetchedIngredients = mutableDic[indexPath.row] as? NSArray
         cell.textLabel?.text = "\(fetchedIngredients)"
         // Configure the cell...
-
         return cell
     }
 
