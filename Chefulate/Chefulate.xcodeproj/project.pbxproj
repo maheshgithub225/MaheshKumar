@@ -51,6 +51,8 @@
 		CD64E1F31DDF7432000DA293 /* Save1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F21DDF7432000DA293 /* Save1.png */; };
 		CD64E1F51DDF746B000DA293 /* Done1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F41DDF746B000DA293 /* Done1.png */; };
 		CD64E1F71DDF7A55000DA293 /* choc-recipe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F61DDF7A55000DA293 /* choc-recipe.jpg */; };
+		CD64E1F91DDF850D000DA293 /* triangle-down.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F81DDF850D000DA293 /* triangle-down.png */; };
+		CD64E1FB1DDF8514000DA293 /* triangle-up.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1FA1DDF8514000DA293 /* triangle-up.png */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
@@ -127,6 +129,8 @@
 		CD64E1F21DDF7432000DA293 /* Save1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Save1.png; path = ../../../../Downloads/Save1.png; sourceTree = "<group>"; };
 		CD64E1F41DDF746B000DA293 /* Done1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done1.png; path = ../../../../Downloads/Done1.png; sourceTree = "<group>"; };
 		CD64E1F61DDF7A55000DA293 /* choc-recipe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "choc-recipe.jpg"; path = "../../../../Desktop/choc-recipe.jpg"; sourceTree = "<group>"; };
+		CD64E1F81DDF850D000DA293 /* triangle-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "triangle-down.png"; path = "../../../../Desktop/triangle-down.png"; sourceTree = "<group>"; };
+		CD64E1FA1DDF8514000DA293 /* triangle-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "triangle-up.png"; path = "../../../../Desktop/triangle-up.png"; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				CD9E07311DDEA867009A8F92 /* redcurtain.jpg */,
+				CD64E1F81DDF850D000DA293 /* triangle-down.png */,
+				CD64E1FA1DDF8514000DA293 /* triangle-up.png */,
 				2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */,
 				CD64E1D01DDEB0DD000DA293 /* splashid-icon.png */,
 				CD64E1E41DDF69D4000DA293 /* Chef-title.png */,
@@ -387,6 +393,7 @@
 				CD64E1EC1DDF6FC7000DA293 /* MainMenu.png in Resources */,
 				CD64E1D41DDEB0DD000DA293 /* webmail_icon.png in Resources */,
 				CD64E1DB1DDF63D2000DA293 /* button-3.png in Resources */,
+				CD64E1F91DDF850D000DA293 /* triangle-down.png in Resources */,
 				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
 				93D9DBAA1DB5D07C00E2140B /* checkmark.png in Resources */,
 				CD64E1E31DDF691D000DA293 /* recipewallblur.jpg in Resources */,
@@ -394,6 +401,7 @@
 				CD64E1DF1DDF65B4000DA293 /* logout.png in Resources */,
 				93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */,
 				CD9E07321DDEA867009A8F92 /* redcurtain.jpg in Resources */,
+				CD64E1FB1DDF8514000DA293 /* triangle-up.png in Resources */,
 				93D9DBAE1DB5EC5800E2140B /* cheffont.png in Resources */,
 				CD64E1E11DDF690B000DA293 /* recipewall.jpg in Resources */,
 				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
