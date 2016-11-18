@@ -50,6 +50,7 @@
 		CD64E1F11DDF737B000DA293 /* ingredientsblur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */; };
 		CD64E1F31DDF7432000DA293 /* Save1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F21DDF7432000DA293 /* Save1.png */; };
 		CD64E1F51DDF746B000DA293 /* Done1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F41DDF746B000DA293 /* Done1.png */; };
+		CD64E1F71DDF7A55000DA293 /* choc-recipe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F61DDF7A55000DA293 /* choc-recipe.jpg */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
@@ -125,6 +126,7 @@
 		CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ingredientsblur.jpg; path = ../../../../Downloads/ingredientsblur.jpg; sourceTree = "<group>"; };
 		CD64E1F21DDF7432000DA293 /* Save1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Save1.png; path = ../../../../Downloads/Save1.png; sourceTree = "<group>"; };
 		CD64E1F41DDF746B000DA293 /* Done1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done1.png; path = ../../../../Downloads/Done1.png; sourceTree = "<group>"; };
+		CD64E1F61DDF7A55000DA293 /* choc-recipe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "choc-recipe.jpg"; path = "../../../../Desktop/choc-recipe.jpg"; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				CD64E1F21DDF7432000DA293 /* Save1.png */,
 				CD64E1F41DDF746B000DA293 /* Done1.png */,
 				CD64E1DC1DDF6498000DA293 /* signup.png */,
+				CD64E1F61DDF7A55000DA293 /* choc-recipe.jpg */,
 				CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */,
 				CD64E1EE1DDF7085000DA293 /* button-4.png */,
 				CD64E1E81DDF6FC7000DA293 /* Menu.png */,
@@ -374,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD64E1F71DDF7A55000DA293 /* choc-recipe.jpg in Resources */,
 				CD64E1ED1DDF6FC7000DA293 /* Save.png in Resources */,
 				93A8317C1DB37526002BF8DE /* darkred.png in Resources */,
 				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
