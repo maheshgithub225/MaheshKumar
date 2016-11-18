@@ -31,11 +31,31 @@
 		BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */; };
 		BDDCC8CE1DAD42400003D984 /* ChefulateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8CD1DAD42400003D984 /* ChefulateTests.swift */; };
 		BDDCC8D91DAD42400003D984 /* ChefulateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */; };
+		CD64E1D31DDEB0DD000DA293 /* splashid-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1D01DDEB0DD000DA293 /* splashid-icon.png */; };
+		CD64E1D41DDEB0DD000DA293 /* webmail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1D11DDEB0DD000DA293 /* webmail_icon.png */; };
+		CD64E1D51DDEB0DD000DA293 /* msecure.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1D21DDEB0DD000DA293 /* msecure.png */; };
+		CD64E1D71DDF606A000DA293 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1D61DDF606A000DA293 /* email-icon.png */; };
+		CD64E1D91DDF61EC000DA293 /* Chef-Calc.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1D81DDF61EC000DA293 /* Chef-Calc.png */; };
+		CD64E1DB1DDF63D2000DA293 /* button-3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1DA1DDF63D2000DA293 /* button-3.png */; };
+		CD64E1DD1DDF6498000DA293 /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1DC1DDF6498000DA293 /* signup.png */; };
+		CD64E1DF1DDF65B4000DA293 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1DE1DDF65B4000DA293 /* logout.png */; };
+		CD64E1E11DDF690B000DA293 /* recipewall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E01DDF690B000DA293 /* recipewall.jpg */; };
+		CD64E1E31DDF691D000DA293 /* recipewallblur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E21DDF691D000DA293 /* recipewallblur.jpg */; };
+		CD64E1E51DDF69D4000DA293 /* Chef-title.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E41DDF69D4000DA293 /* Chef-title.png */; };
+		CD64E1E71DDF6E9D000DA293 /* Cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E61DDF6E9D000DA293 /* Cancel.png */; };
+		CD64E1EB1DDF6FC7000DA293 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E81DDF6FC7000DA293 /* Menu.png */; };
+		CD64E1EC1DDF6FC7000DA293 /* MainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1E91DDF6FC7000DA293 /* MainMenu.png */; };
+		CD64E1ED1DDF6FC7000DA293 /* Save.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1EA1DDF6FC7000DA293 /* Save.png */; };
+		CD64E1EF1DDF7085000DA293 /* button-4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1EE1DDF7085000DA293 /* button-4.png */; };
+		CD64E1F11DDF737B000DA293 /* ingredientsblur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */; };
+		CD64E1F31DDF7432000DA293 /* Save1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F21DDF7432000DA293 /* Save1.png */; };
+		CD64E1F51DDF746B000DA293 /* Done1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD64E1F41DDF746B000DA293 /* Done1.png */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
 		CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */; };
 		CD9E07301DDE28ED009A8F92 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E072F1DDE28ED009A8F92 /* IngredientsTableViewController.swift */; };
+		CD9E07321DDEA867009A8F92 /* redcurtain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD9E07311DDEA867009A8F92 /* redcurtain.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,11 +106,31 @@
 		BDDCC8D41DAD42400003D984 /* ChefulateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefulateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8D81DAD42400003D984 /* ChefulateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefulateUITests.swift; sourceTree = "<group>"; };
 		BDDCC8DA1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD64E1D01DDEB0DD000DA293 /* splashid-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splashid-icon.png"; path = "../../../../Desktop/splashid-icon.png"; sourceTree = "<group>"; };
+		CD64E1D11DDEB0DD000DA293 /* webmail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = webmail_icon.png; path = ../../../../Desktop/webmail_icon.png; sourceTree = "<group>"; };
+		CD64E1D21DDEB0DD000DA293 /* msecure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = msecure.png; path = ../../../../Desktop/msecure.png; sourceTree = "<group>"; };
+		CD64E1D61DDF606A000DA293 /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "email-icon.png"; path = "../../../../Desktop/email-icon.png"; sourceTree = "<group>"; };
+		CD64E1D81DDF61EC000DA293 /* Chef-Calc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chef-Calc.png"; path = "../../../../Desktop/Chef-Calc.png"; sourceTree = "<group>"; };
+		CD64E1DA1DDF63D2000DA293 /* button-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-3.png"; path = "../../../../Downloads/button-3.png"; sourceTree = "<group>"; };
+		CD64E1DC1DDF6498000DA293 /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signup.png; path = ../../../../Downloads/signup.png; sourceTree = "<group>"; };
+		CD64E1DE1DDF65B4000DA293 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = ../../../../Downloads/logout.png; sourceTree = "<group>"; };
+		CD64E1E01DDF690B000DA293 /* recipewall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = recipewall.jpg; path = ../../../../Downloads/recipewall.jpg; sourceTree = "<group>"; };
+		CD64E1E21DDF691D000DA293 /* recipewallblur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = recipewallblur.jpg; path = ../../../../Downloads/recipewallblur.jpg; sourceTree = "<group>"; };
+		CD64E1E41DDF69D4000DA293 /* Chef-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chef-title.png"; path = "../../../../Downloads/Chef-title.png"; sourceTree = "<group>"; };
+		CD64E1E61DDF6E9D000DA293 /* Cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cancel.png; path = ../../../../Downloads/Cancel.png; sourceTree = "<group>"; };
+		CD64E1E81DDF6FC7000DA293 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Menu.png; path = ../../../../Downloads/Menu.png; sourceTree = "<group>"; };
+		CD64E1E91DDF6FC7000DA293 /* MainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainMenu.png; path = ../../../../Downloads/MainMenu.png; sourceTree = "<group>"; };
+		CD64E1EA1DDF6FC7000DA293 /* Save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Save.png; path = ../../../../Downloads/Save.png; sourceTree = "<group>"; };
+		CD64E1EE1DDF7085000DA293 /* button-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-4.png"; path = "../../../../Downloads/button-4.png"; sourceTree = "<group>"; };
+		CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ingredientsblur.jpg; path = ../../../../Downloads/ingredientsblur.jpg; sourceTree = "<group>"; };
+		CD64E1F21DDF7432000DA293 /* Save1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Save1.png; path = ../../../../Downloads/Save1.png; sourceTree = "<group>"; };
+		CD64E1F41DDF746B000DA293 /* Done1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done1.png; path = ../../../../Downloads/Done1.png; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CD9E072F1DDE28ED009A8F92 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
+		CD9E07311DDEA867009A8F92 /* redcurtain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = redcurtain.jpg; path = ../../../../Desktop/redcurtain.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +170,27 @@
 		93A8317A1DB37510002BF8DE /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				CD9E07311DDEA867009A8F92 /* redcurtain.jpg */,
 				2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */,
+				CD64E1D01DDEB0DD000DA293 /* splashid-icon.png */,
+				CD64E1E41DDF69D4000DA293 /* Chef-title.png */,
+				CD64E1D81DDF61EC000DA293 /* Chef-Calc.png */,
+				CD64E1E61DDF6E9D000DA293 /* Cancel.png */,
+				CD64E1F21DDF7432000DA293 /* Save1.png */,
+				CD64E1F41DDF746B000DA293 /* Done1.png */,
+				CD64E1DC1DDF6498000DA293 /* signup.png */,
+				CD64E1F01DDF737B000DA293 /* ingredientsblur.jpg */,
+				CD64E1EE1DDF7085000DA293 /* button-4.png */,
+				CD64E1E81DDF6FC7000DA293 /* Menu.png */,
+				CD64E1E91DDF6FC7000DA293 /* MainMenu.png */,
+				CD64E1EA1DDF6FC7000DA293 /* Save.png */,
+				CD64E1DE1DDF65B4000DA293 /* logout.png */,
+				CD64E1E21DDF691D000DA293 /* recipewallblur.jpg */,
+				CD64E1DA1DDF63D2000DA293 /* button-3.png */,
+				CD64E1D61DDF606A000DA293 /* email-icon.png */,
+				CD64E1E01DDF690B000DA293 /* recipewall.jpg */,
+				CD64E1D11DDEB0DD000DA293 /* webmail_icon.png */,
+				CD64E1D21DDEB0DD000DA293 /* msecure.png */,
 				93A8317B1DB37526002BF8DE /* darkred.png */,
 				93D9DBAD1DB5EC5700E2140B /* cheffont.png */,
 				93D9DBA91DB5D07C00E2140B /* checkmark.png */,
@@ -314,17 +374,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD64E1ED1DDF6FC7000DA293 /* Save.png in Resources */,
 				93A8317C1DB37526002BF8DE /* darkred.png in Resources */,
 				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
+				CD64E1EB1DDF6FC7000DA293 /* Menu.png in Resources */,
+				CD64E1EF1DDF7085000DA293 /* button-4.png in Resources */,
+				CD64E1F51DDF746B000DA293 /* Done1.png in Resources */,
+				CD64E1EC1DDF6FC7000DA293 /* MainMenu.png in Resources */,
+				CD64E1D41DDEB0DD000DA293 /* webmail_icon.png in Resources */,
+				CD64E1DB1DDF63D2000DA293 /* button-3.png in Resources */,
 				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
 				93D9DBAA1DB5D07C00E2140B /* checkmark.png in Resources */,
+				CD64E1E31DDF691D000DA293 /* recipewallblur.jpg in Resources */,
 				2F0F2B0E1DD1A3CE0070F03F /* arrows.PNG in Resources */,
+				CD64E1DF1DDF65B4000DA293 /* logout.png in Resources */,
 				93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */,
+				CD9E07321DDEA867009A8F92 /* redcurtain.jpg in Resources */,
 				93D9DBAE1DB5EC5800E2140B /* cheffont.png in Resources */,
+				CD64E1E11DDF690B000DA293 /* recipewall.jpg in Resources */,
 				BDDCC8BB1DAD42400003D984 /* Main.storyboard in Resources */,
 				93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */,
+				CD64E1D51DDEB0DD000DA293 /* msecure.png in Resources */,
 				93D9DBB21DB5EF3B00E2140B /* cheficon.png in Resources */,
+				CD64E1F11DDF737B000DA293 /* ingredientsblur.jpg in Resources */,
+				CD64E1E51DDF69D4000DA293 /* Chef-title.png in Resources */,
+				CD64E1D31DDEB0DD000DA293 /* splashid-icon.png in Resources */,
+				CD64E1F31DDF7432000DA293 /* Save1.png in Resources */,
+				CD64E1E71DDF6E9D000DA293 /* Cancel.png in Resources */,
+				CD64E1D91DDF61EC000DA293 /* Chef-Calc.png in Resources */,
 				93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */,
+				CD64E1D71DDF606A000DA293 /* email-icon.png in Resources */,
+				CD64E1DD1DDF6498000DA293 /* signup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
