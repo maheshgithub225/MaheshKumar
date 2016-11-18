@@ -13,10 +13,11 @@ class IngredientsTableViewController: UITableViewController {
     var ingredients : NSArray = NSArray()
     
     var mutableDic : NSMutableArray = NSMutableArray()
-    
+    let backgrogundimage = UIImageView(image: #imageLiteral(resourceName: "ingredientsblur.jpg"))
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem?.isEnabled = true
+        self.tableView.backgroundView = backgrogundimage
         getIngredients()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,11 +80,10 @@ class IngredientsTableViewController: UITableViewController {
         // Configure the cell...
         return cell
     }
-
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Ingredients"
-//    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

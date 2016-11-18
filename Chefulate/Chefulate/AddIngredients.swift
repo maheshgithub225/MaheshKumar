@@ -30,8 +30,19 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "IngredientsList") as UIViewController
         self.present(vc, animated: true, completion: nil)
     }
+    let alertControl = UIAlertController(title: "Ingredient Saved", message: "", preferredStyle: .alert)
+    let Addmore = UIAlertAction(title: "Add more..", style: .destructive){
+        (result : UIAlertAction) in debugPrint("Add")
+    }
     
+
     @IBAction func saveCloseButton(_ sender: AnyObject) {
+        alertControl.addAction(Addmore)
+        let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
+            self.performSegue(withIdentifier: "newRecipe", sender: self)
+        }
+        alertControl.addAction(done)
+        self.present(alertControl, animated: true, completion: nil)
         addIngredientData()
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {

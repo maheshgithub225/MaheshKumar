@@ -29,30 +29,30 @@ class registerViewController: UIViewController, UITextFieldDelegate {
             firstName.text = "First Name is Missing"
             firstName.textColor = UIColor.red
             firstName.isHidden = false
-            firstName.backgroundColor = UIColor.blue
+            firstName.backgroundColor = UIColor.white
             firstName.resignFirstResponder()
         }else if(email.text?.isEmpty)!{
             email.text = "Email ID is Missing"
             email.textColor = UIColor.red
             email.isHidden = false
-            email.backgroundColor = UIColor.blue
+            email.backgroundColor = UIColor.white
         }else if confirmEmail.text != email.text {
             confirmEmail.text = "Email do not match"
             confirmEmail.textColor = UIColor.red
             confirmEmail.isHidden = false
-            confirmEmail.backgroundColor = UIColor.blue
+            confirmEmail.backgroundColor = UIColor.white
         }else if(password.text?.isEmpty)!{
             password.isSecureTextEntry = false
             password.text = "Password is Missing"
             password.textColor = UIColor.red
             password.isHidden = false
-            password.backgroundColor = UIColor.blue
+            password.backgroundColor = UIColor.white
         }else if confirmPassword.text != password.text {
             confirmPassword.isSecureTextEntry = false
             confirmPassword.textColor = UIColor.red
             confirmPassword.text = "Passwords do not match"
             confirmPassword.isHidden = false
-            confirmPassword.backgroundColor = UIColor.blue
+            confirmPassword.backgroundColor = UIColor.white
         }else{
             addUserData()
         }
@@ -63,29 +63,29 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         if email.text == "Email ID is Missing"{
             email.text = ""
             email.textColor = UIColor.black
-            email.backgroundColor = UIColor.white
+            email.backgroundColor = UIColor(white: 1, alpha: 0.72)
         }
         if firstName.text == "First Name is Missing"{
             firstName.text = ""
             firstName.textColor = UIColor.black
-            firstName.backgroundColor = UIColor.white
+            firstName.backgroundColor = UIColor(white: 1, alpha: 0.72)
         }
         if confirmEmail.text == "Email do not match"{
             confirmEmail.text = ""
             confirmEmail.textColor = UIColor.black
-            confirmEmail.backgroundColor = UIColor.white
+            confirmEmail.backgroundColor = UIColor(white: 1, alpha: 0.72)
             confirmEmail.resignFirstResponder()
         }
         if password.text == "Password is Missing"{
             password.text = ""
             password.textColor = UIColor.black
-            password.backgroundColor = UIColor.white
+            password.backgroundColor = UIColor(white: 1, alpha: 0.72)
             password.isSecureTextEntry = true
         }
         if confirmPassword.text == "Passwords do not match"{
             confirmPassword.text = ""
             confirmPassword.textColor = UIColor.black
-            confirmPassword.backgroundColor = UIColor.white
+            confirmPassword.backgroundColor = UIColor(white: 1, alpha: 0.72)
             confirmPassword.isSecureTextEntry = true
         }
         
@@ -97,7 +97,7 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         let Firstname = self.firstName.text!
         let Lastname = self.lastName.text!
         
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Password)/\(Firstname)/\(Lastname)")!
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/1/\(Email)/\(Password)/\(Firstname)/\(Lastname)")!
         print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
