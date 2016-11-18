@@ -145,7 +145,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="is1-7F-Drv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewall" translatesAutoresizingMaskIntoConstraints="NO" id="is1-7F-Drv">
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -424,7 +424,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4D7-5B-UQH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur" translatesAutoresizingMaskIntoConstraints="NO" id="4D7-5B-UQH">
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -502,11 +502,11 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="triangle-down.png" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-uU-48L">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="triangle-down" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-uU-48L">
                                 <frame key="frameInset" minX="166" minY="496" width="85" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="triangle-up.png" translatesAutoresizingMaskIntoConstraints="NO" id="RpY-dK-RVz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="triangle-up" translatesAutoresizingMaskIntoConstraints="NO" id="RpY-dK-RVz">
                                 <frame key="frameInset" minX="166" minY="458" width="85" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -987,19 +987,19 @@
         <image name="button-3.png" width="122" height="45"/>
         <image name="checkmark.png" width="2400" height="2400"/>
         <image name="email-icon.png" width="62" height="44"/>
-        <image name="ingredientsblur.jpg" width="564" height="1003"/>
+        <image name="ingredientsblur" width="564" height="1003"/>
         <image name="msecure.png" width="512" height="512"/>
-        <image name="recipewall.jpg" width="640" height="960"/>
+        <image name="recipewall" width="640" height="960"/>
         <image name="recipewallblur.jpg" width="924" height="1392"/>
         <image name="redcurtain.jpg" width="1080" height="1920"/>
         <image name="signup.png" width="129" height="45"/>
-        <image name="triangle-down.png" width="1200" height="600"/>
-        <image name="triangle-up.png" width="1200" height="600"/>
+        <image name="triangle-down" width="1200" height="600"/>
+        <image name="triangle-up" width="1200" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hXN-1j-s26"/>
-        <segue reference="mfD-Ya-nK5"/>
+        <segue reference="izu-xu-nnl"/>
         <segue reference="xgn-TJ-hOK"/>
-        <segue reference="sMD-6h-WAZ"/>
+        <segue reference="hXN-1j-s26"/>
+        <segue reference="fyT-12-wjT"/>
     </inferredMetricsTieBreakers>
 </document>
