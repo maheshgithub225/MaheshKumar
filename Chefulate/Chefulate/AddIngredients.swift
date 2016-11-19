@@ -15,7 +15,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     @IBOutlet weak var pickerData: UIPickerView!
     //  @IBOutlet weak var Unit: UITextField!
     var Units : NSString = NSString()
-    
+    var value : String = String()
     let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
     
     override func viewDidLoad() {
@@ -23,6 +23,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         pickerData.dataSource = self
         pickerData.delegate = self
         ingredientName.delegate = self
+        ingredientName.text = value
         // Do any additional setup after loading the view.
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {

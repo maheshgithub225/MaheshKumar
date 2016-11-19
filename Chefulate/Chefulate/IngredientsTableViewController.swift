@@ -8,25 +8,37 @@
 
 import UIKit
 
-class IngredientsTableViewController: UITableViewController {
-    var json : NSArray = NSArray()
-    var ingredients : NSArray = NSArray()
+class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    var json : NSDictionary  = NSDictionary()
+    var ingredients : NSDictionary = NSDictionary()
     
-    var mutableDic : NSMutableArray = NSMutableArray()
+    @IBOutlet weak var ingredientsTableView: UITableView!
+    
+    struct ingredients_list{
+        let I_ID: Int
+        let I_Name: String
+        let W_Price: Double
+        let W_Measure: String
+    }
+    
+    var data_array = [ingredients_list]()
+    var flag = Bool()
+    var mutableDic : NSMutableDictionary  = NSMutableDictionary()
     let backgrogundimage = UIImageView(image: #imageLiteral(resourceName: "ingredientsblur.jpg"))
+    var values : NSArray = []
+    var mutableValues : NSMutableArray = []
+    var selectedIngredient : String = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem?.isEnabled = true
-        self.tableView.backgroundView = backgrogundimage
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
+        self.ingredientsTableView.backgroundColor = UIColor(white: 1, alpha: 0.3)
         getIngredients()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
     func getIngredients() {
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/3/")
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/16/")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
@@ -40,15 +52,19 @@ class IngredientsTableViewController: UITableViewController {
                 return
             }
             do {
-                self.json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSArray
+                self.json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
                 print("JSON data returned = \(self.json)")
                 self.ingredients = self.json
                 
-                for i in self.ingredients {
-                    self.mutableDic.add(i)
+                print("\(self.ingredients)")
+                for x in (1...self.json.count){
+                    let obj = self.json["\(x)"] as! NSDictionary
+                    self.data_array.append(ingredients_list(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"] as! String, W_Price: (Double)(obj["Walmart_Price"] as! String)!, W_Measure: obj["Walmart_Measure"] as! String))
                 }
-                self.tableView.reloadData()
-                
+                DispatchQueue.main.async {
+                    self.ingredientsTableView.reloadData()
+                }
+                print("Table: \(self.data_array)")
             }catch {
                 print("Error serializing JSON data : \(error)")
             }
@@ -56,33 +72,45 @@ class IngredientsTableViewController: UITableViewController {
         task.resume()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        // MARK: - Table view data source
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mutableDic.count
+        return json.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsTableView", for: indexPath)
-        let fetchedIngredients = mutableDic[indexPath.row] as? NSArray
-        cell.textLabel?.text = "\(fetchedIngredients)"
-        // Configure the cell...
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // Configure the cell...*/
+        cell.textLabel?.text = data_array[indexPath.row].I_Name
+        cell.textLabel?.textColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
+        
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    @IBAction func SelectIngred(_ sender: AnyObject) {
+        
+        let indexpath1 = ingredientsTableView.indexPathForSelectedRow
+        let currentCell = ingredientsTableView.cellForRow(at: indexpath1!)
+        selectedIngredient = (currentCell?.textLabel?.text)!
+        
+        performSegue(withIdentifier: "addIngredientView", sender: self)
         return
+        
+    }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addIngredientView"{
+            let addingredview = segue.destination as! AddIngredients
+            addingredview.value = selectedIngredient
+        }
     }
     /*
     // Override to support conditional editing of the table view.

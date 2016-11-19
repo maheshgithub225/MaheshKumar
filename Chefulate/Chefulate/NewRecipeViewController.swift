@@ -30,7 +30,16 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     @IBAction func submitRecipe(_ sender: AnyObject) {
-        addRecipeData()
+        let alertControl = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive){
+            (result : UIAlertAction) in debugPrint("Add")
+        }
+        let save = UIAlertAction(title: "Save", style: .destructive) { (_) -> Void in
+            self.addRecipeData()
+        }
+        alertControl.addAction(save)
+        alertControl.addAction(cancel)
+        self.present(alertControl, animated: true, completion: nil)
     }
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
