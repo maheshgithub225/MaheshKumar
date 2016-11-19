@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var TableViewCustom: UITableView!
     
     struct recipes{
@@ -24,16 +24,14 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     var objectsArray = [recipes]()
     var filteredObjectsArray = [recipes]()
     
-    var recipes: NSDictionary = [:]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewCustom.delegate = self
-        TableViewCustom.dataSource = nil
+        TableViewCustom.dataSource = self
         downloadData()
         // Do any additional setup after loading the view.
     }
-  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,7 +61,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
                     self.objectsArray.append(recipes(C_ID: (Int)(obj["Creator_ID"] as! String)!, R_ID: (Int)(obj["Recipie_ID"] as! String)!, R_Name: obj["Recipie_Name"]! as! String, C_Name: obj["Creator_Full_Name"]! as! String, S_Size: (Int)(obj["Serving_Size"] as! String)!, C_Date: obj["Creation_Date"]! as! String))
-
+                    
                 }
                 self.TableViewCustom.dataSource = self
                 DispatchQueue.main.async{
@@ -73,13 +71,12 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
                 print("Error seralizing JSON Data: \(error)")
             }
             
-
         })
         task.resume()
         
     }
     
-
+    
     
     
     
@@ -96,11 +93,13 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
         
         let row = indexPath.row
-
+        
         cell.R_name!.text = objectsArray[row].R_Name
         cell.C_Name!.text = "By: \(objectsArray[row].C_Name)"
         cell.Date!.text = objectsArray[row].C_Date
         cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
+        
+        print("By: \(objectsArray[row].C_Name)")
         
         return cell
     }
@@ -113,13 +112,13 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
