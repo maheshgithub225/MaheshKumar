@@ -23,6 +23,7 @@
 		93D9DBB41DB5EF3B00E2140B /* chefulatewithslogan.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */; };
 		93D9DBB61DB5EFF000E2140B /* cheflogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBB51DB5EFF000E2140B /* cheflogo.png */; };
 		93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */; };
+		BD75B6381DE10E84009AF7EF /* SearchRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75B6371DE10E84009AF7EF /* SearchRecipeTableViewCell.swift */; };
 		BDAADCCB1DDFD3330019B803 /* SearchRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAADCCA1DDFD3330019B803 /* SearchRecipeViewController.swift */; };
 		BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B51DAD42400003D984 /* AppDelegate.swift */; };
 		BDDCC8B81DAD42400003D984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCC8B71DAD42400003D984 /* ViewController.swift */; };
@@ -97,6 +98,7 @@
 		93D9DBB11DB5EF3B00E2140B /* chefulatewithslogan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chefulatewithslogan.png; sourceTree = "<group>"; };
 		93D9DBB51DB5EFF000E2140B /* cheflogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheflogo.png; sourceTree = "<group>"; };
 		93D9DBB71DB5F77A00E2140B /* draw_register_view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = draw_register_view.swift; sourceTree = "<group>"; };
+		BD75B6371DE10E84009AF7EF /* SearchRecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		BDAADCCA1DDFD3330019B803 /* SearchRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeViewController.swift; sourceTree = "<group>"; };
 		BDDCC8B21DAD42400003D984 /* Chefulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDCC8B51DAD42400003D984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,7 +247,6 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
-				3625E87D1DE10BBF00236D63 /* docs */,
 				BDDCC8C41DAD42400003D984 /* Info.plist */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
@@ -255,17 +256,19 @@
 				CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */,
 				CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */,
 				2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */,
+				CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */,
 				2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */,
 				93D9DBA71DB5CEE000E2140B /* registerViewController.swift */,
+				BD75B6371DE10E84009AF7EF /* SearchRecipeTableViewCell.swift */,
 				BDAADCCA1DDFD3330019B803 /* SearchRecipeViewController.swift */,
 				CD9E072B1DDA9C4E009A8F92 /* SearchViewController.swift */,
+				CD23627B1DE0C31A008076C0 /* TabViewController.swift */,
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8BF1DAD42400003D984 /* Assets.xcassets */,
 				BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */,
+				3625E87D1DE10BBF00236D63 /* docs */,
 				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
-				CD23627B1DE0C31A008076C0 /* TabViewController.swift */,
-				CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */,
 				93A8317A1DB37510002BF8DE /* pics */,
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 			);
@@ -467,6 +470,7 @@
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
 				CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */,
+				BD75B6381DE10E84009AF7EF /* SearchRecipeTableViewCell.swift in Sources */,
 				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,
 				2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */,
 				93D9DBAC1DB5D2D800E2140B /* ConversionViewController.swift in Sources */,
