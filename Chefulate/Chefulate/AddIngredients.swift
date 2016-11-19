@@ -17,6 +17,8 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     var Units : NSString = NSString()
     var value : String = String()
     let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
+    var value1 : String = String()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +45,20 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     @IBAction func saveCloseButton(_ sender: AnyObject) {
         
         
-        
-        
-        let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
-            self.performSegue(withIdentifier: "newRecipe", sender: self)
-        }
-        let addinstructions = UIAlertAction(title: "Add Instructions?", style: .destructive) { (_) -> Void in
-            self.performSegue(withIdentifier: "instructionView", sender: self)
-        }
-        alertControl.addAction(Addmore)
-        alertControl.addAction(addinstructions)
-        alertControl.addAction(done)
-        self.present(alertControl, animated: true, completion: nil)
+    
+        if ingredientName.text != "" && amount.text != "" {
+            let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
+                self.performSegue(withIdentifier: "newRecipe", sender: self)
+            }
+            let addinstructions = UIAlertAction(title: "Add Instructions?", style: .destructive) { (_) -> Void in
+                self.performSegue(withIdentifier: "instructionView", sender: self)
+            }
+            alertControl.addAction(Addmore)
+            alertControl.addAction(addinstructions)
+            alertControl.addAction(done)
+            self.present(alertControl, animated: true, completion: nil)
         addIngredientData()
+        }
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
