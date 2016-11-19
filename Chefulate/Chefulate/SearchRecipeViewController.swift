@@ -62,12 +62,13 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    print("Object \(x): \(obj["Recipie_Name"]!)")
                     self.objectsArray.append(recipes(C_ID: (Int)(obj["Creator_ID"] as! String)!, R_ID: (Int)(obj["Recipie_ID"] as! String)!, R_Name: obj["Recipie_Name"]! as! String, C_Name: obj["Creator_Full_Name"]! as! String, S_Size: (Int)(obj["Serving_Size"] as! String)!, C_Date: obj["Creation_Date"]! as! String))
 
                 }
-                print(self.objectsArray)
-                self.TableViewCustom.reloadData()
+                self.TableViewCustom.dataSource = self
+                DispatchQueue.main.async{
+                    self.TableViewCustom.reloadData()
+                }
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
