@@ -8,42 +8,39 @@
 
 import UIKit
 
-class RecipeInstructionsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class RecipeInstructionsViewController: UIViewController {
     
-    @IBOutlet weak var instructionsTableView: UITableView!
+    @IBOutlet weak var instruction1: UITextView!
     
-     let swiftBlogs = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
+    @IBOutlet weak var instruction2: UITextView!
+    
+    @IBOutlet weak var instruction3: UITextView!
+    
+    @IBAction func saveInstructions(_ sender: AnyObject) {
+        let alertControl = UIAlertController(title: "Ingredient Saved", message: "", preferredStyle: .alert)
+        let Addmore = UIAlertAction(title: "Add more..", style: .destructive){
+            (result : UIAlertAction) in debugPrint("Add")
+        }
+        let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
+            self.performSegue(withIdentifier: "newRecipe", sender: self)
+        }
+        alertControl.addAction(done)
+        alertControl.addAction(Addmore)
+        self.present(alertControl, animated: true, completion: nil)
+        
+        addInstructionData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.instructionsTableView.backgroundColor = UIColor.clear
-        instructionsTableView.delegate = self
-        instructionsTableView.dataSource = self
+       instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        instruction2.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        instruction3.backgroundColor = UIColor(white: 1, alpha: 0.5)
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func addInstructionData(){
+        
     }
     
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return swiftBlogs.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "instructioncell", for: indexPath as IndexPath)
-        
-        let row = indexPath.row
-        cell.textLabel?.text = swiftBlogs[row]
-        cell.backgroundColor = UIColor.clear
-        cell.textLabel?.textColor = UIColor.white
-        
-        return cell
-    }
-
     /*
     // MARK: - Navigation
 

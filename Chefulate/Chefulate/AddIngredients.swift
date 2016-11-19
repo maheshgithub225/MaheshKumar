@@ -35,12 +35,15 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         (result : UIAlertAction) in debugPrint("Add")
     }
     
-
     @IBAction func saveCloseButton(_ sender: AnyObject) {
         alertControl.addAction(Addmore)
         let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
             self.performSegue(withIdentifier: "newRecipe", sender: self)
         }
+        let addinstructions = UIAlertAction(title: "Add Instructions?", style: .destructive) { (_) -> Void in
+            self.performSegue(withIdentifier: "instructionView", sender: self)
+        }
+        alertControl.addAction(addinstructions)
         alertControl.addAction(done)
         self.present(alertControl, animated: true, completion: nil)
         addIngredientData()
