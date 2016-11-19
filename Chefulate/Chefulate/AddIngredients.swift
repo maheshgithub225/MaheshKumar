@@ -24,7 +24,8 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         pickerData.delegate = self
         ingredientName.delegate = self
         ingredientName.text = value
-        // Do any additional setup after loading the view.
+        
+               // Do any additional setup after loading the view.
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -36,14 +37,21 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         (result : UIAlertAction) in debugPrint("Add")
     }
     
+    
+    
+    
     @IBAction func saveCloseButton(_ sender: AnyObject) {
-        alertControl.addAction(Addmore)
+        
+        
+        
+        
         let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
             self.performSegue(withIdentifier: "newRecipe", sender: self)
         }
         let addinstructions = UIAlertAction(title: "Add Instructions?", style: .destructive) { (_) -> Void in
             self.performSegue(withIdentifier: "instructionView", sender: self)
         }
+        alertControl.addAction(Addmore)
         alertControl.addAction(addinstructions)
         alertControl.addAction(done)
         self.present(alertControl, animated: true, completion: nil)

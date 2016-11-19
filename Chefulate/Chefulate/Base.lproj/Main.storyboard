@@ -890,7 +890,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ede-ZI-agb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Trm-7X-va0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3403" y="889"/>
+            <point key="canvasLocation" x="3245" y="880"/>
         </scene>
         <!--Recipe Instructions View Controller-->
         <scene sceneID="nxA-Gn-yZc">
@@ -1230,7 +1230,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="xgn-TJ-hOK"/>
         <segue reference="hXN-1j-s26"/>
-        <segue reference="Bmu-iY-IoE"/>
+        <segue reference="DPH-fU-vaY"/>
         <segue reference="CYv-0l-bs9"/>
         <segue reference="fyT-12-wjT"/>
         <segue reference="22l-yx-Na1"/>
