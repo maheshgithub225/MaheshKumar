@@ -12,20 +12,17 @@ import Foundation
 class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var RecipeTitle: UITextField!
     @IBOutlet weak var tableViewCustom1: UITableView!
-    @IBOutlet weak var tableViewCustom2: UITableView!
     @IBOutlet weak var servingSize: UITextField!
     @IBOutlet weak var ingredientCell: UITableViewCell!
-    @IBOutlet weak var instructionCell: UITableViewCell!
-    let swiftBlogs = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
     
-    var Units : NSString = NSString()
-    let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
+    let swiftBlogs = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewCustom1.delegate = self
         tableViewCustom1.dataSource = self
-        tableViewCustom2.delegate = self
-        tableViewCustom2.dataSource = self
+        self.tableViewCustom1.backgroundColor = UIColor.clear
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +33,7 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
         addRecipeData()
     }
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +44,8 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
         
         let row = indexPath.row
         cell.textLabel?.text = swiftBlogs[row]
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
         
         return cell
     }
