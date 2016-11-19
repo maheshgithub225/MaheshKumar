@@ -9,6 +9,10 @@
 import UIKit
 
 class SearchRecipeTableViewCell: UITableViewCell {
+    @IBOutlet var R_name: UILabel!
+    @IBOutlet var C_Name: UILabel!
+    @IBOutlet var S_Size: UILabel!
+    @IBOutlet var Date: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

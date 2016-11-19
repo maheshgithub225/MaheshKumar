@@ -67,10 +67,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
 
                 }
                 print(self.objectsArray)
-                self.TableViewCustom.dataSource = self
-                DispatchQueue.main.async {
-                    self.TableViewCustom.reloadData()
-                }
+                self.TableViewCustom.reloadData()
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
@@ -95,10 +92,14 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
         
         let row = indexPath.row
-        cell.textLabel?.text = objectsArray[row].R_Name
+
+        cell.R_name!.text = objectsArray[row].R_Name
+        cell.C_Name!.text = "By: \(objectsArray[row].C_Name)"
+        cell.Date!.text = objectsArray[row].C_Date
+        cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
         
         return cell
     }

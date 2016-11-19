@@ -54,7 +54,6 @@
 		CD2362641DDFBBAE008076C0 /* Save1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23624E1DDFBBAE008076C0 /* Save1.png */; };
 		CD2362651DDFBBAE008076C0 /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23624F1DDFBBAE008076C0 /* signup.png */; };
 		CD2362661DDFBBAE008076C0 /* webmail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2362501DDFBBAE008076C0 /* webmail_icon.png */; };
-		CD2362781DE0BB26008076C0 /* button-5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2362771DE0BB26008076C0 /* button-5.png */; };
 		CD23627A1DE0BDEE008076C0 /* RecipeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */; };
 		CD23627C1DE0C31A008076C0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627B1DE0C31A008076C0 /* TabViewController.swift */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
@@ -135,7 +134,6 @@
 		CD23624E1DDFBBAE008076C0 /* Save1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Save1.png; sourceTree = "<group>"; };
 		CD23624F1DDFBBAE008076C0 /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
 		CD2362501DDFBBAE008076C0 /* webmail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webmail_icon.png; sourceTree = "<group>"; };
-		CD2362771DE0BB26008076C0 /* button-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-5.png"; path = "../../../../Downloads/button-5.png"; sourceTree = "<group>"; };
 		CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeInstructionsViewController.swift; sourceTree = "<group>"; };
 		CD23627B1DE0C31A008076C0 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 		93A8317A1DB37510002BF8DE /* pics */ = {
 			isa = PBXGroup;
 			children = (
-				CD2362771DE0BB26008076C0 /* button-5.png */,
 				CD23623B1DDFBBAE008076C0 /* button-3.png */,
 				CD23623C1DDFBBAE008076C0 /* button-4.png */,
 				CD23623D1DDFBBAE008076C0 /* button-7.png */,
@@ -431,7 +428,6 @@
 				CD2362591DDFBBAE008076C0 /* email-icon.png in Resources */,
 				CD2362581DDFBBAE008076C0 /* Done1.png in Resources */,
 				CD2362561DDFBBAE008076C0 /* Chef-title.png in Resources */,
-				CD2362781DE0BB26008076C0 /* button-5.png in Resources */,
 				93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */,
 				CD2362531DDFBBAE008076C0 /* button-7.png in Resources */,
 			);
