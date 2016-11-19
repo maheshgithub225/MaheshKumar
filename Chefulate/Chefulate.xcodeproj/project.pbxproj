@@ -11,6 +11,7 @@
 		2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */; };
 		2F1D5C4F1DD85A1A00AFDBB8 /* recipelisttwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */; };
 		2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */; };
+		3625E87F1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */; };
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
 		93A831801DB37607002BF8DE /* drawsignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A8317F1DB37607002BF8DE /* drawsignin.swift */; };
 		93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBA51DB41F3A00E2140B /* squircle.png */; };
@@ -84,6 +85,7 @@
 		2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipe_conversion.swift; sourceTree = "<group>"; };
 		2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipelisttwo.swift; sourceTree = "<group>"; };
 		2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversiontable.swift; path = ../conversiontable.swift; sourceTree = "<group>"; };
+		3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Chefulate Terms and Conditions of Use.pdf"; sourceTree = "<group>"; };
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
 		93A8317F1DB37607002BF8DE /* drawsignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drawsignin.swift; sourceTree = "<group>"; };
 		93D9DBA51DB41F3A00E2140B /* squircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squircle.png; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			name = "Resizing draw files";
 			sourceTree = "<group>";
 		};
+		3625E87D1DE10BBF00236D63 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
 		93A8317A1DB37510002BF8DE /* pics */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +245,7 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
+				3625E87D1DE10BBF00236D63 /* docs */,
 				BDDCC8C41DAD42400003D984 /* Info.plist */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
@@ -400,6 +411,7 @@
 				CD2362551DDFBBAE008076C0 /* Chef-Calc.png in Resources */,
 				CD2362631DDFBBAE008076C0 /* Save.png in Resources */,
 				CD23625A1DDFBBAE008076C0 /* food-photo-sandwiches-wallpaper.jpg in Resources */,
+				3625E87F1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf in Resources */,
 				CD2362521DDFBBAE008076C0 /* button-4.png in Resources */,
 				CD2362541DDFBBAE008076C0 /* Cancel.png in Resources */,
 				CD2362571DDFBBAE008076C0 /* Done.png in Resources */,
