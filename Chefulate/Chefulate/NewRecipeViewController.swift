@@ -9,22 +9,25 @@
 import UIKit
 import Foundation
 
-class NewRecipeViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
+class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var RecipeTitle: UITextField!
-    @IBOutlet weak var Ingredient1: UITextField!
-    @IBOutlet weak var amount: UITextField!
-    @IBOutlet weak var pickerData: UIPickerView!
-   
+    @IBOutlet weak var tableViewCustom1: UITableView!
+    @IBOutlet weak var tableViewCustom2: UITableView!
+    @IBOutlet weak var servingSize: UITextField!
+    @IBOutlet weak var ingredientCell: UITableViewCell!
+    @IBOutlet weak var instructionCell: UITableViewCell!
+    let swiftBlogs = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
+    
     var Units : NSString = NSString()
     let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        pickerData.dataSource = self
-        pickerData.delegate = self
-
+        tableViewCustom1.delegate = self
+        tableViewCustom1.dataSource = self
+        tableViewCustom2.delegate = self
+        tableViewCustom2.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,26 +35,27 @@ class NewRecipeViewController: UIViewController, UIPickerViewDelegate,UIPickerVi
     @IBAction func submitRecipe(_ sender: AnyObject) {
         addRecipeData()
     }
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return PickerData[row]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return swiftBlogs.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientcell", for: indexPath as IndexPath)
+        
+        let row = indexPath.row
+        cell.textLabel?.text = swiftBlogs[row]
+        
+        return cell
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        Units = PickerData[row] as NSString
-    }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return PickerData.count
-    }
-
     func addRecipeData(){
         let NewRecipeTitle = RecipeTitle.text!
-        let ing1 = Ingredient1.text!
         
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(NewRecipeTitle)/\(ing1)")!
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(NewRecipeTitle)")!
         print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -78,16 +82,16 @@ class NewRecipeViewController: UIViewController, UIPickerViewDelegate,UIPickerVi
         self.present(vc, animated: true, completion: nil)
         task.resume()
     }
-
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
