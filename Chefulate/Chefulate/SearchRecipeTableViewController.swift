@@ -8,11 +8,14 @@
 
 import UIKit
 
-class SearchRecipeTableViewController: UITableViewController {
+class SearchRecipeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var tableViewCustom: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableViewCustom.delegate = self
+        self.tableViewCustom.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,7 +28,7 @@ class SearchRecipeTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func Back(_ sender: AnyObject) {
+    @IBAction func Home(_ sender: AnyObject) {
         performSegue(withIdentifier: "Home", sender: self)
     }
     // MARK: - Table view data source
