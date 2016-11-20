@@ -17,16 +17,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     struct Ingedients_List{
         let I_ID: Int
         let I_Name: String
-        let I_Quantity: String
+        let I_Amount: Int
+        let I_Units : String
         
     }
-    
+    struct Instructions_List{
+        let In_ID: Int
+        let In_Name: String
+    }
     var objectsArray = [Ingedients_List]()
     var filteredObjectsArray = [Ingedients_List]()
     
+    var instructionsArray = [Instructions_List]()
+    
     var labelName : String = String()
     var serving : String = String()
-    
+    override func viewWillAppear(_ animated: Bool) {
+        downloadIngredients()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeDetailsTableView.delegate = self
@@ -34,9 +42,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
         servingsize.text = " Serving Size: \(serving)"
+        
         // Do any additional setup after loading the view.
     }
-    func downloadData(){
+    func downloadIngredients(){
         let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
         let url_request = URLRequest(url: url_download_data)
         let config = URLSessionConfiguration.default
@@ -58,7 +67,45 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"]! as! String,I_Quantity: obj["Amount"]! as! String))
+                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"]! as! String,I_Amount: (Int)(obj["Amount"]! as! String)!, I_Units: obj["Units"]! as! String))
+                    
+                }
+                self.recipeDetailsTableView.dataSource = self
+                DispatchQueue.main.async{
+                    self.recipeDetailsTableView.reloadData()
+                }
+            }catch{
+                print("Error seralizing JSON Data: \(error)")
+            }
+            
+            
+        })
+        task.resume()
+        
+    }
+    func downloadInstructions(){
+        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
+        let url_request = URLRequest(url: url_download_data)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with:url_request, completionHandler: {(data, response, error) in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            
+            guard let result = data else{
+                print("No data recieved")
+                return
+            }
+            
+            do{
+                let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
+                print("JSON data returned: \(jsonResult)")
+                print("Count: \(jsonResult.count)")
+                for x in (1...jsonResult.count){
+                    let obj = jsonResult["\(x)"] as! NSDictionary
+                    self.instructionsArray.append(Instructions_List(In_ID: (Int)(obj["Ingredient_ID"] as! String)!, In_Name: obj["Ingredient_Name"]! as! String))
                     
                 }
                 self.recipeDetailsTableView.dataSource = self
@@ -75,12 +122,20 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         
     }
 
+
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        var rows : Int = Int()
+        if section == 0 {
+            rows = objectsArray.count
+        }
+        if section == 1 {
+            rows = instructionsArray.count
+        }
+        return rows
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -100,7 +155,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let row = indexPath.row
         
+        cell.textLabel?.text = objectsArray[row].I_Name
+        cell.detailTextLabel?.text = "\(objectsArray[row].I_Amount) \(objectsArray[row].I_Units)"
         cell.backgroundColor = UIColor.clear
         return cell
     }
