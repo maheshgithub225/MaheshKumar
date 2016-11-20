@@ -15,8 +15,10 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
     @IBOutlet weak var servingSize: UITextField!
     @IBOutlet weak var ingredientCell: UITableViewCell!
     
-    let swiftBlogs = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
-
+    var ingName : String = String()
+    var quantity : String = String()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +48,20 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return swiftBlogs.count
+        var rowcount = 0
+        if section == 0{
+            rowcount = 2
+        }
+        if section == 1 {
+            rowcount = 2
+        }
+        return rowcount
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientcell", for: indexPath as IndexPath)
-        
-        let row = indexPath.row
-        cell.textLabel?.text = swiftBlogs[row]
+        cell.textLabel?.text = ingName
+        cell.detailTextLabel?.text = quantity
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.textColor = UIColor.white
         

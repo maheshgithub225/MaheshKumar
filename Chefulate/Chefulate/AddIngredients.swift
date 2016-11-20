@@ -18,7 +18,8 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     var value : String = String()
     let PickerData = ["Pounds","Ounces","Tbsp","Tsp","Cups"]
     var value1 : String = String()
-    
+    var value2 : String = String()
+    var value3 : String = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         ingredientName.delegate = self
         ingredientName.text = value
         
-               // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -43,9 +44,11 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     
     
     @IBAction func saveCloseButton(_ sender: AnyObject) {
+        value1 = ingredientName.text!
+        value2 = amount.text!
+        value3 = Units as String
         
         
-    
         if ingredientName.text != "" && amount.text != "" {
             let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
                 self.performSegue(withIdentifier: "newRecipe", sender: self)
@@ -57,8 +60,19 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             alertControl.addAction(addinstructions)
             alertControl.addAction(done)
             self.present(alertControl, animated: true, completion: nil)
-        addIngredientData()
+            // addIngredientData()
         }
+        
+        performSegue(withIdentifier: "newRecipe", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newRecipe"{
+            let addingredview = segue.destination as! NewRecipeViewController
+            addingredview.ingName = value1
+            addingredview.quantity = value2 + " " + value3
+        }
+        
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -74,34 +88,34 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return PickerData.count
     }
-    func addIngredientData(){
-        let IngredName = self.ingredientName.text!
-        let quantity = self.amount.text!
-        let UnitPicker = Units
-        
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(IngredName)/\(quantity)/\(UnitPicker)")!
-        print("URL: \(url)")
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let task = session.dataTask(with: url){(data,response,error)in
-            guard error == nil else{
-                print("Error in session call: \(error)")
-                return
-            }
-            guard let result = data else {
-                print("No data reveived")
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                print("JSON data returned : \(json)")
-            }catch {
-                print("Error Serializing JSON data : \(error)")
-            }
-        }
-        task.resume()
-    }
+    //    func addIngredientData(){
+    //        let IngredName = self.ingredientName.text!
+    //        let quantity = self.amount.text!
+    //        let UnitPicker = Units
+    //
+    //        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(IngredName)/\(quantity)/\(UnitPicker)")!
+    //        print("URL: \(url)")
+    //        let config = URLSessionConfiguration.default
+    //        let session = URLSession(configuration: config)
+    //
+    //        let task = session.dataTask(with: url){(data,response,error)in
+    //            guard error == nil else{
+    //                print("Error in session call: \(error)")
+    //                return
+    //            }
+    //            guard let result = data else {
+    //                print("No data reveived")
+    //                return
+    //            }
+    //            do {
+    //                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+    //                print("JSON data returned : \(json)")
+    //            }catch {
+    //                print("Error Serializing JSON data : \(error)")
+    //            }
+    //        }
+    //        task.resume()
+    //    }
     
     
     /*
