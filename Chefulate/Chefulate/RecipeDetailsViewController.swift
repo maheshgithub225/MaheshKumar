@@ -12,9 +12,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
 
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
-    
+    @IBOutlet weak var servingsize : UILabel!
 
     var labelName : String = String()
+    var serving : String = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
+        servingsize.text = " \(serving)"
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +32,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -46,7 +48,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        
         cell.backgroundColor = UIColor.clear
        
         
