@@ -24,18 +24,25 @@ class recipelisttwo: UITableViewController {
         super.viewDidLoad()
         self.countrecipes()
         
-        let when = DispatchTime.now() + 0.5
+        var when = DispatchTime.now() + 1.0
         DispatchQueue.main.asyncAfter(deadline: when) {
-            self.countertwo = 0
+           
             
             
         }
+          when = DispatchTime.now() + 1.0
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.selectdb()
             
             self.tableView.reloadData()
         }
-        
+        when = DispatchTime.now() + 1.0
+        DispatchQueue.main.asyncAfter(deadline: when) {
+             self.countertwo = 0
+            
+            self.tableView.reloadData()
+        }
+
        
     }
     
@@ -57,7 +64,11 @@ class recipelisttwo: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if countertwo == 0{
         return masterarray.count
+        }
+    return 1
+    
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +85,20 @@ class recipelisttwo: UITableViewController {
             cell.textLabel?.text = "\(masterarray[indexPath[1]].ingredientdisplay())"
             cell.detailTextLabel?.text="\(masterarray[indexPath[1]].seconddisplay())"
             //  }
+            if masterarray[indexPath[1]].ispressed == true{
+                cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+                cell.textLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+                cell.detailTextLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+            }
+            else{
+                cell.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
+                cell.textLabel?.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
+                cell.detailTextLabel?.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
+            }
+        
+        }
+        else {
+        cell.textLabel?.text = "please wait.."
         }
         
         // cell.textLabel?.text = "\(masterarray[indexPath[1]])"
@@ -115,25 +140,22 @@ class recipelisttwo: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+        for index in stride(from: 0, to: self.counter, by: +1) {
+        masterarray[index].ispressed=false
+       
+        }
         
-        
-        if(kflagtwo == 0){
-        if  masterarray[indexPath[1]].ispressed == false {
-            
-            cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
-            cell.textLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
-            cell.detailTextLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+           
             masterarray[indexPath[1]].ispressed = true
             kflag=1
             g = masterarray[indexPath[1]].recipe_id
             servingsize=masterarray[indexPath[1]].serving_size
             self.tableView.reloadData()
-            kflagtwo = 1
-        }
-        }
-        else{
+          
+        
+       
         self.tableView.reloadData()
-        }
+        
         
     }
     
