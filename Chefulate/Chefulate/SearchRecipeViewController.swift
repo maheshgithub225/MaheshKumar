@@ -106,12 +106,22 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
+    }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
         let row = indexPath.row
         print(objectsArray[row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipeDetailsView"{
+            let recipeDetailsView = segue.destination as! RecipeDetailsViewController
+            
+        }
+
     }
     
     /*
