@@ -31,6 +31,8 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         TableViewCustom.delegate = self
         TableViewCustom.dataSource = nil
         downloadData()
+        TableViewCustom.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
   

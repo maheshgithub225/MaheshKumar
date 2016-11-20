@@ -57,6 +57,7 @@
 		CD2362661DDFBBAE008076C0 /* webmail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2362501DDFBBAE008076C0 /* webmail_icon.png */; };
 		CD23627A1DE0BDEE008076C0 /* RecipeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */; };
 		CD23627C1DE0C31A008076C0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627B1DE0C31A008076C0 /* TabViewController.swift */; };
+		CD23627E1DE23DC6008076C0 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
@@ -138,6 +139,7 @@
 		CD2362501DDFBBAE008076C0 /* webmail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webmail_icon.png; sourceTree = "<group>"; };
 		CD2362791DE0BDEE008076C0 /* RecipeInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeInstructionsViewController.swift; sourceTree = "<group>"; };
 		CD23627B1DE0C31A008076C0 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */,
 				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */,
 				3625E87D1DE10BBF00236D63 /* docs */,
 				93A8317A1DB37510002BF8DE /* pics */,
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
@@ -467,6 +470,7 @@
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
 				CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
+				CD23627E1DE23DC6008076C0 /* RecipeDetailsViewController.swift in Sources */,
 				BDDCC8B61DAD42400003D984 /* AppDelegate.swift in Sources */,
 				CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */,
 				BD75B6381DE10E84009AF7EF /* SearchRecipeTableViewCell.swift in Sources */,
