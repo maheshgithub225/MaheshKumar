@@ -140,7 +140,7 @@ class LoginViewController: UIViewController {
             var json: NSDictionary
             do {
                 json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
-                let obj = json["User"] as! NSDictionary
+                let obj = json["User"] as! NSDictionary 
                 self.F_Name = obj["First_Name"] as! String
                 self.L_Name = obj["Last_Name"] as! String
                 self.UID = (Int)(obj["UID"] as! String)!
