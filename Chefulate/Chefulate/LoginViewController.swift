@@ -187,6 +187,10 @@ class LoginViewController: UIViewController {
      }
      */
     
-      @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}  
+      @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        userName.text = ""
+        password.text = ""
+        
+    }
     
 }

@@ -16,6 +16,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var myRecipes: UIButton!
     @IBOutlet weak var newRecipe: UIButton!
     
+    
     var UID: Int = 0
     var F_Name: String = ""
     var L_Name: String = ""
@@ -27,7 +28,13 @@ class SearchViewController: UIViewController {
             newRecipe.isEnabled = false
             myRecipes.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
             newRecipe.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
+            
+            
         }
+        print(UID)
+        print(F_Name)
+        print(L_Name)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -59,4 +66,10 @@ class SearchViewController: UIViewController {
     }
     */
 
+    @IBAction func unwindToSearchView(segue: UIStoryboardSegue)
+    {
+        print(UID)
+        print(F_Name)
+        print(L_Name)
+    }
 }

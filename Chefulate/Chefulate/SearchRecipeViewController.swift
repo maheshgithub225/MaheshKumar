@@ -12,6 +12,10 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
 
     @IBOutlet var TableViewCustom: UITableView!
     
+    var UID: Int = 0
+    var F_Name: String = ""
+    var L_Name: String = ""
+    
     struct recipes{
         let C_ID: Int
         let R_ID: Int
@@ -138,5 +142,12 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBAction func homeButton(_ sender: AnyObject) {
+        //self.performSegue(withIdentifier: "toSearchView", sender: self)
+    }
+    
+    @IBAction func unwindToSearchRecipe(segue: UIStoryboardSegue){}
 
 }

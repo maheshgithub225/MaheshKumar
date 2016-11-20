@@ -63,4 +63,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     */
 
+    @IBAction func backButton(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "toSearchRecipe", sender: self)
+    }
 }
