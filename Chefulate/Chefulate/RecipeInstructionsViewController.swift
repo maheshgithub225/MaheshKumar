@@ -16,6 +16,10 @@ class RecipeInstructionsViewController: UIViewController {
     
     @IBOutlet weak var instruction3: UITextView!
     
+    @IBAction func backToNewRecipeFromInstr(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "unwindToNewRecipeFromInstr", sender: self)
+    }
+    
     @IBAction func saveInstructions(_ sender: AnyObject) {
         let alertControl = UIAlertController(title: "Ingredient Saved", message: "", preferredStyle: .alert)
         let Addmore = UIAlertAction(title: "Add more..", style: .destructive){

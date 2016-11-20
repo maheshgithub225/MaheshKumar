@@ -27,10 +27,10 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
         self.tableViewCustom1.backgroundColor = UIColor.clear
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){}
+    @IBAction func unwindToNewRecipeFromInstView(segue: UIStoryboardSegue){}
+    
+    
     @IBAction func submitRecipe(_ sender: AnyObject) {
         let alertControl = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .destructive){
