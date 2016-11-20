@@ -63,9 +63,13 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             // addIngredientData()
         }
         
-        performSegue(withIdentifier: "newRecipe", sender: self)
+        //performSegue(withIdentifier: "newRecipe", sender: self)
     }
     
+    @IBAction func backToNewRecipe(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "unwindToNewRecipe", sender: self)
+    }
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newRecipe"{
             let addingredview = segue.destination as! NewRecipeViewController
