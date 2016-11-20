@@ -9,16 +9,20 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    var guestflag : String = String()
+    var guestflag : Bool = true
     var LoginView = LoginViewController()
     
     @IBOutlet weak var nav: UINavigationBar!
     @IBOutlet weak var myRecipes: UIButton!
     @IBOutlet weak var newRecipe: UIButton!
     
+    var UID: Int = 0
+    var F_Name: String = ""
+    var L_Name: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if guestflag == "true"{
+        if guestflag == true{
             myRecipes.isEnabled = false
             newRecipe.isEnabled = false
             myRecipes.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
