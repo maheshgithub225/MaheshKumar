@@ -54,7 +54,11 @@ class registerViewController: UIViewController, UITextFieldDelegate {
             confirmPassword.isHidden = false
             confirmPassword.backgroundColor = UIColor.white
         }else{
-            addUserData()
+            let alert = UIAlertController(title: "Accept Terms of Service", message: "By clicking Accept you agree to abide by the terms of use.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Accept", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in self.addUserData()}))
+            alert.addAction(UIAlertAction(title: "Decline", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            //addUserData()
         }
     }
     
@@ -97,7 +101,7 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         let Firstname = self.firstName.text!
         let Lastname = self.lastName.text!
         
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/1/\(Email)/\(Password)/\(Firstname)/\(Lastname)")!
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Firstname)/\(Lastname)/\(Password)")!
         print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
