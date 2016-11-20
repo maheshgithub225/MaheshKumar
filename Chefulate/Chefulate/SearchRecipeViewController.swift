@@ -24,6 +24,8 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     var objectsArray = [recipes]()
     var filteredObjectsArray = [recipes]()
     
+    var recipeName : String = String()
+    
     var recipes: NSDictionary = [:]
     
     override func viewDidLoad() {
@@ -104,14 +106,27 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         cell.Date!.text = objectsArray[row].C_Date
         cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
         
+        recipeName = cell.R_name!.text! as String
+        cell.backgroundColor = UIColor.clear
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
+    }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
         let row = indexPath.row
         print(objectsArray[row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+        if segue.identifier == "recipeDetailsView"{
+            let recipeDetailsView = segue.destination as! RecipeDetailsViewController
+            recipeDetailsView.labelName = recipeName
+        }
+
     }
     
     /*

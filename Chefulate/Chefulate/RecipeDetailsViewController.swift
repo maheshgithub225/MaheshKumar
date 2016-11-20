@@ -12,10 +12,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
 
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
+    
+
+    var labelName : String = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeDetailsTableView.delegate = self
         recipeDetailsTableView.dataSource = self
+        recipeDetailsTableView.backgroundColor = UIColor.clear
+        recipeName.text = labelName
         // Do any additional setup after loading the view.
     }
 
@@ -27,9 +33,21 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         return 0
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var title : String = String()
+        if section == 0 {
+            title = "Ingedients"
+        }
+        if section == 1 {
+            title = "Instructions"
+        }
+        return title
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
-        
+        cell.backgroundColor = UIColor.clear
        
         
         return cell
