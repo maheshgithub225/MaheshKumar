@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Xhh-xu-1Zf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kSq-YD-bic">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hO5-Oi-Iq9">
@@ -142,7 +142,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WNd-mq-g4l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Apo-H8-CQE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewall" translatesAutoresizingMaskIntoConstraints="NO" id="is1-7F-Drv">
@@ -220,7 +220,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="khf-Sw-aXj" kind="show" id="SEe-df-obL"/>
+                                    <segue destination="khf-Sw-aXj" kind="show" identifier="NewRecipeFromMenu" id="SEe-df-obL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -248,7 +248,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CTB-x4-CYp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ywk-Lj-ZNl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-jh-NLk">
@@ -310,7 +310,6 @@
                                             <outlet property="Date" destination="RUB-qh-bSB" id="A6k-S7-trA"/>
                                             <outlet property="R_name" destination="vzD-fM-itz" id="xMF-X0-aSm"/>
                                             <outlet property="S_Size" destination="T5c-RN-ieP" id="hGA-3E-VTR"/>
-                                            <segue destination="EIc-fF-ZZA" kind="show" id="Cgm-Ij-xBg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -333,6 +332,7 @@
                     <connections>
                         <outlet property="TableViewCustom" destination="Kdf-Cy-unR" id="idV-jp-cBu"/>
                         <outlet property="tableViewCustom" destination="Kdf-Cy-unR" id="a2u-uR-sd9"/>
+                        <segue destination="EIc-fF-ZZA" kind="show" id="Heu-6X-4ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQY-Jf-C6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,7 +348,7 @@
                         <viewControllerLayoutGuide type="bottom" id="iUL-Nf-akr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Abc-Pn-kQn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mIo-iL-Wyj">
@@ -433,7 +433,7 @@
                         <viewControllerLayoutGuide type="bottom" id="mcr-pl-DY6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="db1-OU-TWc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewallblur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HvD-LM-jL6">
@@ -598,7 +598,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LSZ-Vx-jdT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PCP-8W-gha">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56L-2v-QNO">
@@ -639,7 +639,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cWt-Va-gro"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Th-cL-8AB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur" translatesAutoresizingMaskIntoConstraints="NO" id="4D7-5B-UQH">
@@ -759,7 +759,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T9J-b8-EFG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T92-Q5-za0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur" translatesAutoresizingMaskIntoConstraints="NO" id="BSJ-Z0-lDb">
@@ -847,7 +847,7 @@
                         <viewControllerLayoutGuide type="bottom" id="APJ-GV-zTQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pj6-V5-fow">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZL-0s-yvb">
@@ -1021,11 +1021,11 @@
             <objects>
                 <tableViewController id="QQu-3I-36B" customClass="recipelisttwo" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sWg-Ah-94D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="jFk-tn-dAA">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="My recipes" id="812-Uz-PeP">
@@ -1044,10 +1044,10 @@
                         </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="secondcell" textLabel="35G-RP-fPQ" detailTextLabel="UDx-aI-mM1" style="IBUITableViewCellStyleSubtitle" id="Dx4-3g-NOI">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dx4-3g-NOI" id="8PZ-rQ-N5L">
-                                    <frame key="frameInset" width="414" height="43"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="35G-RP-fPQ">
@@ -1088,7 +1088,7 @@
                         <viewControllerLayoutGuide type="bottom" id="iaW-ut-7hi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VHX-n9-kfj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewallblur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VXC-9R-Spq">
@@ -1207,7 +1207,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U0V-ax-aSC">
@@ -1262,7 +1262,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n4p-lt-PHG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vnl-oO-UHa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redcurtain.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mMX-Lc-W6O">
@@ -1423,11 +1423,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="22l-yx-Na1"/>
-        <segue reference="YLf-dn-tQg"/>
-        <segue reference="1JZ-bx-KKZ"/>
+        <segue reference="atH-hb-16R"/>
         <segue reference="SEe-df-obL"/>
-        <segue reference="fyT-12-wjT"/>
-        <segue reference="DPH-fU-vaY"/>
+        <segue reference="1JZ-bx-KKZ"/>
         <segue reference="piL-J9-rqk"/>
+        <segue reference="DPH-fU-vaY"/>
+        <segue reference="fyT-12-wjT"/>
     </inferredMetricsTieBreakers>
 </document>

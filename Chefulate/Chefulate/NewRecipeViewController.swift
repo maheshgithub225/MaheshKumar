@@ -15,10 +15,23 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
     @IBOutlet weak var servingSize: UITextField!
     @IBOutlet weak var ingredientCell: UITableViewCell!
     
-    var ingName : String = String()
-    var quantity : String = String()
+    var UID: Int = 0
+    var U_Full: String = ""
     
+    struct ingredients{
+        let I_ID: Int
+        let I_Name: String
+        let I_Amount: Int
+        let I_Unit: String
+    }
     
+    struct instructions{
+        let I_ID: Int
+        let I_Data: String
+    }
+    
+    var ing_data = [ingredients]()
+    var ins_data = [instructions]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +61,13 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var rowcount = 0
-        if section == 0{
-            rowcount = 2
-        }
-        if section == 1 {
-            rowcount = 2
-        }
-        return rowcount
+        return ing_data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientcell", for: indexPath as IndexPath)
-        cell.textLabel?.text = ingName
-        cell.detailTextLabel?.text = quantity
+        cell.textLabel?.text = "test"
+        cell.detailTextLabel?.text = "test"
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.textColor = UIColor.white
         

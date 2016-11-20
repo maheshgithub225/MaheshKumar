@@ -122,7 +122,6 @@ class LoginViewController: UIViewController {
         let emailID = self.userName.text!
         let Password = self.password.text!
         self.flag = false
-        var error_flag: Bool = false
 
         let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/15/\(emailID)/\(Password)")
         let config = URLSessionConfiguration.default

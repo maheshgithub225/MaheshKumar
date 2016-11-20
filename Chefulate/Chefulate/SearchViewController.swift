@@ -40,6 +40,14 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewRecipeFromMenu" {
+            let vc = segue.destination as! NewRecipeViewController
+            vc.UID = UID
+            vc.U_Full = "\(F_Name) \(L_Name)"
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
