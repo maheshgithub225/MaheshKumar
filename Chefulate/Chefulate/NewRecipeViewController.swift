@@ -15,6 +15,9 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
     @IBOutlet weak var servingSize: UITextField!
     @IBOutlet weak var ingredientCell: UITableViewCell!
     
+    var UID: Int = 0
+    var U_Full: String = ""
+    
     struct ingredients{
         let I_ID: Int
         let I_Name: String
