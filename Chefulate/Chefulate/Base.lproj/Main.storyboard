@@ -310,7 +310,6 @@
                                             <outlet property="Date" destination="RUB-qh-bSB" id="A6k-S7-trA"/>
                                             <outlet property="R_name" destination="vzD-fM-itz" id="xMF-X0-aSm"/>
                                             <outlet property="S_Size" destination="T5c-RN-ieP" id="hGA-3E-VTR"/>
-                                            <segue destination="EIc-fF-ZZA" kind="show" id="Cgm-Ij-xBg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -333,6 +332,7 @@
                     <connections>
                         <outlet property="TableViewCustom" destination="Kdf-Cy-unR" id="idV-jp-cBu"/>
                         <outlet property="tableViewCustom" destination="Kdf-Cy-unR" id="a2u-uR-sd9"/>
+                        <segue destination="EIc-fF-ZZA" kind="show" id="Heu-6X-4ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQY-Jf-C6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
