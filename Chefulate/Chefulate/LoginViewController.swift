@@ -21,13 +21,20 @@ class LoginViewController: UIViewController {
     var json : NSDictionary = NSDictionary()
     var flag = Bool()
     
+    var UID = 0
+    var F_Name = "Guest"
+    var L_Name = ""
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondViewController = segue.destination as! SearchViewController
         if segue.identifier == "guestUser" {
-            // get a reference to the second view controller
-            let secondViewController = segue.destination as! SearchViewController
-            
-            secondViewController.guestflag = "true"
-            // set a variable in the second view controller with the String to pass
+            secondViewController.UID = UID
+            secondViewController.F_Name = F_Name
+            secondViewController.L_Name = L_Name
+            if(UID != 0){
+                secondViewController.guestflag = false
+            }
         }
     }
     
@@ -104,15 +111,53 @@ class LoginViewController: UIViewController {
             self.present(alertControl5, animated: true, completion: nil)
             return
         }else{
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
-            self.present(vc, animated: true, completion: nil)
+            if data != "Email Does Not Exist" {
+                getUserData()
+                while flag == false{}
+                //performSegue(withIdentifier: "guestUser", sender: nil)
+            }
         }
     }
+    
+    func getUserData(){
+        let emailID = self.userName.text!
+        let Password = self.password.text!
+        self.flag = false
+
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/15/\(emailID)/\(Password)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url!){ (data, response, error)in
+            guard error == nil else {
+                print("Error in session call \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data received")
+                return
+            }
+            var json: NSDictionary
+            do {
+                json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
+                let obj = json["User"] as! NSDictionary
+                self.F_Name = obj["First_Name"] as! String
+                self.L_Name = obj["Last_Name"] as! String
+                self.UID = (Int)(obj["UID"] as! String)!
+                self.flag = true
+                print("JSON data returned = \(json)")
+            }catch {
+                print("Error serializing JSON data : \(error)")
+            }
+        }
+        task.resume()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
