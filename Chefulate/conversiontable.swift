@@ -99,12 +99,15 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
         else if kflagtwo == 1 {
         cell.textLabel?.text = "no ingredients loaded yet"
+            cell.detailTextLabel?.text = " "
         }
         else if kflagtwo == 2{
         cell.textLabel?.text = "please wait"
+            cell.detailTextLabel?.text = " "
         }
         else {
         cell.textLabel?.text = "no ingredients found"
+            cell.detailTextLabel?.text = " "
         }
             
         return cell
@@ -167,7 +170,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         DispatchQueue.main.asyncAfter(deadline: when) {
             
             
-            self.counterthree = 0
+           
             
             if self.masterarray.count != 0{
             self.kflagtwo = 0
@@ -237,8 +240,8 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                 }
                 DispatchQueue.main.async(execute: { () -> Void in
                     
-                    
-                    //  self.tableView.reloadData()
+                     self.counterthree = 0
+                     self.viewc.reloadData()
                     
                 })
                 

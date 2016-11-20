@@ -35,20 +35,7 @@ class recipelisttwo: UITableViewController {
             
             
         
-        when = DispatchTime.now() + 3
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            
-             self.countertwo = 0
-            
-            
-        }
-            when = DispatchTime.now() + 2
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                
-                self.kflagtwo = 0
-                self.tableView.reloadData()
-            }
-
+  
         }
        
     }
@@ -104,8 +91,14 @@ class recipelisttwo: UITableViewController {
             }
         
         }
+        else if masterarray.count == 0 && kflagtwo == 0{
+            
+            cell.textLabel?.text = "no recipes created by user"
+            cell.detailTextLabel?.text = "try adding a recipe"
+        }
         else {
         cell.textLabel?.text = "please wait.."
+             cell.detailTextLabel?.text = " "
         }
         
         // cell.textLabel?.text = "\(masterarray[indexPath[1]])"
@@ -129,7 +122,20 @@ class recipelisttwo: UITableViewController {
         self.present(alertController,animated:true,completion: nil)
         
     }
-    
+    func alerttwo(){
+        
+        
+        
+        
+        let alertController = UIAlertController(title: "please wait",message: "until finished loading",preferredStyle: .alert)
+        let cancelaction=UIAlertAction(title:"cancel",style:.default){(result:UIAlertAction)  in debugPrint("cancel")
+        }
+        
+        
+        alertController.addAction(cancelaction)
+        self.present(alertController,animated:true,completion: nil)
+        
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: (String!), sender: Any!) -> Bool{
        
@@ -153,11 +159,18 @@ class recipelisttwo: UITableViewController {
     @IBAction func cancelaction(_ sender: UIBarButtonItem) {
         
        print("BBBBBB")
+        if kflagtwo == 0{
             performSegue(withIdentifier: "segue", sender: nil)
+        }
+        else {
+            alerttwo()
+        }
+        
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         _ = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+        if kflagtwo == 0{
         for index in stride(from: 0, to: self.counter, by: +1) {
         masterarray[index].ispressed=false
        
@@ -171,7 +184,7 @@ class recipelisttwo: UITableViewController {
             self.tableView.reloadData()
           
         
-       
+        }
         self.tableView.reloadData()
         
         
@@ -234,7 +247,7 @@ class recipelisttwo: UITableViewController {
                 }
                 DispatchQueue.main.async(execute: { () -> Void in
                     
-                    self.counterthree = 0
+                  self.kflagtwo = 0
                     self.tableView.reloadData()
                     
                 })
@@ -276,48 +289,7 @@ class recipelisttwo: UITableViewController {
                 print("fourth")
                 print("\(ea[0])")
                 self.counter = Int(ea[0])!
-                /*
-                 for index in stride(from: 0, to: self.counter, by: +1) {
-                 print("TTTTTTT")
-                 var sd: String = "\(json?[index])"
-                 print(sd)
-                 
-                 let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
-                 
-                 print(fullNameArr[0])
-                 //   var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
-                 //   var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
-                 //   var ea = fullNameArr[2].characters.split{$0 == " "}.map(String.init)
-                 //   var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                 
-                 //  var recipe:recipe_ingredient = recipe_ingredient(init_ingredient: Da[1], init_measurement: ca[3], init_quantity: ea[3])
-                 //  masterarray.append(car)
-                 
-                 }
-                 */
-                //   print("LLLLLLLLL")
-                
-                /*
-                 
-                 //     var sd: String = "\(json?[index])"
-                 print(sd)
-                 
-                 let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
-                 
-                 print("\( fullNameArr[0])")
-                 // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
-                 var ca = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                 var ea = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
-                 var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
-                 print("TTTTT")
-                 print("\(ca[3])")
-                 print("TTTTT")
-                 print("\(ea[3])")
-                 print("TTTTT")
-                 print("\(fa[3])")
-                 //var car:train_car = train_car(init_date: Da[1], init_id: ca[3], init_car_number: ea[3], init_road: fa[3])
-                 // masterarray.append(car)
-                 */
+           
                 
             }
                 
