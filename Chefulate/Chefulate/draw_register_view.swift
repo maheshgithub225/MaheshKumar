@@ -37,7 +37,7 @@ class draw_register_view: UIView {
     override func draw(_ rect: CGRect) {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-        let p = CGRect(x:0,y:0,width:screenWidth,height:screenHeight)
+        _ = CGRect(x:0,y:0,width:screenWidth,height:screenHeight)
 let usernametext_frame=CGRect(x:screenWidth/2.77,y:screenHeight/6.24,width:screenWidth/1.69,height:screenHeight/24.5)
         let passwordtext_frame = CGRect(x:screenWidth/2.77,y:screenHeight/4.13,width:screenWidth/1.69,height:screenHeight/24.5)
         let confirmtext_frame = CGRect(x:screenWidth/2.77,y:screenHeight/2.32,width:screenWidth/1.69,height:screenHeight/24.5)

@@ -18,31 +18,38 @@ class recipelisttwo: UITableViewController {
     var countertwo = 1
     var counterthree = 1
     var g:String = ""
-    var kflagtwo = 0
+    var kflagtwo = 1
     var servingsize:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.countrecipes()
         
-        var when = DispatchTime.now() + 1.0
-        DispatchQueue.main.asyncAfter(deadline: when) {
-           
+       
+        
             
             
-        }
-          when = DispatchTime.now() + 1.0
+        
+         var when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.selectdb()
             
-            self.tableView.reloadData()
-        }
-        when = DispatchTime.now() + 1.0
+            
+        
+        when = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: when) {
+            
              self.countertwo = 0
             
-            self.tableView.reloadData()
+            
         }
+            when = DispatchTime.now() + 2
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                
+                self.kflagtwo = 0
+                self.tableView.reloadData()
+            }
 
+        }
        
     }
     
@@ -64,7 +71,7 @@ class recipelisttwo: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if countertwo == 0{
+        if kflagtwo == 0{
         return masterarray.count
         }
     return 1
@@ -75,7 +82,7 @@ class recipelisttwo: UITableViewController {
         print(counter)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
-        if countertwo == 0 {
+        if kflagtwo == 0 {
             
             
             //   if  indexPath[1] == 0{
@@ -86,9 +93,9 @@ class recipelisttwo: UITableViewController {
             cell.detailTextLabel?.text="\(masterarray[indexPath[1]].seconddisplay())"
             //  }
             if masterarray[indexPath[1]].ispressed == true{
-                cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
-                cell.textLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
-                cell.detailTextLabel?.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
+                cell.backgroundColor = UIColor(red:0.5, green: 0,blue: 0.0, alpha: 1.0)
+                cell.textLabel?.backgroundColor = UIColor(red:0.5, green: 0,blue: 0, alpha: 1.0)
+                cell.detailTextLabel?.backgroundColor = UIColor(red:0.5, green: 0,blue: 0, alpha: 1.0)
             }
             else{
                 cell.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
@@ -125,6 +132,8 @@ class recipelisttwo: UITableViewController {
     
     
     override func shouldPerformSegue(withIdentifier identifier: (String!), sender: Any!) -> Bool{
+       
+        
         if kflag == 0{
             alert()
             return false
@@ -137,9 +146,18 @@ class recipelisttwo: UITableViewController {
         //run select operation
         return true
         
+        
+    }
+  
+
+    @IBAction func cancelaction(_ sender: UIBarButtonItem) {
+        
+       print("BBBBBB")
+            performSegue(withIdentifier: "segue", sender: nil)
+        
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+        _ = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
         for index in stride(from: 0, to: self.counter, by: +1) {
         masterarray[index].ispressed=false
        
@@ -193,7 +211,7 @@ class recipelisttwo: UITableViewController {
                         print("\( fullNameArr[0])")
                         // var Da:[String] = fullNameArr[0].characters.split{$0 == "\""}.map(String.init)
                         var ca = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                        var ea = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
+                        _ = fullNameArr[4].characters.split{$0 == " "}.map(String.init)
                         
                         var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
                         var ta = fullNameArr[4].characters.split{$0 == "\""}.map(String.init)
@@ -203,7 +221,7 @@ class recipelisttwo: UITableViewController {
                         
                         print("TTTTT")
                         print("\(fa[3])")
-                        var recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ta[3], init_serving_size: fa[3])
+                        let recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ta[3], init_serving_size: fa[3])
                         self.masterarray.append(recipe)
                         
                     }

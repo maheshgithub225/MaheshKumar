@@ -24,12 +24,14 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var servingsize: UILabel!
     
     
+    @IBOutlet weak var totalprice: UILabel!
     
     
     
     
     
     var kflag=0
+    var kflagtwo = 1
     var g:String = ""
     var counter = 0
     var count = 2
@@ -60,7 +62,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         return 1
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any!){
-        if let destination = segue.destination as? recipelisttwo{
+        if segue.destination is recipelisttwo{
             
             counterthree=1
             masterarray.removeAll()
@@ -68,6 +70,9 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
+        if kflagtwo == 1 || kflagtwo == 2 || kflagtwo == 3{
+        return 1
+        }
         return masterarray.count
     }
     
@@ -78,14 +83,30 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         print("AAAAAAAAAAAAAAAAAA")
         
         let cell = viewc.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
+        if kflagtwo == 0{
         if counterthree == 0{
+            
+            
             print("GGGGG")
             
             
             print("\(self.masterarray[indexPath[1]].ingredientdisplay())")
             cell.textLabel?.text = "\(self.masterarray[indexPath[1]].ingredientdisplay())"
+            cell.detailTextLabel?.text = "\(self.masterarray[indexPath[1]].locate())"
+            
         }
-        
+        }
+    
+        else if kflagtwo == 1 {
+        cell.textLabel?.text = "no ingredients loaded yet"
+        }
+        else if kflagtwo == 2{
+        cell.textLabel?.text = "please wait"
+        }
+        else {
+        cell.textLabel?.text = "no ingredients found"
+        }
+            
         return cell
     }
     
@@ -131,21 +152,31 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             id=g
          
         }
+        kflagtwo = 2
+        self.viewc.reloadData()
         //  counter=1
         countrecipes()
-        var when = DispatchTime.now() + 0.5
+        var when = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: when) {
             if self.counterfour == 1{
                 self.selectdb()
             }
         }
         //  self.table.reloadData()
-        when = DispatchTime.now() + 1.0
+        when = DispatchTime.now() + 2.5
         DispatchQueue.main.asyncAfter(deadline: when) {
             
             
             self.counterthree = 0
+            
+            if self.masterarray.count != 0{
+            self.kflagtwo = 0
+            }
+            else{
+            self.kflagtwo = 3
+            }
             self.viewc.reloadData()
+            self.init_total()
             
         }
         
@@ -182,11 +213,18 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                         var ea = fullNameArr[2].characters.split{$0 == "\""}.map(String.init)
                         print("\(ea[3])")
                         print("\(ca[3])")
-                        
+                         var qa = fullNameArr[6].characters.split{$0 == "\""}.map(String.init)
+                         var qaa = qa[2].characters.split{$0 == " "}.map(String.init)
+                        var la = fullNameArr[7].characters.split{$0 == "\""}.map(String.init)
                         //var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
                         var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
                         print("\(fa[3])")
-                        var recipe:recipe_ingredient = recipe_ingredient(init_ingredient: ea[3], init_measurement:ca[3], init_quantity: fa[3],init_original: fa[3])
+                        print("testing")
+                        print("\(qaa[1])")
+                        print("testing")
+                        print("\(la[3])")
+                        
+                        let recipe:recipe_ingredient = recipe_ingredient(init_ingredient: ea[3], init_measurement:ca[3], init_quantity: fa[3],init_original: fa[3],init_cost_measurement: qaa[1],init_cost: (Double(la[3])!*Double(fa[3])!))
                         self.masterarray.append(recipe)
                         
                     }
@@ -210,35 +248,58 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    func init_total(){
+        var z:Double = 0
+        var w:Double = 0
+        var ultracounter:Double = 0
+        for index in stride(from: 0, to: self.counter, by: +1) {
+        if masterarray.count != 0{
+            z = masterarray[index].original_cost
+        }
+        else{
+            z = 0
+        }
+        
+        print("secondtext")
+        print(z)
+      
+        print("secondtext")
+        print(w)
+        ultracounter = ultracounter + z
+print("ulta")
+        print(ultracounter)
+       
     
-   
+        }
+      totalprice.text = "$\(String(format: "%.04g",ultracounter))"
+        
+    }
     
  
     
     func convert_measurements(){
         print("scaling \(scaling)")
-        //var measurement:Double = 0
+        
         var x:Double = 0
-        
-        //step label variable
-        /*
-         input
-         1 cup = 250
-         1 pint=600
-         1 tablespoon=15
-         1 tsp=5
-         1 ounce =30
-         */
-        
+      
+        var z:Double = 0
+        var w:Double = 0
+        var ultracounter:Double = 0
         for index in stride(from: 0, to: self.counter, by: +1) {
-           
+           z = masterarray[index].original_cost
+          
+            w = z * scaling
+            masterarray[index].cost = w
+            ultracounter = ultracounter + w
+            
             masterarray[index].y = 0
             x = Double(masterarray[index].original)!
             x = x * scaling //+ masterarray[index].y
             masterarray[index].y = x
             x = floor(x)
             masterarray[index].quantity = "\(Double(x))"
-            var s = masterarray[index].y - x
+            
+            let s = masterarray[index].y - x
             print("SSSS \(s)")
             print("XX")
             print("\((masterarray[index].y))")
@@ -247,8 +308,8 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             print("\(return_remainder(d:s))")
         }
         
-        
-        
+       
+        totalprice.text = "$\(String(format: "%.04g",ultracounter))"
         
     }
     

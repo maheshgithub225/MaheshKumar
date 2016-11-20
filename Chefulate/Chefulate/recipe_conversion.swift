@@ -21,11 +21,17 @@ class recipe_ingredient{
     var fraction:String = ""
     var original:String = ""
     var y:Double = 0
-    init(init_ingredient: String, init_measurement:String,init_quantity: String,init_original:String){
+    var cost_measurement = ""
+    var cost:Double = 0
+    var original_cost:Double = 0
+    init(init_ingredient: String, init_measurement:String,init_quantity: String,init_original:String,init_cost_measurement:String, init_cost:Double){
         self.ingredient = init_ingredient
         self.measurement = init_measurement
         self.quantity = init_quantity
         self.original = init_original
+        self.cost_measurement = init_cost_measurement
+        self.cost = init_cost
+        original_cost = init_cost
         
         
     }
@@ -33,7 +39,7 @@ class recipe_ingredient{
         return "\(ingredient)   \(quantity)   \(fraction) \(measurement)"
     }
     func locate() -> String{
-        return ""
+        return "Price: $\(String(format: "%.04g",cost)) for \(quantity) \(cost_measurement)"
     }
     
     
