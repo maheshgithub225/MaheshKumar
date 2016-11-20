@@ -9,35 +9,23 @@
 import UIKit
 import Foundation
 
-class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableViewDataSource{
+class NewRecipeViewController: UIViewController{
     @IBOutlet weak var RecipeTitle: UITextField!
-    @IBOutlet weak var tableViewCustom1: UITableView!
     @IBOutlet weak var servingSize: UITextField!
-    @IBOutlet weak var ingredientCell: UITableViewCell!
+
     
     var UID: Int = 0
     var U_Full: String = ""
-    
-    struct ingredients{
-        let I_ID: Int
-        let I_Name: String
-        let I_Amount: Int
-        let I_Unit: String
-    }
     
     struct instructions{
         let I_ID: Int
         let I_Data: String
     }
-    
-    var ing_data = [ingredients]()
+
     var ins_data = [instructions]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewCustom1.delegate = self
-        tableViewCustom1.dataSource = self
-        self.tableViewCustom1.backgroundColor = UIColor.clear
     }
     
     @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){}
@@ -56,29 +44,24 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
         alertControl.addAction(cancel)
         self.present(alertControl, animated: true, completion: nil)
     }
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ing_data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientcell", for: indexPath as IndexPath)
-        cell.textLabel?.text = "test"
-        cell.detailTextLabel?.text = "test"
-        cell.backgroundColor = UIColor.clear
-        cell.textLabel?.textColor = UIColor.white
-        
-        return cell
-    }
     
     
     func addRecipeData(){
-        let NewRecipeTitle = RecipeTitle.text!
-        
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(NewRecipeTitle)")!
+        let R_Name = RecipeTitle.text!
+        let S_Size = servingSize.text!
+        let tDateF = NSDate()
+        let cal = NSCalendar.current
+        let comp = cal.dateComponents([.year,.day,.month], from: tDateF as Date)
+        var month: String = "\(comp.month!)"
+        var day: String = "\(comp.day!)"
+        if(comp.month! < 10){
+            month = "0\(comp.month!)"
+        }
+        if(comp.day! < 10){
+            day = "0\(comp.day!)"
+        }
+        let date = "\(comp.year!)-\(month)-\(day)"
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_Name)/\(U_Full)/\(UID)/\(date)/\(S_Size)")!
         print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -94,15 +77,17 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate,UITableView
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                print("JSON data returned : \(json)")
+                print("JSON test data returned : \(json)")
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
+            DispatchQueue.main.async{
+                //self.performSegue(withIdentifier: "guestUser", sender: nil)
+            }
         }
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
-        self.present(vc, animated: true, completion: nil)
+        
+    
         task.resume()
     }
     

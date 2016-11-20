@@ -8,12 +8,23 @@
 
 import UIKit
 
-class NewIngredientViewController: UIViewController{
+class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     @IBOutlet var cTableView: UITableView!
     
+    struct ingredients{
+        let I_ID: Int
+        let I_Name: String
+        let I_Amount: Int
+        let I_Unit: String
+    }
+    var data_array = [ingredients]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cTableView.delegate = self
+        cTableView.dataSource = self
+        cTableView.backgroundColor = UIColor.clear
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +32,31 @@ class NewIngredientViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data_array.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
+        
+        let row = indexPath.row
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
+    }
+    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
+        let row = indexPath.row
+        print(data_array[row])
     }
     
 

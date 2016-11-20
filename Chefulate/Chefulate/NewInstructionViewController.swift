@@ -12,6 +12,8 @@ class NewInstructionViewController: UIViewController {
 
     @IBOutlet var cTableView: UITableView!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
