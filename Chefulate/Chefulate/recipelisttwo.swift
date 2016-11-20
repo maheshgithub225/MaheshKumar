@@ -18,6 +18,7 @@ class recipelisttwo: UITableViewController {
     var countertwo = 1
     var counterthree = 1
     var g:String = ""
+    var kflagtwo = 0
     var servingsize:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +108,7 @@ class recipelisttwo: UITableViewController {
             
             masterarray.remove(at: item)
         }
+        kflagtwo = 0
         //run select operation
         return true
         
@@ -115,7 +117,7 @@ class recipelisttwo: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
         
         
-        
+        if(kflagtwo == 0){
         if  masterarray[indexPath[1]].ispressed == false {
             
             cell.backgroundColor = UIColor(red:0.6, green: 1,blue: 0.6, alpha: 1.0)
@@ -126,16 +128,11 @@ class recipelisttwo: UITableViewController {
             g = masterarray[indexPath[1]].recipe_id
             servingsize=masterarray[indexPath[1]].serving_size
             self.tableView.reloadData()
+            kflagtwo = 1
         }
-            
-        else if masterarray[indexPath[1]].ispressed == true{
-            
-            cell.backgroundColor = UIColor(red:1.0, green: 1,blue: 1.0, alpha: 1.0)
-            cell.textLabel?.backgroundColor = UIColor.white
-            cell.detailTextLabel?.backgroundColor = UIColor.white
-            masterarray[indexPath[1]].ispressed = false
-            kflag=0
-            self.tableView.reloadData()
+        }
+        else{
+        self.tableView.reloadData()
         }
         
     }

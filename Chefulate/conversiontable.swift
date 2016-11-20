@@ -13,13 +13,17 @@ import UIKit
 class conversiontable: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
     
+    
     @IBOutlet weak var viewc: UITableView!
     
     @IBOutlet weak var stepper: UIStepper!
+   
+   
     @IBOutlet weak var steplabel: UILabel!
    
-    
     @IBOutlet weak var servingsize: UILabel!
+    
+    
     
     
     
@@ -29,6 +33,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     var g:String = ""
     var counter = 0
     var count = 2
+   
     var countertwo = 0
     var counterthree = 1
     var id:String = "0"
@@ -42,6 +47,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         viewc.delegate = self
         viewc.dataSource = self
         self.hideKeyboardWhenTappedAround()
+         
            }
     
     
@@ -169,14 +175,17 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                     for index in stride(from: 0, to: self.counter, by: +1) {
                         
                         var sd: String = "\(json?[index])"
-                    
+                    print("\(sd)")
                         let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
                         
                                                var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
                         var ea = fullNameArr[2].characters.split{$0 == "\""}.map(String.init)
+                        print("\(ea[3])")
+                        print("\(ca[3])")
+                        
                         //var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
                         var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                        
+                        print("\(fa[3])")
                         var recipe:recipe_ingredient = recipe_ingredient(init_ingredient: ea[3], init_measurement:ca[3], init_quantity: fa[3],init_original: fa[3])
                         self.masterarray.append(recipe)
                         
@@ -222,67 +231,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
          */
         
         for index in stride(from: 0, to: self.counter, by: +1) {
-            /*
-             var y:Double = 0
-             if masterarray[index].measurement == "cup"{
-             measurement = Double(masterarray[index].quantity)!
-             measurement = 250 * measurement * scaling
-             }
-             else if masterarray[index].measurement == "pint"{
-             measurement = Double(masterarray[index].quantity)!
-             measurement = 600 * measurement * scaling
-             }
-             else if masterarray[index].measurement == "tablespoon"{
-             
-             measurement = Double(masterarray[index].quantity)!
-             measurement = 15 * measurement * scaling
-             }
-             else if masterarray[index].measurement == "tsp"{
-             
-             measurement = Double(masterarray[index].quantity)!
-             measurement = 5 * measurement * scaling
-             }
-             else {
-             
-             measurement = Double(masterarray[index].quantity)!
-             measurement = 30 * measurement * scaling
-             }
-             print("measurement \(measurement)")
-             
-             
-             
-             if measurement>2000 {
-             x = floor( measurement/600)
-             var t = Int(x) % 600    //return units in pints
-             y = Double(t)
-             y = Double(return_remainder(d: y))
-             
-             }
-             else if measurement<2000 && measurement>450{
-             x = floor( measurement/250)
-             var t = Int(x) % 250    //return units in pints
-             y = Double(t)
-             y = Double(return_remainder(d: y))
-             }
-             else if measurement<=450 && measurement>90{
-             x = floor( measurement/30)
-             var t = Int(x) % 30    //return units in pints
-             y = Double(t)
-             y = Double(return_remainder(d: y))
-             }
-             else if measurement<=90 && measurement>45{
-             x = floor( measurement/15)
-             var t = Int(x) % 15    //return units in pints
-             y = Double(t)
-             y = Double(return_remainder(d: y))
-             }
-             else{
-             x = floor( measurement/5)
-             var t = Int(x) % 5    //return units in pints
-             y = Double(t)
-             y = Double(return_remainder(d: y))
-             }
-             */
+           
             masterarray[index].y = 0
             x = Double(masterarray[index].original)!
             x = x * scaling //+ masterarray[index].y
