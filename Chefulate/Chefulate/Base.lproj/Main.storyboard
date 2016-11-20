@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MKg-so-tau">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hpj-dF-TbS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -190,9 +190,6 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Hpj-dF-TbS" kind="show" id="1JZ-bx-KKZ"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chef-title" translatesAutoresizingMaskIntoConstraints="NO" id="mxU-lX-4mb">
                                 <frame key="frameInset" minX="20" minY="26" width="161" height="50"/>
@@ -321,9 +318,6 @@
                                 <state key="normal" title="Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="0Hr-UB-uGu" kind="show" id="22l-yx-Na1"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,9 +402,6 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="MKg-so-tau" kind="show" id="YLf-dn-tQg"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP0-vW-BFS">
                                 <frame key="frameInset" minX="20" minY="123" width="374" height="47"/>
@@ -503,9 +494,6 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="0Hr-UB-uGu" kind="show" id="cgu-bv-r8i"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8I-XG-mKH">
                                 <frame key="frameInset" minX="183" minY="339" width="217" height="30"/>
@@ -1524,10 +1512,7 @@
         <image name="triangle-up" width="1200" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="22l-yx-Na1"/>
-        <segue reference="YLf-dn-tQg"/>
-        <segue reference="1JZ-bx-KKZ"/>
         <segue reference="fyT-12-wjT"/>
-        <segue reference="Bmu-iY-IoE"/>
+        <segue reference="Z81-Ee-7Ap"/>
     </inferredMetricsTieBreakers>
 </document>
