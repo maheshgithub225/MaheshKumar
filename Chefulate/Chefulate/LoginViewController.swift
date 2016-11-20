@@ -27,11 +27,12 @@ class LoginViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondViewController = segue.destination as! SearchViewController
         if segue.identifier == "guestUser" {
+            let secondViewController = segue.destination as! SearchViewController
             secondViewController.UID = UID
             secondViewController.F_Name = F_Name
             secondViewController.L_Name = L_Name
+            print("NAME : \(F_Name)")
             if(UID != 0){
                 secondViewController.guestflag = false
             }
@@ -102,7 +103,8 @@ class LoginViewController: UIViewController {
             alertControl4.addAction(okay)
             self.present(alertControl4, animated: true, completion: nil)
             return
-        } else if data == "Invalid Email" {
+        }
+        if data == "Invalid Email" {
             let alertControl5 = UIAlertController(title: "Login Invalid", message: "Invalid Email", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Okay", style: .destructive){
                 (result : UIAlertAction) in debugPrint("Okay")
@@ -110,19 +112,17 @@ class LoginViewController: UIViewController {
             alertControl5.addAction(okay)
             self.present(alertControl5, animated: true, completion: nil)
             return
-        }else{
-            if data != "Email Does Not Exist" {
-                getUserData()
-                while flag == false{}
-                //performSegue(withIdentifier: "guestUser", sender: nil)
-            }
         }
+        
+        getUserData()
+        
     }
     
     func getUserData(){
         let emailID = self.userName.text!
         let Password = self.password.text!
         self.flag = false
+        var error_flag: Bool = false
 
         let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/15/\(emailID)/\(Password)")
         let config = URLSessionConfiguration.default
@@ -140,14 +140,19 @@ class LoginViewController: UIViewController {
             var json: NSDictionary
             do {
                 json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
-                let obj = json["User"] as! NSDictionary 
-                self.F_Name = obj["First_Name"] as! String
-                self.L_Name = obj["Last_Name"] as! String
-                self.UID = (Int)(obj["UID"] as! String)!
-                self.flag = true
+                let obj = json["User"] as! NSDictionary
+                if(obj["Error"] == nil){
+                    self.F_Name = obj["First_Name"] as! String
+                    self.L_Name = obj["Last_Name"] as! String
+                    self.UID = (Int)(obj["UID"] as! String)!
+                    self.flag = true
+                }
                 print("JSON data returned = \(json)")
             }catch {
                 print("Error serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async{
+                self.performSegue(withIdentifier: "guestUser", sender: nil)
             }
         }
         task.resume()
