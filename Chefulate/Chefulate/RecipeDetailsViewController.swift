@@ -12,9 +12,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
 
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
-    
+    @IBOutlet weak var servingsize : UILabel!
 
     var labelName : String = String()
+    var serving : Int = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
+        servingsize.text = String(serving)
         // Do any additional setup after loading the view.
     }
 

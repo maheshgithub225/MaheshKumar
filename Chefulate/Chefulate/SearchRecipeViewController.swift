@@ -25,6 +25,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     var filteredObjectsArray = [recipes]()
     
     var recipeName : String = String()
+    var servingsize : Int = Int()
     
     var recipes: NSDictionary = [:]
     
@@ -107,6 +108,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
         
         recipeName = cell.R_name!.text! as String
+        servingsize = (Int)(cell.S_Size!.text!)!
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -125,6 +127,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         if segue.identifier == "recipeDetailsView"{
             let recipeDetailsView = segue.destination as! RecipeDetailsViewController
             recipeDetailsView.labelName = recipeName
+            recipeDetailsView.serving = servingsize
         }
 
     }
