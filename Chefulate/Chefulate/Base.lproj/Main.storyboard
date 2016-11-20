@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IZz-X5-KPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hpj-dF-TbS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -896,7 +896,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="jFk-tn-dAA">
-                            <rect key="frame" x="0.0" y="0.0" width="453" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="My recipes" id="812-Uz-PeP">
@@ -1201,6 +1201,10 @@
                                 <state key="normal" backgroundImage="Cancel.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonPushed:" destination="HDz-T0-GNb" eventType="touchUpInside" id="Cus-Zu-0le"/>
+                                    <segue destination="aZU-u2-CcF" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="bam-0B-feQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By clicking Sign Up, you agree to abide to the privacy policy and Terms of Conditions" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mya-nF-nsb" userLabel="accept teerms">
                                 <frame key="frameInset" minX="66" minY="538" width="327" height="74"/>
@@ -1260,9 +1264,11 @@
                         <outlet property="firstName" destination="6gg-rv-uB4" id="5Ag-xs-Xba"/>
                         <outlet property="lastName" destination="O0Y-VM-mZV" id="vIa-2n-QLm"/>
                         <outlet property="password" destination="AA1-Gv-S8W" id="8tu-EY-LYQ"/>
+                        <segue destination="aZU-u2-CcF" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="xtt-Ar-fOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53c-nT-on7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aZU-u2-CcF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="363.768115942029" y="879.61956521739137"/>
         </scene>
@@ -1286,11 +1292,11 @@
         <image name="triangle-up" width="1200" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cgu-bv-r8i"/>
+        <segue reference="izu-xu-nnl"/>
+        <segue reference="1JZ-bx-KKZ"/>
+        <segue reference="fyT-12-wjT"/>
         <segue reference="SEe-df-obL"/>
         <segue reference="DPH-fU-vaY"/>
         <segue reference="piL-J9-rqk"/>
-        <segue reference="1JZ-bx-KKZ"/>
-        <segue reference="sMD-6h-WAZ"/>
     </inferredMetricsTieBreakers>
 </document>
