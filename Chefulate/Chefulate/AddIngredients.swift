@@ -73,8 +73,8 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newRecipe"{
             let addingredview = segue.destination as! NewRecipeViewController
-            addingredview.ingName = value1
-            addingredview.quantity = value2 + " " + value3
+           // addingredview.ingName = value1
+            //addingredview.quantity = value2 + " " + value3
         }
         
     }
