@@ -106,9 +106,12 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         cell.C_Name!.text = "By: \(objectsArray[row].C_Name)"
         cell.Date!.text = objectsArray[row].C_Date
         cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
-        
+        cell.R_name!.textColor = UIColor.white
+        cell.C_Name!.textColor = UIColor.white
+        cell.Date!.textColor = UIColor.white
+        cell.S_Size!.textColor = UIColor.white
         recipeName = cell.R_name!.text! as String
-        servingsize = cell.S_Size!.text!
+        servingsize = "\(objectsArray[row].S_Size)"
         cell.backgroundColor = UIColor.clear
         return cell
     }
