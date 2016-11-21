@@ -20,6 +20,10 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     var value1 : String = String()
     var value2 : String = String()
     var value3 : String = String()
+    var radius : Int = Int()
+    
+    @IBOutlet weak var savebutton: UIButton!
+    @IBOutlet weak var closebutton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,10 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         ingredientName.delegate = self
         ingredientName.text = value
         amount.delegate = self
+        radius = 15
+        savebutton.layer.cornerRadius = CGFloat(radius)
+        closebutton.layer.cornerRadius = CGFloat(radius)
+        pickerData.layer.cornerRadius = CGFloat(radius)
         
         // Do any additional setup after loading the view.
     }

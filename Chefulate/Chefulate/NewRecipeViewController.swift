@@ -12,7 +12,7 @@ import Foundation
 class NewRecipeViewController: UIViewController{
     @IBOutlet weak var RecipeTitle: UITextField!
     @IBOutlet weak var servingSize: UITextField!
-
+    var radius : Int = Int()
     
     var UID: Int = 0
     var U_Full: String = ""

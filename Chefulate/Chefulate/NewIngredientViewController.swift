@@ -11,6 +11,7 @@ import UIKit
 class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     @IBOutlet var cTableView: UITableView!
+    @IBOutlet weak var nextbutton: UIButton!
     
     struct ingredients{
         let I_ID: Int
@@ -19,13 +20,13 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let I_Unit: String
     }
     var data_array = [ingredients]()
-    
+    var radius : Int = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
         cTableView.delegate = self
         cTableView.dataSource = self
         cTableView.backgroundColor = UIColor.clear
-
+        nextbutton.layer.cornerRadius = CGFloat(radius)
         // Do any additional setup after loading the view.
     }
 

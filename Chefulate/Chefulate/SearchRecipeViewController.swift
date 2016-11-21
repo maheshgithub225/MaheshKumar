@@ -20,7 +20,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         let S_Size: Int
         let C_Date: String
     }
-    
+    var radius : Int = Int()
     var objectsArray = [recipes]()
     var filteredObjectsArray = [recipes]()
     

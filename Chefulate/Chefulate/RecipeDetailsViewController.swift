@@ -14,7 +14,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var servingsize : UILabel!
-    
+    var radius : Int = Int()
     struct Ingedients_List{
         let I_ID: Int
         let I_Name: String

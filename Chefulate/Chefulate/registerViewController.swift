@@ -15,14 +15,21 @@ class registerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var signupbutton: UIButton!
+    @IBOutlet weak var cancelbutton: UIButton!
+    
+    var radius : Int = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radius = 15
         firstName.delegate = self
         password.delegate = self
         confirmPassword.delegate = self
         email.delegate = self
         confirmEmail.delegate = self
+        signupbutton.layer.cornerRadius = CGFloat(radius)
+        cancelbutton.layer.cornerRadius = CGFloat(radius)
     }
     @IBAction func signUpButton(_ sender: AnyObject) {
         if(firstName.text?.isEmpty)!{

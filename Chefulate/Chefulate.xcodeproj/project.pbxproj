@@ -279,11 +279,11 @@
 				BDDCC8B71DAD42400003D984 /* ViewController.swift */,
 				BDDCC8BF1DAD42400003D984 /* Assets.xcassets */,
 				BDDCC8BC1DAD42400003D984 /* Chefulate.xcdatamodeld */,
-				3625E87D1DE10BBF00236D63 /* docs */,
 				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
 				CD2362851DE36BDC008076C0 /* CircualrTransition.swift */,
 				CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */,
+				3625E87D1DE10BBF00236D63 /* docs */,
 				93A8317A1DB37510002BF8DE /* pics */,
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
 			);

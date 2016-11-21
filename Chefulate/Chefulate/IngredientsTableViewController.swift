@@ -12,8 +12,10 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
     var json : NSDictionary  = NSDictionary()
     var ingredients : NSDictionary = NSDictionary()
     
+    @IBOutlet weak var backbutton: UIButton!
+    @IBOutlet weak var selectbutton: UIButton!
     @IBOutlet weak var ingredientsTableView: UITableView!
-    
+    var radius : Int = Int()
     struct ingredients_list{
         let I_ID: Int
         let I_Name: String
@@ -34,6 +36,10 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         self.ingredientsTableView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        radius = 15
+        selectbutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = CGFloat(radius)
+
         getIngredients()
         
     }

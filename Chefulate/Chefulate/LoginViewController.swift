@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import QuartzCore
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,6 +17,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         userName.delegate = self
         password.delegate = self
         flag = false
+        
+        signInbutton.layer.cornerRadius = 15
+        signInbutton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var userName: UITextField!
@@ -27,6 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var F_Name = "Guest"
     var L_Name = ""
     
+    @IBOutlet weak var signInbutton: UIButton!
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

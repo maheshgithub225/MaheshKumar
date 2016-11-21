@@ -13,7 +13,10 @@ import UIKit
 class conversiontable: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
     
-    
+    @IBOutlet weak var backbutton: UIButton!
+    @IBOutlet weak var calculatebutton: UIImageView!
+    @IBOutlet weak var loadrecipebutton: UIButton!
+    var radius : Int = Int()
     @IBOutlet weak var viewc: UITableView!
     
     @IBOutlet weak var stepper: UIStepper!
@@ -50,7 +53,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         viewc.delegate = self
         viewc.dataSource = self
         self.hideKeyboardWhenTappedAround()
-         
+        radius = 15
+        calculatebutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = CGFloat(radius)
+        loadrecipebutton.layer.cornerRadius = CGFloat(radius)
            }
     
     

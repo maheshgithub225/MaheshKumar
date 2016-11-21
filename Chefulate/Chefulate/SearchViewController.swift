@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var nav: UINavigationBar!
     @IBOutlet weak var myRecipes: UIButton!
     @IBOutlet weak var newRecipe: UIButton!
+    @IBOutlet weak var FirstNamelabel: UILabel!
+    @IBOutlet weak var logoutbutton: UIButton!
     
     var UID: Int = 0
     var F_Name: String = ""
@@ -22,12 +24,18 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoutbutton.layer.cornerRadius = 15
         if guestflag == true{
             myRecipes.isEnabled = false
             newRecipe.isEnabled = false
             myRecipes.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
             newRecipe.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
+            FirstNamelabel.text = "Guest User"
+            FirstNamelabel.textColor = UIColor.white
+            FirstNamelabel.font = UIFont(name: "Verdana", size: 25)
         }
+        
         // Do any additional setup after loading the view.
     }
     let alertControl1 = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)

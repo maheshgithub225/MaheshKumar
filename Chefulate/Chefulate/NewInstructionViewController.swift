@@ -12,10 +12,17 @@ class NewInstructionViewController: UIViewController {
 
     @IBOutlet var cTableView: UITableView!
 
-    
+    @IBOutlet weak var addinstructionbutton: UIButton!
+    @IBOutlet weak var backbutton: UIButton!
+    @IBOutlet weak var saveinstruction: UIButton!
+    var radius : Int = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radius = 15
+        addinstructionbutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = CGFloat(radius)
+        saveinstruction.layer.cornerRadius = CGFloat(radius)
 
         // Do any additional setup after loading the view.
     }

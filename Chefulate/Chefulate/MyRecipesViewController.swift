@@ -10,8 +10,9 @@ import UIKit
 
 class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var backbutton: UIButton!
     @IBOutlet var TableViewCustom: UITableView!
-    
+    var radius : Int = Int()
     struct recipes{
         let C_ID: Int
         let R_ID: Int
@@ -35,7 +36,9 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         TableViewCustom.dataSource = nil
         downloadData()
         TableViewCustom.backgroundColor = UIColor.clear
-    
+        radius = 15
+       
+        backbutton.layer.cornerRadius = CGFloat(radius)
     // Do any additional setup after loading the view.
     }
     
