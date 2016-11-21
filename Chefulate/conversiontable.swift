@@ -27,6 +27,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var totalprice: UILabel!
     
     
+    @IBOutlet weak var destext: UILabel!
     
     
     
@@ -35,7 +36,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     var g:String = ""
     var counter = 0
     var count = 2
-   
+    var popuptext:String = ""
     var countertwo = 0
     var counterthree = 1
     var id:String = "0"
@@ -63,7 +64,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any!){
         if segue.destination is recipelisttwo{
-            
+            destext.text = ""
             counterthree=1
             masterarray.removeAll()
         }
@@ -117,6 +118,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
    
     @IBAction func stepaction(_ sender: UIStepper) {
+        
         steplabel.text = "\(stepper.value)"
         let serving = Double(servingsize.text!)
         scaling = stepper.value / serving!
@@ -128,9 +130,50 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
  
     
-    
+    func promptForAnswer(number: Int) {
+        let ac = UIAlertController(title: "update price", message: nil, preferredStyle: .alert)
+       
+        ac.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = "Enter price per unit"
+            
+            textField.keyboardType = UIKeyboardType.numberPad
+        })
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            _ = ac.textFields![0]
+            
+            self.popuptext = "\(ac.textFields![0].text)"
+            print("EEEEEE")
+            print (self.popuptext)
+            var fa = self.popuptext.characters.split{$0 == "\""}.map(String.init)
+            print("TTTTTTTTTT")
+            print(fa[0])
+            self.masterarray[number].manual = Double(fa[1])!
+            
+            
+            let E:Double = Double(self.masterarray[number].quantity)!
+            let w:Double = self.masterarray[number].manual * E
+            self.masterarray[number].manual = w
+            self.masterarray[number].cost =  w
+            self.init_total()
+             self.viewc.reloadData()
+        }
+        //kflagthree = 1
+        ac.addAction(submitAction)
+        
+        present(ac, animated: true)
+    }
  
-    
+     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        print("ASDASD")
+        if(masterarray.count != 0){
+        promptForAnswer(number: indexPath[1])
+        
+        masterarray[indexPath[1]].ispressed = true
+        destext.text = "load the recipe again to change to Walmart prices"
+        }
+        
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
@@ -253,16 +296,21 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func init_total(){
         var z:Double = 0
-        var w:Double = 0
+        let w:Double = 0
         var ultracounter:Double = 0
         for index in stride(from: 0, to: self.counter, by: +1) {
+            
         if masterarray.count != 0{
+            
             z = masterarray[index].original_cost
-        }
+            if masterarray[index].ispressed == true{
+            
+            z = masterarray[index].manual
+            }
+            }
         else{
             z = 0
-        }
-        
+            }
         print("secondtext")
         print(z)
       
@@ -289,8 +337,12 @@ print("ulta")
         var w:Double = 0
         var ultracounter:Double = 0
         for index in stride(from: 0, to: self.counter, by: +1) {
+            if masterarray[index].ispressed == true {
+                z = masterarray[index].manual
+            }
+            else{
            z = masterarray[index].original_cost
-          
+            }
             w = z * scaling
             masterarray[index].cost = w
             ultracounter = ultracounter + w

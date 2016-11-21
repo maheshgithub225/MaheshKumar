@@ -24,6 +24,8 @@ class recipe_ingredient{
     var cost_measurement = ""
     var cost:Double = 0
     var original_cost:Double = 0
+    var ispressed:Bool = false
+    var manual:Double = 0
     init(init_ingredient: String, init_measurement:String,init_quantity: String,init_original:String,init_cost_measurement:String, init_cost:Double){
         self.ingredient = init_ingredient
         self.measurement = init_measurement

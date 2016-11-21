@@ -29,7 +29,7 @@ class recipelisttwo: UITableViewController {
             
             
         
-         var when = DispatchTime.now() + 2
+         let when = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.selectdb()
             
@@ -229,12 +229,21 @@ class recipelisttwo: UITableViewController {
                         var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
                         var ta = fullNameArr[4].characters.split{$0 == "\""}.map(String.init)
                         print("TTTTT")
-                        print("\(ta[3])")
+                        var string:String = ""
+                        if ta.count <= 3 {
+                             var taa = ta[2].characters.split{$0 == " "}.map(String.init)
+                        string = taa[1]
+                        }
+                        else{
+                            
+                            string = ta[3]
+                        }
+                        //print("\(ta[3])")
                         print("TTTTT")
                         
                         print("TTTTT")
                         print("\(fa[3])")
-                        let recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: ta[3], init_serving_size: fa[3])
+                        let recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: string, init_serving_size: fa[3])
                         self.masterarray.append(recipe)
                         
                     }
