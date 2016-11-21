@@ -12,6 +12,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
 
     @IBOutlet var TableViewCustom: UITableView!
     
+    @IBOutlet weak var homebutton: UIButton!
     struct recipes{
         let C_ID: Int
         let R_ID: Int
@@ -35,7 +36,8 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         TableViewCustom.dataSource = nil
         downloadData()
         TableViewCustom.backgroundColor = UIColor.clear
-        
+        radius = 15
+        homebutton.layer.cornerRadius = CGFloat(radius)
         // Do any additional setup after loading the view.
     }
   
