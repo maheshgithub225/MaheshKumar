@@ -16,7 +16,7 @@ class NewRecipeViewController: UIViewController{
     
     var UID: Int = 0
     var U_Full: String = ""
-    
+    var R_ID: Int = 0
     struct instructions{
         let I_ID: Int
         let I_Data: String
@@ -49,19 +49,13 @@ class NewRecipeViewController: UIViewController{
     func addRecipeData(){
         let R_Name = RecipeTitle.text!
         let S_Size = servingSize.text!
-        let tDateF = NSDate()
-        let cal = NSCalendar.current
-        let comp = cal.dateComponents([.year,.day,.month], from: tDateF as Date)
-        var month: String = "\(comp.month!)"
-        var day: String = "\(comp.day!)"
-        if(comp.month! < 10){
-            month = "0\(comp.month!)"
-        }
-        if(comp.day! < 10){
-            day = "0\(comp.day!)"
-        }
-        let date = "\(comp.year!)-\(month)-\(day)"
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_Name)/\(U_Full)/\(UID)/\(date)/\(S_Size)")!
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date_formatted = formatter.string(from: date)
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_Name)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
         print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -82,6 +76,7 @@ class NewRecipeViewController: UIViewController{
                 print("Error Serializing JSON data : \(error)")
             }
             DispatchQueue.main.async{
+                self.getID()
                 //self.performSegue(withIdentifier: "guestUser", sender: nil)
             }
         }
@@ -90,6 +85,42 @@ class NewRecipeViewController: UIViewController{
     
         task.resume()
     }
+    
+    func getID(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/18/\(UID)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON test data returned : \(json)")
+                self.R_ID = (Int)(json!["Recipie_ID"] as! String)!
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async{
+                self.performSegue(withIdentifier: "guestUser", sender: nil)
+            }
+        }
+        
+        
+        
+        task.resume()
+    }
+    
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewRecipeViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
