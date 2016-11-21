@@ -13,6 +13,7 @@
 		2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */; };
 		3625E87F1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */; };
 		365742191DE2206200A61361 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365742181DE2206200A61361 /* TermsViewController.swift */; };
+		5CC4A216DF311CB8F39FD66A /* Pods_Chefulate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA00FC12595BDB127F51E6E /* Pods_Chefulate.framework */; };
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
 		93A831801DB37607002BF8DE /* drawsignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A8317F1DB37607002BF8DE /* drawsignin.swift */; };
 		93D9DBA61DB41F3A00E2140B /* squircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9DBA51DB41F3A00E2140B /* squircle.png */; };
@@ -61,6 +62,8 @@
 		CD23627C1DE0C31A008076C0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627B1DE0C31A008076C0 /* TabViewController.swift */; };
 		CD23627E1DE23DC6008076C0 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */; };
 		CD2362801DE27D5E008076C0 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */; };
+		CD2362841DE3634E008076C0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CD2362831DE3634E008076C0 /* Podfile */; };
+		CD2362861DE36BDC008076C0 /* CircualrTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2362851DE36BDC008076C0 /* CircualrTransition.swift */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
@@ -86,12 +89,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		078479EA274A68F0030454C0 /* Pods-Chefulate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefulate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chefulate/Pods-Chefulate.debug.xcconfig"; sourceTree = "<group>"; };
 		2F0F2B0D1DD1A3CE0070F03F /* arrows.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows.PNG; sourceTree = "<group>"; };
 		2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipe_conversion.swift; sourceTree = "<group>"; };
 		2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipelisttwo.swift; sourceTree = "<group>"; };
 		2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversiontable.swift; path = ../conversiontable.swift; sourceTree = "<group>"; };
 		3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Chefulate Terms and Conditions of Use.pdf"; sourceTree = "<group>"; };
 		365742181DE2206200A61361 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsViewController.swift; path = ../TermsViewController.swift; sourceTree = "<group>"; };
+		4FA00FC12595BDB127F51E6E /* Pods_Chefulate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefulate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
 		93A8317F1DB37607002BF8DE /* drawsignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drawsignin.swift; sourceTree = "<group>"; };
 		93D9DBA51DB41F3A00E2140B /* squircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squircle.png; sourceTree = "<group>"; };
@@ -121,6 +126,7 @@
 		BDDCC8DA1DAD42400003D984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDFACEF01DE24A7A00A64C63 /* NewIngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewIngredientViewController.swift; sourceTree = "<group>"; };
 		BDFACEF21DE24AA000A64C63 /* NewInstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInstructionViewController.swift; sourceTree = "<group>"; };
+		C071CFDAED32028BDEDB511D /* Pods-Chefulate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefulate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chefulate/Pods-Chefulate.release.xcconfig"; sourceTree = "<group>"; };
 		CD23623B1DDFBBAE008076C0 /* button-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-3.png"; sourceTree = "<group>"; };
 		CD23623C1DDFBBAE008076C0 /* button-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-4.png"; sourceTree = "<group>"; };
 		CD23623D1DDFBBAE008076C0 /* button-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-7.png"; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 		CD23627B1DE0C31A008076C0 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		CD2362831DE3634E008076C0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		CD2362851DE36BDC008076C0 /* CircualrTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircualrTransition.swift; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC4A216DF311CB8F39FD66A /* Pods_Chefulate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +187,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A3DC6FB58F4BAD6B6358076 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				078479EA274A68F0030454C0 /* Pods-Chefulate.debug.xcconfig */,
+				C071CFDAED32028BDEDB511D /* Pods-Chefulate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +211,14 @@
 				3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */,
 			);
 			name = docs;
+			sourceTree = "<group>";
+		};
+		5D915C145E4A416EAF948E45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FA00FC12595BDB127F51E6E /* Pods_Chefulate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		93A8317A1DB37510002BF8DE /* pics */ = {
@@ -238,6 +264,8 @@
 				BDDCC8CC1DAD42400003D984 /* ChefulateTests */,
 				BDDCC8D71DAD42400003D984 /* ChefulateUITests */,
 				BDDCC8B31DAD42400003D984 /* Products */,
+				2A3DC6FB58F4BAD6B6358076 /* Pods */,
+				5D915C145E4A416EAF948E45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +282,7 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
+				CD2362831DE3634E008076C0 /* Podfile */,
 				BDDCC8C41DAD42400003D984 /* Info.plist */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
@@ -280,6 +309,7 @@
 				3625E87D1DE10BBF00236D63 /* docs */,
 				BDDCC8C11DAD42400003D984 /* LaunchScreen.storyboard */,
 				BDDCC8B91DAD42400003D984 /* Main.storyboard */,
+				CD2362851DE36BDC008076C0 /* CircualrTransition.swift */,
 				CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */,
 				93A8317A1DB37510002BF8DE /* pics */,
 				2F0F2B0C1DD1A14F0070F03F /* Resizing draw files */,
@@ -312,9 +342,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDDCC8DD1DAD42400003D984 /* Build configuration list for PBXNativeTarget "Chefulate" */;
 			buildPhases = (
+				96877194D58122CAB0916502 /* [CP] Check Pods Manifest.lock */,
 				BDDCC8AE1DAD42400003D984 /* Sources */,
 				BDDCC8AF1DAD42400003D984 /* Frameworks */,
 				BDDCC8B01DAD42400003D984 /* Resources */,
+				4B99D69E6E4EDA42BD3C980B /* [CP] Embed Pods Frameworks */,
+				7BF9AD588EE86350C757AD16 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -412,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2362841DE3634E008076C0 /* Podfile in Resources */,
 				93A8317C1DB37526002BF8DE /* darkred.png in Resources */,
 				CD23625D1DDFBBAE008076C0 /* MainMenu.png in Resources */,
 				CD23625E1DDFBBAE008076C0 /* Menu.png in Resources */,
@@ -464,6 +498,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B99D69E6E4EDA42BD3C980B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chefulate/Pods-Chefulate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BF9AD588EE86350C757AD16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chefulate/Pods-Chefulate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96877194D58122CAB0916502 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BDDCC8AE1DAD42400003D984 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -478,6 +560,7 @@
 				2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */,
 				CD23627C1DE0C31A008076C0 /* TabViewController.swift in Sources */,
 				93A831801DB37607002BF8DE /* drawsignin.swift in Sources */,
+				CD2362861DE36BDC008076C0 /* CircualrTransition.swift in Sources */,
 				CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */,
 				BDFACEF31DE24AA000A64C63 /* NewInstructionViewController.swift in Sources */,
 				93D9DBB81DB5F77A00E2140B /* draw_register_view.swift in Sources */,
@@ -640,6 +723,7 @@
 		};
 		BDDCC8DE1DAD42400003D984 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 078479EA274A68F0030454C0 /* Pods-Chefulate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Chefulate/Info.plist;
@@ -652,6 +736,7 @@
 		};
 		BDDCC8DF1DAD42400003D984 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C071CFDAED32028BDEDB511D /* Pods-Chefulate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Chefulate/Info.plist;

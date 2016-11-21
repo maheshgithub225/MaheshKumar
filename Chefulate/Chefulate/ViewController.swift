@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var appname: UIImageView!
     @IBOutlet weak var applogo: UIImageView!
-    
+    let transition = CircularTransition()
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIView.animateKeyframes(withDuration: 0.8, delay: 0.5, options: .autoreverse, animations:{
+        UIView.animateKeyframes(withDuration: 0.8, delay: 0.5, options: .autoreverse, animations:{ 
             self.applogo.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             },
                                 completion: {(finished) -> Void in
@@ -26,7 +26,31 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginScreen"{
+        let secondVC = segue.destination as! LoginViewController
+        secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+        }
+    }
     
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = applogo.center
+        transition.circleColor = UIColor.white
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = applogo.center
+        transition.circleColor = UIColor.white
+        
+        return transition
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
