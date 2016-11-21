@@ -14,7 +14,8 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     @IBOutlet weak var backbutton: UIButton!
-    @IBOutlet weak var calculatebutton: UIImageView!
+    
+    @IBOutlet weak var calculatebutton: UIButton!
     @IBOutlet weak var loadrecipebutton: UIButton!
     var radius : Int = Int()
     @IBOutlet weak var viewc: UITableView!

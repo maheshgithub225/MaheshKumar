@@ -42,12 +42,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
-        servingsize.text = " Serving Size: \(serving)"
+        servingsize.text = "Serving Size: \(serving)"
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         // Do any additional setup after loading the view.
     }
     func downloadIngredients(){
-        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
+        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/")!
         let url_request = URLRequest(url: url_download_data)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
