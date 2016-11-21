@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
         transition.startingPoint = applogo.center
-        transition.circleColor = UIColor.white
+        transition.circleColor = UIColor.black
         
         return transition
     }
