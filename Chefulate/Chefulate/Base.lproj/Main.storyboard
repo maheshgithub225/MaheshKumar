@@ -803,7 +803,7 @@
                         <color key="backgroundColor" red="0.56421793190000002" green="0.061557677769999999" blue="0.1178101451" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="amount" destination="Zji-Qb-6jG" id="ta2-RI-f8L"/>
+                        <outlet property="amount" destination="Zji-Qb-6jG" id="jsq-Wn-I8n"/>
                         <outlet property="closebutton" destination="X74-YC-vAz" id="Ks9-cX-ubW"/>
                         <outlet property="ingredientName" destination="Vhw-FZ-vQH" id="qHt-HQ-nqf"/>
                         <outlet property="pickerData" destination="jra-vC-XRP" id="Fl9-iB-hHx"/>
@@ -1103,7 +1103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="jFk-tn-dAA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="My recipes" id="812-Uz-PeP">
@@ -1654,6 +1654,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vG9-Lc-iUz"/>
-        <segue reference="Z81-Ee-7Ap"/>
+        <segue reference="Bmu-iY-IoE"/>
     </inferredMetricsTieBreakers>
 </document>
