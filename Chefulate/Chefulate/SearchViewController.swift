@@ -30,7 +30,17 @@ class SearchViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-
+    let alertControl1 = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+    let Cancel = UIAlertAction(title: "Cancel", style: .destructive){
+        (result : UIAlertAction) in debugPrint("Okay")
+    }
+    @IBAction func logout(_ sender: AnyObject) {
+        
+        let Confirm = UIAlertAction(title: "Confirm", style: .destructive, handler: { (action: UIAlertAction!) in self.performSegue(withIdentifier: "backTologin", sender: self)})
+        alertControl1.addAction(Confirm)
+        alertControl1.addAction(Cancel)
+        self.present(alertControl1, animated: true, completion: nil)
+    }
     @IBAction func homeUnwind(segue: UIStoryboardSegue){
         print("Home")
     }
