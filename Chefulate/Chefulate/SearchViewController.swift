@@ -35,6 +35,15 @@ class SearchViewController: UIViewController {
             FirstNamelabel.text = "Guest User"
             FirstNamelabel.textColor = UIColor.white
             FirstNamelabel.font = UIFont(name: "Verdana", size: 25)
+        }else{
+            if("\(F_Name) \(L_Name)" == "Team Chefulate"){
+                FirstNamelabel.text = "Team Chefulate"
+
+            }else{
+                FirstNamelabel.text = F_Name
+            }
+            FirstNamelabel.textColor = UIColor.white
+            FirstNamelabel.font = UIFont(name: "Verdana", size: 25)
         }
         
         // Do any additional setup after loading the view.
