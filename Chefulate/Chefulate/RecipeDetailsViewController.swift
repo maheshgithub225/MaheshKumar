@@ -9,6 +9,7 @@
 import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var imageView: UIImageView!
 
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
@@ -42,7 +43,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
         servingsize.text = " Serving Size: \(serving)"
-        
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
         // Do any additional setup after loading the view.
     }
     func downloadIngredients(){

@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     let transition = CircularTransition()
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIView.animateKeyframes(withDuration: 0.8, delay: 0.5, options: .autoreverse, animations:{ 
+        UIView.animateKeyframes(withDuration: 0.8, delay: 0.5, animations:{ 
             self.applogo.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             },
                                 completion: {(finished) -> Void in
