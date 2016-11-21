@@ -13,6 +13,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet var cTableView: UITableView!
     @IBOutlet weak var nextbutton: UIButton!
     
+    var R_ID:Int = 0
+    
     struct ingredients{
         let I_ID: Int
         let I_Name: String
@@ -23,6 +25,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     var radius : Int = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print( "RID = \(R_ID)")
         cTableView.delegate = self
         cTableView.dataSource = self
         cTableView.backgroundColor = UIColor.clear

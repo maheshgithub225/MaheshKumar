@@ -28,7 +28,10 @@ class NewRecipeViewController: UIViewController{
         super.viewDidLoad()
     }
     
-    @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){}
+    @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){
+        print("Test un")
+        deleteRecipe()
+    }
     @IBAction func unwindToNewRecipeFromInstView(segue: UIStoryboardSegue){}
     
     
@@ -106,16 +109,45 @@ class NewRecipeViewController: UIViewController{
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
+            DispatchQueue.main.async {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "NewIng") as! NewIngredientViewController
+                vc.R_ID = self.R_ID
+                self.present(vc, animated: true, completion: nil)
+                
+            }
         }
-        
-        
-        
         task.resume()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Test \(R_ID)")
+    func deleteRecipe(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/9/\(R_ID)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(json)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+        }
+        task.resume()
     }
+    
+    
     
     
     func hideKeyboardWhenTappedAround() {
