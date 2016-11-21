@@ -90,7 +90,15 @@ class NewRecipeViewController: UIViewController{
     
         task.resume()
     }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewRecipeViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     
     /*
      // MARK: - Navigation

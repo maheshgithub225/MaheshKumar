@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeInstructionsViewController: UIViewController {
+class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var instruction1: UITextView!
     
@@ -36,6 +36,7 @@ class RecipeInstructionsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        instruction1.delegate = self
        instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         instruction2.backgroundColor = UIColor(white: 1, alpha: 0.5)
         instruction3.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -45,6 +46,21 @@ class RecipeInstructionsViewController: UIViewController {
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        instruction1.resignFirstResponder()
+        
+        return true
+    }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RecipeInstructionsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     /*
     // MARK: - Navigation
 

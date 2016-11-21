@@ -27,6 +27,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         pickerData.delegate = self
         ingredientName.delegate = self
         ingredientName.text = value
+        amount.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -92,6 +93,23 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return PickerData.count
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        amount.resignFirstResponder()
+        ingredientName.resignFirstResponder()
+        return true
+    }
+
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddIngredients.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    
     //    func addIngredientData(){
     //        let IngredName = self.ingredientName.text!
     //        let quantity = self.amount.text!

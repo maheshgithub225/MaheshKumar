@@ -105,7 +105,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.instructionsArray.append(Instructions_List(In_ID: (Int)(obj["Ingredient_ID"] as! String)!, In_Name: obj["Ingredient_Name"]! as! String))
+                    self.instructionsArray.append(Instructions_List(In_ID: (Int)(obj["Instruction_ID"] as! String)!, In_Name: obj["Instruction_Name"]! as! String))
                     
                 }
                 self.recipeDetailsTableView.dataSource = self
@@ -155,11 +155,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let sec = indexPath.section
         let row = indexPath.row
-        
-        cell.textLabel?.text = objectsArray[row].I_Name
-        cell.detailTextLabel?.text = "\(objectsArray[row].I_Amount) \(objectsArray[row].I_Units)"
-        cell.backgroundColor = UIColor.clear
+        if sec == 0 {
+            cell.textLabel?.text = objectsArray[row].I_Name
+            cell.detailTextLabel?.text = "\(objectsArray[row].I_Amount) \(objectsArray[row].I_Units)"
+            cell.backgroundColor = UIColor.clear
+        }
+        if sec == 1 {
+            cell.textLabel?.text = objectsArray[row].I_Name
+            cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
+            cell.backgroundColor = UIColor.clear
+        }
         return cell
     }
 

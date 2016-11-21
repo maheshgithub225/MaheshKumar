@@ -138,6 +138,26 @@ class registerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func unwindToRegistration(segue: UIStoryboardSegue) {}
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        email.resignFirstResponder()
+        password.resignFirstResponder()
+        firstName.resignFirstResponder()
+        lastName.resignFirstResponder()
+        confirmEmail.resignFirstResponder()
+        confirmPassword.resignFirstResponder()
+        return true
+    }
+
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(registerViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

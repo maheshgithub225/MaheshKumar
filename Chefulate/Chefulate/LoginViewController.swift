@@ -9,10 +9,12 @@
 import UIKit
 import Foundation
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userName.delegate = self
+        password.delegate = self
         flag = false
         // Do any additional setup after loading the view.
     }
@@ -25,7 +27,8 @@ class LoginViewController: UIViewController {
     var F_Name = "Guest"
     var L_Name = ""
     
-    
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "guestUser" {
             let secondViewController = segue.destination as! SearchViewController
@@ -163,14 +166,15 @@ class LoginViewController: UIViewController {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
+        userName.resignFirstResponder()
+        password.resignFirstResponder()
         return true
     }
     
-    //    func hideKeyboardWhenTappedAround() {
-    //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(conversiontable.dismissKeyboard))
-    //        view.addGestureRecognizer(tap)
-    //    }
+    func hideKeyboardWhenTappedAround() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+            view.addGestureRecognizer(tap)
+        }
     
     func dismissKeyboard() {
         view.endEditing(true)
