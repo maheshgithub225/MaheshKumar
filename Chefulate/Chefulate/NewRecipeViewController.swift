@@ -106,10 +106,6 @@ class NewRecipeViewController: UIViewController{
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
-            DispatchQueue.main.async{
-                let ingredients:NewIngredientViewController = NewIngredientViewController()
-                self.present(ingredients, animated: true, completion: nil)
-            }
         }
         
         
@@ -118,7 +114,7 @@ class NewRecipeViewController: UIViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Test")
+        print("Test \(R_ID)")
     }
     
     

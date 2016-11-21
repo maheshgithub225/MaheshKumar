@@ -556,7 +556,6 @@
                                 </state>
                                 <connections>
                                     <action selector="submitRecipe:" destination="khf-Sw-aXj" eventType="touchUpInside" id="CSz-1B-31Q"/>
-                                    <segue destination="YsU-V6-2Cq" kind="show" identifier="newIng" id="tXk-OK-a9M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkw-dW-wGY">
@@ -1104,7 +1103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="jFk-tn-dAA">
-                            <rect key="frame" x="0.0" y="0.0" width="453" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="My recipes" id="812-Uz-PeP">
@@ -1431,7 +1430,7 @@
         <!--New Ingredient View Controller-->
         <scene sceneID="duo-6N-ckW">
             <objects>
-                <viewController id="YsU-V6-2Cq" customClass="NewIngredientViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewIng" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YsU-V6-2Cq" customClass="NewIngredientViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NfV-6Y-zqv"/>
                         <viewControllerLayoutGuide type="bottom" id="zz5-ef-hAB"/>
@@ -1510,9 +1509,6 @@
                                 <state key="normal" title="Continue To Instructions">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="MR9-kj-z7a" kind="show" identifier="newIns" id="2eB-yI-aF8"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chef-title" translatesAutoresizingMaskIntoConstraints="NO" id="lqH-HY-RXt">
                                 <frame key="frameInset" minX="167" minY="19" width="161" height="50"/>
@@ -1537,7 +1533,7 @@
         <!--New Instruction View Controller-->
         <scene sceneID="Z9S-sj-9TY">
             <objects>
-                <viewController id="MR9-kj-z7a" customClass="NewInstructionViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewIns" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MR9-kj-z7a" customClass="NewInstructionViewController" customModule="Chefulate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Atf-kg-6XD"/>
                         <viewControllerLayoutGuide type="bottom" id="FYm-lC-F6A"/>
