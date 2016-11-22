@@ -12,10 +12,12 @@ class TermsViewController: UIViewController {
 
     @IBOutlet var webView: UIWebView!
     
-    
+    var radius : Int = Int()
+    @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        radius = 15
+        closeButton.layer.cornerRadius = CGFloat(radius)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "redcurtain.jpg")!)
         // Do any additional setup after loading the view.
         let url = NSURL (string: "https://cs.okstate.edu/~jtsutto/terms.pdf");

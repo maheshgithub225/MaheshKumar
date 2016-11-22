@@ -830,13 +830,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="PjC-ZX-Ucm" id="Jm6-vS-guh"/>
                         <outlet property="webView" destination="56L-2v-QNO" id="pSm-g6-tIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54s-Et-LuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SK9-Ml-N8k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="363.768115942029" y="1581.521739130435"/>
+            <point key="canvasLocation" x="1093" y="1582"/>
         </scene>
         <!--Add Ingredients-->
         <scene sceneID="AN7-Sd-BdN">
@@ -955,7 +956,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83k-bp-Scp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yrz-ue-Qj8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1092.753623188406" y="2295.6521739130435"/>
+            <point key="canvasLocation" x="1822" y="2296"/>
         </scene>
         <!--Ingredients Table View Controller-->
         <scene sceneID="1Qe-O5-jPg">
@@ -1049,7 +1050,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdQ-37-1MU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fc4-W0-B52" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="2950"/>
+            <point key="canvasLocation" x="1822" y="2955"/>
         </scene>
         <!--Conversiontable-->
         <scene sceneID="WBY-HT-K3o">
@@ -1387,7 +1388,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQe-AX-koG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="C8Y-XP-5bA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1821.7391304347827" y="2295.6521739130435"/>
+            <point key="canvasLocation" x="2554" y="2296"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1674,7 +1675,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWu-Bq-374" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lQ9-gT-ufc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1092.753623188406" y="1581.521739130435"/>
+            <point key="canvasLocation" x="1822" y="1582"/>
         </scene>
         <!--New Instruction View Controller-->
         <scene sceneID="Z9S-sj-9TY">
@@ -1783,7 +1784,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8y-hl-Afm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Znq-qN-wKu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1823.1884057971015" y="1580.7065217391305"/>
+            <point key="canvasLocation" x="2555" y="1582"/>
         </scene>
     </scenes>
     <resources>
