@@ -33,6 +33,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     
     struct ingRP{
         let I_ID: Int
+        let RI_ID: Int
         let I_Quant: Int
         let I_Unit: String
     }
@@ -86,22 +87,33 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
-    }
-    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
-        let row = indexPath.row
-        print(data_array[row])
     }
+    
+    // Override to support conditional editing of the table view.
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteRIIDFromDB(id: ingRP_array[indexPath.row].RI_ID)
+            ingRP_array.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    
     
     @IBAction func unwindToIng(segue: UIStoryboardSegue) {
         ingRP_array.removeAll()
         ingDB_array.removeAll()
-        self.downloadIngredientsFromRecipe()
+        self.downloadIngredientsList()
     }
-    
-    
     
     func downloadIngredientsFromRecipe(){
         let urlString = "https://cs.okstate.edu/~jtsutto/services.php/19/\(R_ID)"
@@ -127,7 +139,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
                 if(jsonResult?.count != nil){
                     for x in (1...(Int)((jsonResult?.count)!)){
                         let obj = jsonResult?["\(x)"] as! NSDictionary
-                        self.ingRP_array.append(ingRP(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Quant: (Int)(obj["Quantity"] as! String)!, I_Unit: obj["Ingredient_Measurement"] as! String))
+                        self.ingRP_array.append(ingRP(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, RI_ID: (Int)(obj["RI_ID"] as! String)!, I_Quant: (Int)(obj["Quantity"] as! String)!, I_Unit: obj["Ingredient_Measurement"] as! String))
                     
                     }
                 }
@@ -135,9 +147,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
                 print("Error Serializing JSON data : \(error)")
             }
             DispatchQueue.main.async {
-                self.populateData()
                 self.cTableView.reloadData()
-
+                self.populateData()
             }
         }
         task.resume()
@@ -165,7 +176,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 for x in (1...(Int)((json?.count)!)){
                     let obj = json?["\(x)"] as! NSDictionary
-                    self.ingDB_array.append(ingDB(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"] as! String))
+                    self.ingDB_array.append(ingDB(I_ID: (Int)(obj["Ingredient_ID"] as! String)!,I_Name: obj["Ingredient_Name"] as! String))
                 }
                 print(self.ingDB_array)
     
