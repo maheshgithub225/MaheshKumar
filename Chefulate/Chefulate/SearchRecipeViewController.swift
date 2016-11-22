@@ -12,6 +12,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
 
     @IBOutlet var TableViewCustom: UITableView!
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var homebutton: UIButton!
     struct recipes{
         let C_ID: Int
@@ -27,7 +28,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     
     var recipeName : String = String()
     var servingsize : String = String()
-    
+    var recipeID : Int = Int()
     var recipes: NSDictionary = [:]
     
     override func viewDidLoad() {
@@ -114,6 +115,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         cell.S_Size!.textColor = UIColor.white
         recipeName = cell.R_name!.text! as String
         servingsize = "\(objectsArray[row].S_Size)"
+        recipeID = objectsArray[row].R_ID
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -133,6 +135,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
             let recipeDetailsView = segue.destination as! RecipeDetailsViewController
             recipeDetailsView.labelName = recipeName
             recipeDetailsView.serving = servingsize
+            recipeDetailsView.recipeID = recipeID
         }
 
     }

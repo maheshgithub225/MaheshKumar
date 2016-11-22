@@ -49,18 +49,18 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     
     /// Tasks
     func downloadData(){
-    let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
+    let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/17/")!
     let url_request = URLRequest(url: url_download_data)
     let config = URLSessionConfiguration.default
     let session = URLSession(configuration: config)
     let task = session.dataTask(with:url_request, completionHandler: {(data, response, error) in
     guard error == nil else{
-    print("Error in session call: \(error)")
+        print("Error in session call: \(error)")
     return
     }
     
     guard let result = data else{
-    print("No data recieved")
+        print("No data recieved")
     return
     }
     
@@ -101,21 +101,14 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     let row = indexPath.row
         cell.textLabel?.text = objectsArray[row].R_Name
         cell.detailTextLabel?.text = "Serves: \(objectsArray[row].S_Size)"
-//    cell.R_name!.text = objectsArray[row].R_Name
-//    cell.C_Name!.text = "By: \(objectsArray[row].C_Name)"
-//    cell.Date!.text = objectsArray[row].C_Date
-//    cell.S_Size!.text = "Serves: \(objectsArray[row].S_Size)"
-//    cell.R_name!.textColor = UIColor.white
-//    cell.C_Name!.textColor = UIColor.white
-//    cell.Date!.textColor = UIColor.white
-//    cell.S_Size!.textColor = UIColor.white
-            //recipeName = cell.R_name!.text! as String
         servingsize = "\(objectsArray[row].S_Size)"
         cell.backgroundColor = UIColor(white: 1, alpha: 0.25)
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.backgroundColor = UIColor.clear
         cell.detailTextLabel?.backgroundColor = UIColor.clear
+        cell.layer.cornerRadius = 15
+        cell.layer.borderColor = UIColor.white.cgColor
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

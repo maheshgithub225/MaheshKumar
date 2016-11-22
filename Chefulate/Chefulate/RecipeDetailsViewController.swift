@@ -15,6 +15,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var servingsize : UILabel!
     var radius : Int = Int()
+    
+    var recipeID : Int = Int()
     struct Ingedients_List{
         let I_ID: Int
         let I_Name: String
@@ -23,6 +25,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         
     }
     struct Instructions_List{
+        let R_ID : Int
         let In_ID: Int
         let In_Name: String
     }
@@ -38,16 +41,19 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         recipeDetailsTableView.delegate = self
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
+        
+        
         servingsize.text = "Serving Size: \(serving)"
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        
         // Do any additional setup after loading the view.
     }
     func downloadIngredients(){
-        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/")!
+        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/19/\(recipeID)")!
         let url_request = URLRequest(url: url_download_data)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -68,8 +74,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"]! as! String,I_Amount: (Int)(obj["Amount"]! as! String)!, I_Units: obj["Units"]! as! String))
-                    
+                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Recipe_ID"] as! String)!, I_Name: obj["Ingredient_ID"]! as! String,I_Amount: (Int)(obj["Quantity"]! as! String)!, I_Units: obj["Ingredient_Measurement"]! as! String))
                 }
                 self.recipeDetailsTableView.dataSource = self
                 DispatchQueue.main.async{
@@ -85,7 +90,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         
     }
     func downloadInstructions(){
-        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/2")!
+        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/10/\(recipeID)")!
         let url_request = URLRequest(url: url_download_data)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -106,7 +111,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.instructionsArray.append(Instructions_List(In_ID: (Int)(obj["Instruction_ID"] as! String)!, In_Name: obj["Instruction_Name"]! as! String))
+                    self.instructionsArray.append(Instructions_List(R_ID: (Int)(obj["Recipe_ID"] as! String)!,In_ID: (Int)(obj["Sequence_ID"] as! String)!, In_Name: obj["Instruction"]! as! String))
                     
                 }
                 self.recipeDetailsTableView.dataSource = self
@@ -164,7 +169,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             cell.backgroundColor = UIColor.clear
         }
         if sec == 1 {
-            cell.textLabel?.text = objectsArray[row].I_Name
+            cell.textLabel?.text = String(instructionsArray[row].In_ID)
             cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
             cell.backgroundColor = UIColor.clear
         }
