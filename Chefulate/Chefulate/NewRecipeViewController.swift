@@ -17,12 +17,6 @@ class NewRecipeViewController: UIViewController{
     var UID: Int = 0
     var U_Full: String = ""
     var R_ID: Int = 0
-    struct instructions{
-        let I_ID: Int
-        let I_Data: String
-    }
-
-    var ins_data = [instructions]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +50,7 @@ class NewRecipeViewController: UIViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let date_formatted = formatter.string(from: date)
-        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_Name)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/4/\(R_ID)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
         let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlString_Fixed! )!
         print("URL: \(url)")

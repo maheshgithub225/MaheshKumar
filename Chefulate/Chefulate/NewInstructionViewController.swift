@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewInstructionViewController: UIViewController {
+class NewInstructionViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet var cTableView: UITableView!
 
@@ -19,14 +19,25 @@ class NewInstructionViewController: UIViewController {
     var R_ID: Int = Int()
     var Sequence: Int = 1
     
+    struct instructions{
+        let I_Data: String
+        let I_ID: String
+    }
+    
+    var ins_data = [instructions]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("R_ID :\(R_ID)")
         radius = 15
+        cTableView.delegate = self
+        cTableView.dataSource = self
+        cTableView.backgroundColor = UIColor.clear
         addinstructionbutton.layer.cornerRadius = CGFloat(radius)
         backbutton.layer.cornerRadius = CGFloat(radius)
         saveinstruction.layer.cornerRadius = CGFloat(radius)
-
+        getInstructions()
         // Do any additional setup after loading the view.
     }
 
@@ -43,8 +54,60 @@ class NewInstructionViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToIns(segue: UIStoryboardSegue) {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ins_data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        cell.textLabel?.text = "\(ins_data[indexPath.row].I_Data)"
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    func getInstructions(){
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/20/\(R_ID)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url!){ (data, response, error)in
+            guard error == nil else {
+                print("Error in session call \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data received")
+                return
+            }
+            var json: NSDictionary
+            do {
+                json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
+                if(json.count != 0){
+                    for x in (1...json.count){
+                        let obj = json["\(x)"] as! NSDictionary
+                        self.ins_data.append(instructions(I_Data: obj["Instruction"] as! String, I_ID: obj["Sequence_ID"] as! String))
+                    }
+                }
+                print("JSON data returned = \(json)")
+            }catch {
+                print("Error serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async{
+                self.cTableView.reloadData()
+            }
+        }
+        task.resume()
+    }
+    
+    @IBAction func unwindToIns(segue: UIStoryboardSegue) {
+        Sequence = Sequence + 1
+        getInstructions()
     }
 
     /*

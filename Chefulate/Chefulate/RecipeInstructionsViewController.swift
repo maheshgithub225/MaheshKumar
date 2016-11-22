@@ -42,7 +42,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("R_ID:\(R_ID) Sequence: \(Sequence)")
-        instructionLabel.text! = "Instruction #\(Sequence)"
+        instructionLabel.text! = "Instruction:"
         instruction1.delegate = self
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
@@ -50,12 +50,13 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
     func addInstructionData(Data:String){
         print(Data)
     }
     
     
-    
+   
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
