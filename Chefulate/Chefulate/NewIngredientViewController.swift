@@ -14,7 +14,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet weak var nextbutton: UIButton!
     
     var R_ID:Int = 0
-    
+    var I_ID: String = ""
     var I_Name: String = ""
     var I_Amount: String = ""
     var I_Units: String = ""
@@ -25,8 +25,21 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let I_Amount: Int
         let I_Unit: String
     }
-    var data_array = [ingredients]()
     
+    struct ingDB {
+        let I_ID: Int
+        let I_Name: String
+    }
+    
+    struct ingRP{
+        let I_ID: Int
+        let I_Quant: Int
+        let I_Unit: String
+    }
+    
+    var data_array = [ingredients]()
+    var ingDB_array = [ingDB]()
+    var ingRP_array = [ingRP]()
     
     var radius : Int = Int()
     override func viewDidLoad() {
@@ -36,6 +49,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         cTableView.dataSource = self
         cTableView.backgroundColor = UIColor.clear
         nextbutton.layer.cornerRadius = CGFloat(radius)
+        downloadIngredientsList()
         // Do any additional setup after loading the view.
     }
 
@@ -74,12 +88,123 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func addIng(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/12/\(R_ID)/\(I_ID)/\(I_Amount)/\(I_Units)"
+        let url = URL(string: urlString )
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
         
+        let task = session.dataTask(with: url!){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON addIng data returned : \(json)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async {
+                self.downloadIngredientsFromRecipe()
+            }
+        }
+        task.resume()
     }
     
+    func downloadIngredientsFromRecipe(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/19/\(R_ID)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(jsonResult)")
+                print("Count: \(jsonResult?.count)")
+                if(jsonResult != nil){
+                    for x in (1...(Int)((jsonResult?.count)!)){
+                        let obj = jsonResult?["\(x)"] as! NSDictionary
+                        self.ingRP_array.append(ingRP(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Quant: (Int)(obj["Quantity"] as! String)!, I_Unit: obj["Ingredient_Measurement"] as! String))
+                    
+                    }
+                }
+                self.cTableView.dataSource = self
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async {
+                self.populateData()
+            }
+        }
+        task.resume()
+    }
     
+    func downloadIngredientsList(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/16"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                
+                for x in (1...(Int)((json?.count)!)){
+                    let obj = json?["\(x)"] as! NSDictionary
+                    self.ingDB_array.append(ingDB(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Name: obj["Ingredient_Name"] as! String))
+                }
+                print(self.ingDB_array)
     
-
+                
+                print("JSON delete data returned : \(json)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async {
+                self.downloadIngredientsFromRecipe()
+            }
+        }
+        task.resume()
+    }
+    
+    func populateData(){
+        print("RP COUNT \(ingRP_array.count)")
+        if(!ingRP_array.isEmpty){
+            for x in (1...ingRP_array.count){
+                data_array.append(ingredients(I_ID: ingRP_array[x].I_ID , I_Name: ingDB_array[ingRP_array[x].I_ID].I_Name , I_Amount: ingRP_array[x].I_Quant, I_Unit: ingRP_array[x].I_Unit))
+            }
+        }
+        print("Table data: \(data_array)")
+        print("Table DB Data: \(ingDB_array)")
+        print("Table RP Data: \(ingRP_array)")
+    }
+    
     /*
     // MARK: - Navigation
 

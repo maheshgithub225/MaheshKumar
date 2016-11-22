@@ -16,6 +16,8 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
     @IBOutlet weak var selectbutton: UIButton!
     @IBOutlet weak var ingredientsTableView: UITableView!
     var radius : Int = Int()
+    var I_ID: Int = Int()
+    
     struct ingredients_list{
         let I_ID: Int
         let I_Name: String
@@ -100,22 +102,21 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         return cell
     }
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        I_ID = data_array[indexPath.row].I_ID
+        print(I_ID)
     }
     @IBAction func SelectIngred(_ sender: AnyObject) {
-        
         let indexpath1 = ingredientsTableView.indexPathForSelectedRow
         let currentCell = ingredientsTableView.cellForRow(at: indexpath1!)
         selectedIngredient = (currentCell?.textLabel?.text)!
-        
-        performSegue(withIdentifier: "addIngredientView", sender: self)
-        return
-        
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addIngredientView"{
             let addingredview = segue.destination as! AddIngredients
             addingredview.value = selectedIngredient
+            addingredview.I_Name = selectedIngredient
+            addingredview.I_ID = I_ID
         }
     }
     /*

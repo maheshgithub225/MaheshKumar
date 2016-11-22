@@ -22,6 +22,11 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     var value3 : String = String()
     var radius : Int = Int()
     
+    var I_Name: String = String()
+    var I_ID: Int = Int()
+    var I_Amount: Int = Int()
+    var I_Unit: String = String()
+    
     @IBOutlet weak var savebutton: UIButton!
     @IBOutlet weak var closebutton: UIButton!
     
