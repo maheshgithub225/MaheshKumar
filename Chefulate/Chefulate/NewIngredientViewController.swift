@@ -15,6 +15,10 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     
     var R_ID:Int = 0
     
+    var I_Name: String = ""
+    var I_Amount: String = ""
+    var I_Units: String = ""
+    
     struct ingredients{
         let I_ID: Int
         let I_Name: String
@@ -22,6 +26,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let I_Unit: String
     }
     var data_array = [ingredients]()
+    
+    
     var radius : Int = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +68,16 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let row = indexPath.row
         print(data_array[row])
     }
+    
+    @IBAction func unwindToIng(segue: UIStoryboardSegue) {
+        addIng()
+    }
+    
+    func addIng(){
+        
+    }
+    
+    
     
 
     /*
