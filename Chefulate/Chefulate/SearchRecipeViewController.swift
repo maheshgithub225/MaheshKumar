@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var TableViewCustom: UITableView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -41,7 +41,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         homebutton.layer.cornerRadius = CGFloat(radius)
         // Do any additional setup after loading the view.
     }
-  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,7 +71,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
                     self.objectsArray.append(recipes(C_ID: (Int)(obj["Creator_ID"] as! String)!, R_ID: (Int)(obj["Recipie_ID"] as! String)!, R_Name: obj["Recipie_Name"]! as! String, C_Name: obj["Creator_Full_Name"]! as! String, S_Size: (Int)(obj["Serving_Size"] as! String)!, C_Date: obj["Creation_Date"]! as! String))
-
+                    
                 }
                 self.TableViewCustom.dataSource = self
                 DispatchQueue.main.async{
@@ -81,16 +81,11 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
                 print("Error seralizing JSON Data: \(error)")
             }
             
-
+            
         })
         task.resume()
         
     }
-    
-
-    
-    
-    
     
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -105,7 +100,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
         
         let row = indexPath.row
-
+        
         cell.R_name!.text = objectsArray[row].R_Name
         cell.C_Name!.text = "By: \(objectsArray[row].C_Name)"
         cell.Date!.text = objectsArray[row].C_Date
@@ -114,14 +109,17 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         cell.C_Name!.textColor = UIColor.white
         cell.Date!.textColor = UIColor.white
         cell.S_Size!.textColor = UIColor.white
-        recipeName = cell.R_name!.text! as String
-        servingsize = "\(objectsArray[row].S_Size)"
+        
         recipeID = objectsArray[row].R_ID
         cell.backgroundColor = UIColor.clear
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let row = indexPath.row
         recipeID = objectsArray[indexPath.row].R_ID
+        recipeName = objectsArray[row].R_Name
+        servingsize = "\(objectsArray[row].S_Size)"
         self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
     }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -132,7 +130,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
+        
         if segue.identifier == "recipeDetailsView"{
             let recipeDetailsView = segue.destination as! RecipeDetailsViewController
             recipeDetailsView.labelName = recipeName
@@ -140,19 +138,19 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
             recipeDetailsView.recipeID = recipeID
             recipeDetailsView.detailsSegueIdentifier = "recipeDetailsView"
         }
-
+        
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     @IBAction func unwindRecipeList(segue: UIStoryboardSegue){}
-
+    
 }

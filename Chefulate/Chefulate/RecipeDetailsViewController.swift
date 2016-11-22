@@ -10,7 +10,7 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var imageView: UIImageView!
-
+    
     @IBOutlet weak var backToMyRecipes: UIButton!
     @IBOutlet weak var backToSearchRecipes: UIButton!
     @IBOutlet weak var recipeDetailsTableView: UITableView!
@@ -28,6 +28,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         let Re_ID : Int
         let I_Units : String
     }
+    struct ingRP{
+        let I_ID: Int
+        let RI_ID: Int
+        let I_Quant: Int
+        let I_Unit: String
+    }
+    struct ingDB {
+        let I_ID: Int
+        let I_Name: String
+    }
     struct Instructions_List{
         let R_ID : Int
         let In_ID: Int
@@ -35,13 +45,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     var objectsArray = [Ingedients_List]()
     var filteredObjectsArray = [Ingedients_List]()
+    var ingRP_array = [ingRP]()
+    var ingDB_array = [ingDB]()
     
     var instructionsArray = [Instructions_List]()
     
     var labelName : String = String()
     var serving : String = String()
     override func viewWillAppear(_ animated: Bool) {
-        downloadIngredients()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,46 +73,89 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         backToSearchRecipes.layer.cornerRadius = CGFloat(radius)
         backToMyRecipes.layer.cornerRadius = CGFloat(radius)
         servingsize.text = "Serving Size: \(serving)"
-        
+        ingredcount.text = ""
+        downloadIngredientsFromRecipe()
+        downloadIngredientsList()
         // Do any additional setup after loading the view.
     }
-    func downloadIngredients(){
-        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/19/\(recipeID)")!
-        let url_request = URLRequest(url: url_download_data)
+    
+    func downloadIngredientsFromRecipe(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/19/\(recipeID)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        let task = session.dataTask(with:url_request, completionHandler: {(data, response, error) in
+        
+        let task = session.dataTask(with: url){(data,response,error)in
             guard error == nil else{
                 print("Error in session call: \(error)")
                 return
             }
-            
-            guard let result = data else{
-                print("No data recieved")
+            guard let result = data else {
+                print("No data reveived")
                 return
             }
-            print(response)
-            do{
-                let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
-                print("JSON data returned: \(jsonResult)")
-                print("Count: \(jsonResult.count)")
-                for x in (1...jsonResult.count){
-                    let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Recipe_ID"] as! String)!, I_Name: (Int)(obj["Ingredient_ID"]! as! String)!,I_Amount: (Int)(obj["Quantity"]! as! String)!, Re_ID:(Int)(obj["RI_ID"]! as! String)!, I_Units: obj["Ingredient_Measurement"]! as! String))
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(jsonResult)")
+                print("RID RP: \(self.recipeID)")
+                if(jsonResult?.count != nil){
+                    for x in (1...(Int)((jsonResult?.count)!)){
+                        let obj = jsonResult?["\(x)"] as! NSDictionary
+                        self.ingRP_array.append(ingRP(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, RI_ID: (Int)(obj["RI_ID"] as! String)!, I_Quant: (Int)(obj["Quantity"] as! String)!, I_Unit: obj["Ingredient_Measurement"] as! String))
+                        
+                    }
                 }
-                self.recipeDetailsTableView.dataSource = self
-                DispatchQueue.main.async{
-                    self.recipeDetailsTableView.reloadData()
-                }
-            }catch{
-                print("Error seralizing JSON Data: \(error)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
             }
-            
-            
-        })
+            DispatchQueue.main.async {
+                self.recipeDetailsTableView.reloadData()
+                // self.populateData()
+            }
+        }
         task.resume()
-        
     }
+    func downloadIngredientsList(){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/16"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                
+                for x in (1...(Int)((json?.count)!)){
+                    let obj = json?["\(x)"] as! NSDictionary
+                    self.ingDB_array.append(ingDB(I_ID: (Int)(obj["Ingredient_ID"] as! String)!,I_Name: obj["Ingredient_Name"] as! String))
+                }
+                print(self.ingDB_array)
+                
+                
+                print("JSON delete data returned : \(json)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+            DispatchQueue.main.async {
+                self.downloadIngredientsFromRecipe()
+            }
+        }
+        task.resume()
+    }
+    @IBOutlet weak var ingredcount: UILabel!
+    
     func downloadInstructions(){
         let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/10/\(recipeID)")!
         let url_request = URLRequest(url: url_download_data)
@@ -133,14 +188,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
-            
-            
         })
         task.resume()
-        
     }
-
-
+    
+    
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -148,7 +200,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows : Int = Int()
         if section == 0 {
-            rows = objectsArray.count
+            rows = ingRP_array.count
+            if ingRP_array.count == 0{
+                ingredcount.text! = "No Ingredients Found"
+            } else {
+                ingredcount.text! = ""
+            }
+            
         }
         if section == 1 {
             rows = instructionsArray.count
@@ -160,7 +218,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         
         var title : String = String()
         if section == 0 {
-            title = "Ingedients"
+            title = "Ingredients"
         }
         if section == 1 {
             title = "Instructions"
@@ -171,14 +229,20 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         return 30
     }
     
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let sec = indexPath.section
         let row = indexPath.row
+        var name = ""
         if sec == 0 {
-            cell.textLabel?.text = String(objectsArray[row].I_Name)
-            cell.detailTextLabel?.text = "\(objectsArray[row].I_Amount) \(objectsArray[row].I_Units)"
+            for x in ingDB_array{
+                if(x.I_ID == ingRP_array[indexPath.row].I_ID){
+                    name = x.I_Name
+                }
+            }
+            cell.textLabel?.text = "\(name)"
+            cell.detailTextLabel?.text = "\(ingRP_array[indexPath.row].I_Quant) \(ingRP_array[indexPath.row].I_Unit)"
             cell.backgroundColor = UIColor.clear
         }
         if sec == 1 {
@@ -186,17 +250,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
             cell.backgroundColor = UIColor.clear
         }
+        
         return cell
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
