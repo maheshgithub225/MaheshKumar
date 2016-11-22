@@ -61,11 +61,11 @@ class registerViewController: UIViewController, UITextFieldDelegate {
             confirmPassword.isHidden = false
             confirmPassword.backgroundColor = UIColor.white
         }else{
-            let alert = UIAlertController(title: "Accept Terms of Service", message: "By clicking Accept you agree to abide by the terms of use.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Accept Terms of Service", message: "By clicking Accept you agree to abide by the Terms of Use.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Accept", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in self.addUserData()}))
             alert.addAction(UIAlertAction(title: "Decline", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            //addUserData()
+            
         }
     }
     
@@ -131,7 +131,7 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         }
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MyRecipesViewController") as UIViewController
+        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "LogInViewController") as UIViewController
         self.present(vc, animated: true, completion: nil)
         task.resume()
     }
