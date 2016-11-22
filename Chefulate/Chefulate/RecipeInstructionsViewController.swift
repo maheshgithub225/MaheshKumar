@@ -14,6 +14,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var instruction1: UITextView!
     @IBOutlet var InstructionBox: UITextView!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var closebutton: UIButton!
     @IBOutlet weak var savebutton: UIButton!
     var Sequence: Int = Int()
@@ -47,6 +48,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
+        backButton.layer.cornerRadius = CGFloat(radius)
         
         // Do any additional setup after loading the view.
     }

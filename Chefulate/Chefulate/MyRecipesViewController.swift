@@ -108,13 +108,13 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         seguerecipeID = objectsArray[row].R_ID
         
         
-        cell.backgroundColor = UIColor(white: 1, alpha: 0.25)
+       // cell.backgroundColor = UIColor(white: 1, alpha: 0.25)
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.backgroundColor = UIColor.clear
         cell.detailTextLabel?.backgroundColor = UIColor.clear
-        cell.layer.cornerRadius = 15
-        cell.layer.borderColor = UIColor.white.cgColor
+//        cell.layer.cornerRadius = 15
+//        cell.layer.borderColor = UIColor.white.cgColor
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

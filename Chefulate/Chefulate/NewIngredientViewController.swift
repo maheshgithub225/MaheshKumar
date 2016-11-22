@@ -42,6 +42,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     var ingDB_array = [ingDB]()
     var ingRP_array = [ingRP]()
     
+    @IBOutlet weak var continueToInstruct: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     var radius : Int = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,10 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         cTableView.backgroundColor = UIColor.clear
         nextbutton.layer.cornerRadius = CGFloat(radius)
         downloadIngredientsList()
+        radius = 15
+        backButton.layer.cornerRadius = CGFloat(radius)
+        continueToInstruct.layer.cornerRadius = CGFloat(radius)
+
         // Do any additional setup after loading the view.
     }
     

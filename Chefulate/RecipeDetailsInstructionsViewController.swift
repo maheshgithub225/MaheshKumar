@@ -61,7 +61,7 @@ class RecipeDetailsInstructionsViewController: UIViewController, UITableViewData
                 for x in (1...(Int)((jsonResult?.count)!)){
                     let obj = jsonResult?["\(x)"] as! NSDictionary
                     self.instructionsArray.append(Instructions_List(R_ID: (Int)(obj["Recipe_ID"] as! String)!,In_ID: (Int)(obj["Sequence_ID"] as! String)!, In_Name: obj["Instruction"]! as! String))
-                    
+                     
                     }
                 }
             }catch{

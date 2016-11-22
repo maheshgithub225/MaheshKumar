@@ -14,6 +14,8 @@ class NewRecipeViewController: UIViewController{
     @IBOutlet weak var servingSize: UITextField!
     var radius : Int = Int()
     
+    @IBOutlet weak var continuetoingred: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     var UID: Int = 0
     var U_Full: String = ""
     var R_ID: Int = 0
@@ -26,6 +28,10 @@ class NewRecipeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        radius = 15
+        backButton.layer.cornerRadius = CGFloat(radius)
+        continuetoingred.layer.cornerRadius = CGFloat(radius)
+        
     }
     
     @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){

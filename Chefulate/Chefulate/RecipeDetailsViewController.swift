@@ -207,6 +207,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             cell.textLabel?.text = String(instructionsArray[row].In_ID)
             cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
             cell.backgroundColor = UIColor.clear
+            cell.textLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.textColor = UIColor.white
         }
         
         return cell
