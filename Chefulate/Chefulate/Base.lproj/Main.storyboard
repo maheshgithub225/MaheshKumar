@@ -1252,6 +1252,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="8uy-K5-HCE"/>
                     <connections>
+                        <outlet property="InstructionBox" destination="GcS-7d-Zij" id="YOZ-oA-yIT"/>
                         <outlet property="instruction1" destination="GcS-7d-Zij" id="HI8-fo-3ev"/>
                         <outlet property="instructionLabel" destination="rRY-v1-xKt" id="kgJ-xt-6cx"/>
                         <outlet property="savebutton" destination="shr-kb-q1e" id="ZrT-SB-McI"/>

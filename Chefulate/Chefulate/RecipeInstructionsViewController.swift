@@ -12,6 +12,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet var instructionLabel: UILabel!
     @IBOutlet weak var instruction1: UITextView!
+    @IBOutlet var InstructionBox: UITextView!
     
     @IBOutlet weak var closebutton: UIButton!
     @IBOutlet weak var savebutton: UIButton!
