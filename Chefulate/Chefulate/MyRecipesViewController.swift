@@ -35,7 +35,8 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     override func viewDidLoad() {
     super.viewDidLoad()
         TableViewCustom.delegate = self
-        TableViewCustom.dataSource = nil
+        TableViewCustom.dataSource = self
+        
         downloadData()
         TableViewCustom.backgroundColor = UIColor.clear
         radius = 15
@@ -107,12 +108,12 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         servingsize = "\(objectsArray[row].S_Size)"
         seguerecipeID = objectsArray[row].R_ID
         
-        
+        cell.backgroundColor = UIColor.clear
        // cell.backgroundColor = UIColor(white: 1, alpha: 0.25)
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.white
-        cell.textLabel?.backgroundColor = UIColor.clear
-        cell.detailTextLabel?.backgroundColor = UIColor.clear
+      //  cell.textLabel?.backgroundColor = UIColor.clear
+      //  cell.detailTextLabel?.backgroundColor = UIColor.clear
 //        cell.layer.cornerRadius = 15
 //        cell.layer.borderColor = UIColor.white.cgColor
         return cell
@@ -142,15 +143,6 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     @IBAction func backButton(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "goHome", sender: self)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     @IBAction func unwindToMyRecipeList(segue: UIStoryboardSegue){}
     

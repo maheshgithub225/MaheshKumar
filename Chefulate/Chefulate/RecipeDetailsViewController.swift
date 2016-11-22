@@ -190,10 +190,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        let sec = indexPath.section
+        
         let row = indexPath.row
         var name = ""
-        if sec == 0 {
+      
             for x in ingDB_array{
                 if(x.I_ID == ingRP_array[indexPath.row].I_ID){
                     name = x.I_Name
@@ -202,14 +202,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             cell.textLabel?.text = "\(name)"
             cell.detailTextLabel?.text = "\(ingRP_array[indexPath.row].I_Quant) \(ingRP_array[indexPath.row].I_Unit)"
             cell.backgroundColor = UIColor.clear
-        }
-        if sec == 1 {
-            cell.textLabel?.text = String(instructionsArray[row].In_ID)
-            cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
-            cell.backgroundColor = UIColor.clear
             cell.textLabel?.textColor = UIColor.white
             cell.detailTextLabel?.textColor = UIColor.white
-        }
+        
         
         return cell
     }
