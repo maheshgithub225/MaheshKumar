@@ -156,12 +156,13 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             _ = ac.textFields![0]
             
             self.popuptext = "\(ac.textFields![0].text)"
-            if self.popuptext != ""{
+              var fa = self.popuptext.characters.split{$0 == "\""}.map(String.init)
+            if fa[1] != ")"{
             print("EEEEEE")
             print (self.popuptext)
-            var fa = self.popuptext.characters.split{$0 == "\""}.map(String.init)
+          
           //  print("TTTTTTTTTT")
-            print(fa[0])
+            print(fa[1])
             self.masterarray[number].manual = Double(fa[1])!
             }
             else{

@@ -29,7 +29,7 @@ class recipelisttwo: UITableViewController {
             
             
         
-         let when = DispatchTime.now() + 3
+         let when = DispatchTime.now() + 4
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.selectdb()
             
