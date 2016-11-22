@@ -10,6 +10,7 @@ import UIKit
 
 class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     
+    @IBOutlet var instructionLabel: UILabel!
     @IBOutlet weak var instruction1: UITextView!
     
     @IBOutlet weak var closebutton: UIButton!
@@ -17,9 +18,6 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     var Sequence: Int = Int()
     var R_ID: Int = Int()
     
-    @IBAction func backToNewRecipeFromInstr(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "unwindToNewRecipeFromInstr", sender: self)
-    }
     
     var radius : Int = Int()
     
@@ -29,18 +27,18 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
             (result : UIAlertAction) in debugPrint("Add")
         }
         let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
-            self.performSegue(withIdentifier: "newRecipe", sender: self)
+            self.addInstructionData()
         }
         alertControl.addAction(done)
         alertControl.addAction(Addmore)
         self.present(alertControl, animated: true, completion: nil)
         
-        addInstructionData()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("R_ID:\(R_ID) Sequence: \(Sequence)")
-        
+        instructionLabel.text! = "Instruction #\(Sequence)"
         instruction1.delegate = self
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
