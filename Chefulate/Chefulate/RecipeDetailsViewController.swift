@@ -156,42 +156,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     }
     @IBOutlet weak var ingredcount: UILabel!
     
-    func downloadInstructions(){
-        let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/10/\(recipeID)")!
-        let url_request = URLRequest(url: url_download_data)
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with:url_request, completionHandler: {(data, response, error) in
-            guard error == nil else{
-                print("Error in session call: \(error)")
-                return
-            }
-            
-            guard let result = data else{
-                print("No data recieved")
-                return
-            }
-            print(response)
-            do{
-                let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
-                print("JSON data returned: \(jsonResult)")
-                print("Count: \(jsonResult.count)")
-                for x in (1...jsonResult.count){
-                    let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.instructionsArray.append(Instructions_List(R_ID: (Int)(obj["Recipe_ID"] as! String)!,In_ID: (Int)(obj["Sequence_ID"] as! String)!, In_Name: obj["Instruction"]! as! String))
-                    
-                }
-                self.recipeDetailsTableView.dataSource = self
-                DispatchQueue.main.async{
-                    self.recipeDetailsTableView.reloadData()
-                }
-            }catch{
-                print("Error seralizing JSON Data: \(error)")
-            }
-        })
-        task.resume()
-    }
-    
     
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -207,26 +171,20 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 ingredcount.text! = ""
             }
             
-        }
-        if section == 1 {
-            rows = instructionsArray.count
+        }else {
+            return instructionsArray.count
         }
         return rows
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Ingredients"
         
-        var title : String = String()
-        if section == 0 {
-            title = "Ingredients"
-        }
-        if section == 1 {
-            title = "Instructions"
-        }
-        return title
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 35
+        
     }
     
     
@@ -252,6 +210,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         }
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "insructionsView"{
+            let instructView = segue.destination as! RecipeDetailsInstructionsViewController
+            instructView.recipeID = recipeID
+            
+            
+        }
     }
     
     /*

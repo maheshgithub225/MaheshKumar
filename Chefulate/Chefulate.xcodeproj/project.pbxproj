@@ -62,6 +62,7 @@
 		CD23627E1DE23DC6008076C0 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */; };
 		CD2362801DE27D5E008076C0 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */; };
 		CD2362861DE36BDC008076C0 /* CircualrTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2362851DE36BDC008076C0 /* CircualrTransition.swift */; };
+		CD3367601DE4E1BD008B69C8 /* RecipeDetailsInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33675F1DE4E1BD008B69C8 /* RecipeDetailsInstructionsViewController.swift */; };
 		CD9A0D021DD78A4E004D3375 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */; };
 		CD9E07261DDA22B1009A8F92 /* AddIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */; };
 		CD9E07281DDA59C2009A8F92 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */; };
@@ -148,6 +149,7 @@
 		CD23627D1DE23DC6008076C0 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		CD23627F1DE27D5E008076C0 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		CD2362851DE36BDC008076C0 /* CircualrTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircualrTransition.swift; sourceTree = "<group>"; };
+		CD33675F1DE4E1BD008B69C8 /* RecipeDetailsInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeDetailsInstructionsViewController.swift; path = ../RecipeDetailsInstructionsViewController.swift; sourceTree = "<group>"; };
 		CD9A0D011DD78A4E004D3375 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredients.swift; sourceTree = "<group>"; };
 		CD9E07271DDA59C2009A8F92 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		BDDCC8B41DAD42400003D984 /* Chefulate */ = {
 			isa = PBXGroup;
 			children = (
+				CD33675F1DE4E1BD008B69C8 /* RecipeDetailsInstructionsViewController.swift */,
 				BDDCC8C41DAD42400003D984 /* Info.plist */,
 				CD9E07251DDA22B1009A8F92 /* AddIngredients.swift */,
 				BDDCC8B51DAD42400003D984 /* AppDelegate.swift */,
@@ -490,6 +493,7 @@
 				CD9E072C1DDA9C4E009A8F92 /* SearchViewController.swift in Sources */,
 				BD75B6381DE10E84009AF7EF /* SearchRecipeTableViewCell.swift in Sources */,
 				93D9DBA81DB5CEE000E2140B /* registerViewController.swift in Sources */,
+				CD3367601DE4E1BD008B69C8 /* RecipeDetailsInstructionsViewController.swift in Sources */,
 				365742191DE2206200A61361 /* TermsViewController.swift in Sources */,
 				BDFACEF11DE24A7A00A64C63 /* NewIngredientViewController.swift in Sources */,
 				2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */,
