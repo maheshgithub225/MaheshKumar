@@ -26,7 +26,7 @@ class NewInstructionViewController: UIViewController {
         addinstructionbutton.layer.cornerRadius = CGFloat(radius)
         backbutton.layer.cornerRadius = CGFloat(radius)
         saveinstruction.layer.cornerRadius = CGFloat(radius)
-
+        
         // Do any additional setup after loading the view.
     }
 
