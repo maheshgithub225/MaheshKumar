@@ -52,6 +52,13 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         downloadIngredientsList()
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "AddIngredient"){
+            let vc = segue.destination as! AddIngredients
+            vc.R_ID = R_ID
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,37 +91,10 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     @IBAction func unwindToIng(segue: UIStoryboardSegue) {
-        addIng()
+        self.downloadIngredientsFromRecipe()
     }
     
-    func addIng(){
-        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/12/\(R_ID)/\(I_ID)/\(I_Amount)/\(I_Units)"
-        let url = URL(string: urlString )
-        print("URL: \(url)")
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let task = session.dataTask(with: url!){(data,response,error)in
-            guard error == nil else{
-                print("Error in session call: \(error)")
-                return
-            }
-            guard let result = data else {
-                print("No data reveived")
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                print("JSON addIng data returned : \(json)")
-            }catch {
-                print("Error Serializing JSON data : \(error)")
-            }
-            DispatchQueue.main.async {
-                self.downloadIngredientsFromRecipe()
-            }
-        }
-        task.resume()
-    }
+    
     
     func downloadIngredientsFromRecipe(){
         let urlString = "https://cs.okstate.edu/~jtsutto/services.php/19/\(R_ID)"
@@ -195,12 +175,6 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     
     func populateData(){
         print("RP COUNT \(ingRP_array.count)")
-        if(!ingRP_array.isEmpty){
-            for x in (1...ingRP_array.count){
-                data_array.append(ingredients(I_ID: ingRP_array[x].I_ID , I_Name: ingDB_array[ingRP_array[x].I_ID].I_Name , I_Amount: ingRP_array[x].I_Quant, I_Unit: ingRP_array[x].I_Unit))
-            }
-        }
-        print("Table data: \(data_array)")
         print("Table DB Data: \(ingDB_array)")
         print("Table RP Data: \(ingRP_array)")
     }

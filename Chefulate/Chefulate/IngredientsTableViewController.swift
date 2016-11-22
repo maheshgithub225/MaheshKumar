@@ -109,12 +109,16 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         let indexpath1 = ingredientsTableView.indexPathForSelectedRow
         let currentCell = ingredientsTableView.cellForRow(at: indexpath1!)
         selectedIngredient = (currentCell?.textLabel?.text)!
-        performSegue(withIdentifier: "addIngredientView", sender: self)
+        
+        
+        performSegue(withIdentifier: "backToAddIngredientUnwindWithSegue", sender: self)
 
     }
-  
+    @IBAction func back(_ sender: AnyObject) {
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addIngredientView"{
+        if segue.identifier == "backToAddIngredientUnwindWithSegue"{
             let addingredview = segue.destination as! AddIngredients
             addingredview.value = selectedIngredient
             addingredview.I_Name = selectedIngredient
