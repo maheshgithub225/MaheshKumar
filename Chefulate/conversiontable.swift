@@ -37,6 +37,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     var kflag=0
     var kflagtwo = 1
+    var kflagthree = 0
     var g:String = ""
     var counter = 0
     var count = 2
@@ -58,7 +59,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         calculatebutton.layer.cornerRadius = CGFloat(radius)
         backbutton.layer.cornerRadius = CGFloat(radius)
         loadrecipebutton.layer.cornerRadius = CGFloat(radius)
-           }
+                  }
     
     
     override func didReceiveMemoryWarning() {
@@ -88,17 +89,17 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     {
         
         
-        print("AAAAAAAAAAAAAAAAAA")
+    //    print("AAAAAAAAAAAAAAAAAA")
         
         let cell = viewc.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
-        if kflagtwo == 0{
+        if kflagtwo == 0 && kflagthree == 0{
         if counterthree == 0{
             
             
-            print("GGGGG")
+        //    print("GGGGG")
             
             
-            print("\(self.masterarray[indexPath[1]].ingredientdisplay())")
+          //  print("\(self.masterarray[indexPath[1]].ingredientdisplay())")
             cell.textLabel?.text = "\(self.masterarray[indexPath[1]].ingredientdisplay())"
             cell.detailTextLabel?.text = "\(self.masterarray[indexPath[1]].locate())"
             
@@ -113,6 +114,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell.textLabel?.text = "please wait"
             cell.detailTextLabel?.text = " "
         }
+        else if kflagthree == 1{
+          cell.textLabel?.text = "\(self.masterarray[indexPath[1]].ingredientdisplay())"
+            cell.detailTextLabel?.text = "please press calculate to recalculate costs"
+        }
         else {
         cell.textLabel?.text = "no ingredients found"
             cell.detailTextLabel?.text = " "
@@ -126,13 +131,14 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
    
     @IBAction func stepaction(_ sender: UIStepper) {
         
-        steplabel.text = "\(stepper.value)"
+        steplabel.text = "\(stepper.value )"
         let serving = Double(servingsize.text!)
         scaling = stepper.value / serving!
     }
     
     @IBAction func submit(_ sender: UIButton) {
         convert_measurements()
+        kflagthree = 0
         viewc.reloadData()
     }
  
@@ -150,19 +156,28 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             _ = ac.textFields![0]
             
             self.popuptext = "\(ac.textFields![0].text)"
+            if self.popuptext != ""{
             print("EEEEEE")
             print (self.popuptext)
             var fa = self.popuptext.characters.split{$0 == "\""}.map(String.init)
-            print("TTTTTTTTTT")
+          //  print("TTTTTTTTTT")
             print(fa[0])
             self.masterarray[number].manual = Double(fa[1])!
+            }
+            else{
+            self.masterarray[number].manual = 0
+            }
             
-            
-            let E:Double = Double(self.masterarray[number].quantity)!
+            var E:Double = Double(self.masterarray[number].original)!
+          
             let w:Double = self.masterarray[number].manual * E
             self.masterarray[number].manual = w
-            self.masterarray[number].cost =  w
-            self.init_total()
+            self.scaling = Double(self.steplabel.text!)! / Double(self.servingsize.text!)!
+            print("init scale \(self.scaling)")
+            E = E * self.scaling
+            self.masterarray[number].cost =  w * self.scaling
+            self.reload()
+            
              self.viewc.reloadData()
         }
         //kflagthree = 1
@@ -172,7 +187,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
  
      func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        print("ASDASD")
+      //  print("ASDASD")
         if(masterarray.count != 0){
         promptForAnswer(number: indexPath[1])
         
@@ -200,8 +215,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         if let source = segue.source as? recipelisttwo{
             g = source.g
             servingsize.text = source.servingsize
-            print("unwind")
-            print(g)
+           
+            scaling = 1
+           // print("unwind")
+           // print(g)
             id=g
          
         }
@@ -259,23 +276,23 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                     for index in stride(from: 0, to: self.counter, by: +1) {
                         
                         var sd: String = "\(json?[index])"
-                    print("\(sd)")
+                //    print("\(sd)")
                         let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
                         
                                                var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
                         var ea = fullNameArr[2].characters.split{$0 == "\""}.map(String.init)
-                        print("\(ea[3])")
-                        print("\(ca[3])")
+                     //   print("\(ea[3])")
+                     //   print("\(ca[3])")
                          var qa = fullNameArr[6].characters.split{$0 == "\""}.map(String.init)
                          var qaa = qa[2].characters.split{$0 == " "}.map(String.init)
                         var la = fullNameArr[7].characters.split{$0 == "\""}.map(String.init)
                         //var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
                         var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                        print("\(fa[3])")
-                        print("testing")
-                        print("\(qaa[1])")
-                        print("testing")
-                        print("\(la[3])")
+                      //  print("\(fa[3])")
+                      //  print("testing")
+                      //  print("\(qaa[1])")
+                      //  print("testing")
+                    //    print("\(la[3])")
                         
                         let recipe:recipe_ingredient = recipe_ingredient(init_ingredient: ea[3], init_measurement:ca[3], init_quantity: fa[3],init_original: fa[3],init_cost_measurement: qaa[1],init_cost: (Double(la[3])!*Double(fa[3])!))
                         self.masterarray.append(recipe)
@@ -309,10 +326,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             
         if masterarray.count != 0{
             
-            z = masterarray[index].original_cost
+            z = masterarray[index].original_cost * scaling
             if masterarray[index].ispressed == true{
             
-            z = masterarray[index].manual
+            z = masterarray[index].manual * scaling
             }
             }
         else{
@@ -331,8 +348,11 @@ print("ulta")
         }
       totalprice.text = "$\(String(format: "%.04g",ultracounter))"
         
+        
     }
-    
+    func reload(){
+    kflagthree = 1
+    }
  
     
     func convert_measurements(){
@@ -346,11 +366,14 @@ print("ulta")
         for index in stride(from: 0, to: self.counter, by: +1) {
             if masterarray[index].ispressed == true {
                 z = masterarray[index].manual
+                print("ZZZZZZZZ")
+                print(z)
             }
             else{
            z = masterarray[index].original_cost
             }
             w = z * scaling
+            print("here in convert \(scaling)    \(z)")
             masterarray[index].cost = w
             ultracounter = ultracounter + w
             
@@ -419,18 +442,18 @@ print("ulta")
                 
                 
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? Array<Any>
-                print("LLLL")
-                print("\(json)")
+               // print("LLLL")
+               // print("\(json)")
                 var sd:String = "\(json)"
                 var Da:[String] = sd.characters.split{$0 == "\""}.map(String.init)
-                print("second")
+               // print("second")
                 print("\(Da[2])")
                 var ca = Da[2].characters.split{$0 == " "}.map(String.init)
-                print("third")
+              //  print("third")
                 print("\(ca[1])")
                 var ea = ca[1].characters.split{$0 == ";"}.map(String.init)
-                print("fourth")
-                print("\(ea[0])")
+               // print("fourth")
+               // print("\(ea[0])")
                 self.counter = Int(ea[0])!
                
             }
