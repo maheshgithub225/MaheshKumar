@@ -8,8 +8,9 @@
 
 import UIKit
 
-class RecipeDetailsInstructionsViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
+class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDelegate{
 
+    @IBOutlet weak var textScrollView: UITextView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var instructionCount: UILabel!
     @IBOutlet weak var servingSize: UILabel!
@@ -27,11 +28,15 @@ class RecipeDetailsInstructionsViewController: UIViewController, UITableViewData
     var instructionsArray = [Instructions_List]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        instructionsTableView.delegate = self
-        instructionsTableView.dataSource = self
-        
+        //instructionsTableView.delegate = self
+        //instructionsTableView.dataSource = self
+        textScrollView.delegate = self
         backButton.layer.cornerRadius = CGFloat(radius)
         downloadInstructions()
+        
+        
+        textScrollView.backgroundColor = UIColor.clear
+        
         
         // Do any additional setup after loading the view.
     }
@@ -60,41 +65,53 @@ class RecipeDetailsInstructionsViewController: UIViewController, UITableViewData
                  if(jsonResult?.count != nil){
                 for x in (1...(Int)((jsonResult?.count)!)){
                     let obj = jsonResult?["\(x)"] as! NSDictionary
-                    self.instructionsArray.append(Instructions_List(R_ID: (Int)(obj["Recipe_ID"] as! String)!,In_ID: (Int)(obj["Sequence_ID"] as! String)!, In_Name: obj["Instruction"]! as! String))
+                    self.instructionsArray.append(Instructions_List(R_ID: (Int)(obj["Recipie_ID"] as! String)!,In_ID: (Int)(obj["Sequence_ID"] as! String)!, In_Name: obj["Instruction"]! as! String))
                      
                     }
                 }
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
+            
             DispatchQueue.main.async {
-                self.instructionsTableView.reloadData()
+                self.instruct()
                 // self.populateData()
             }
         })
         task.resume()
     }
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instructionsArray.count
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Instructions"
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        let row = indexPath.row
-        cell.textLabel?.text = String(instructionsArray[row].In_ID)
-        cell.detailTextLabel?.text = "\(instructionsArray[row].In_ID) \(instructionsArray[row].In_Name)"
-            cell.backgroundColor = UIColor.clear
     
-        return cell
+    func instruct(){
+        
+        for x in (1...(Int)(instructionsArray.count)){
+            textScrollView.text = "\(instructionsArray[x].In_Name)"
+        }
+        
     }
+    
+    
+    
+//    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return instructionsArray.count
+//    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Instructions"
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 30
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+//       // let row = indexPath.row
+//       // cell.textLabel?.text = String(instructionsArray[row].In_ID)
+//        //cell.detailTextLabel?.text = "\(instructionsArray[row].In_Name)"
+//            cell.backgroundColor = UIColor.clear
+//    
+//        return cell
+//    }
 
 
 }
