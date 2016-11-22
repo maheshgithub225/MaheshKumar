@@ -23,15 +23,18 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     var radius : Int = Int()
     
     @IBAction func saveInstructions(_ sender: AnyObject) {
-        let alertControl = UIAlertController(title: "Ingredient Saved", message: "", preferredStyle: .alert)
-        let Addmore = UIAlertAction(title: "Add more..", style: .destructive){
-            (result : UIAlertAction) in debugPrint("Add")
+        let data = self.InstructionBox.text
+        let alertControl = UIAlertController(title: "Ready to save?", message: "", preferredStyle: .alert)
+        
+        let done = UIAlertAction(title: "Yes", style: .destructive) { (_) in
+            self.addInstructionData(Data:data!)
         }
-        let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
-            self.addInstructionData()
+        
+        let cancel = UIAlertAction(title: "No", style: .destructive) { (_) in
         }
+
         alertControl.addAction(done)
-        alertControl.addAction(Addmore)
+        alertControl.addAction(cancel)
         self.present(alertControl, animated: true, completion: nil)
         
         
@@ -47,9 +50,13 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         // Do any additional setup after loading the view.
     }
-    func addInstructionData(){
-        
+    func addInstructionData(Data:String){
+        print(Data)
     }
+    
+    
+    
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         instruction1.resignFirstResponder()
