@@ -78,11 +78,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newRecipe"{
             let addingredview = segue.destination as! NewRecipeViewController
-            value1 = ingredientName.text!
-            value2 = amount.text!
-            value3 = Units as String
-           // addingredview.ingName = value1
-            //addingredview.quantity = value2 + " " + value3
+            
         }
         
     }
@@ -112,7 +108,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard() {
+    func dismissKeyboard() { 
         view.endEditing(true)
     }
 

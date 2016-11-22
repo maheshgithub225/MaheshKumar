@@ -109,6 +109,8 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         let indexpath1 = ingredientsTableView.indexPathForSelectedRow
         let currentCell = ingredientsTableView.cellForRow(at: indexpath1!)
         selectedIngredient = (currentCell?.textLabel?.text)!
+        performSegue(withIdentifier: "addIngredientView", sender: self)
+
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

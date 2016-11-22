@@ -190,7 +190,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
                 self.downloadIngredientsFromRecipe()
             }
         }
-        task.resume()
+        task.resume() 
     }
     
     func populateData(){
