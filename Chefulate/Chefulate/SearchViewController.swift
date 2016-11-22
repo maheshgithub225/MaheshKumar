@@ -72,6 +72,10 @@ class SearchViewController: UIViewController {
             vc.UID = UID
             vc.U_Full = "\(F_Name) \(L_Name)"
         }
+        if segue.identifier == "myrecipes" {
+            let vc = segue.destination as! MyRecipesViewController
+            vc.Creator_ID = UID
+        }
     }
     
 
