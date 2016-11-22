@@ -39,7 +39,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         instruction1.delegate = self
-       instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         instruction2.backgroundColor = UIColor(white: 1, alpha: 0.5)
         instruction3.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15

@@ -31,7 +31,6 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         pickerData.delegate = self
         ingredientName.delegate = self
         ingredientName.text = value
-        amount.delegate = self
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
         closebutton.layer.cornerRadius = CGFloat(radius)
@@ -49,15 +48,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         (result : UIAlertAction) in debugPrint("Add")
     }
     
-    
-    
-    
     @IBAction func saveCloseButton(_ sender: AnyObject) {
-        value1 = ingredientName.text!
-        value2 = amount.text!
-        value3 = Units as String
-        
-        
         if ingredientName.text != "" && amount.text != "" {
             let done = UIAlertAction(title: "Done", style: .destructive) { (_) -> Void in
                 self.performSegue(withIdentifier: "newRecipe", sender: self)
@@ -82,6 +73,9 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newRecipe"{
             let addingredview = segue.destination as! NewRecipeViewController
+            value1 = ingredientName.text!
+            value2 = amount.text!
+            value3 = Units as String
            // addingredview.ingName = value1
             //addingredview.quantity = value2 + " " + value3
         }

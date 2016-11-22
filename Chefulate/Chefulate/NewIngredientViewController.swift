@@ -13,6 +13,12 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet var cTableView: UITableView!
     @IBOutlet weak var nextbutton: UIButton!
     
+    var R_ID:Int = 0
+    
+    var I_Name: String = ""
+    var I_Amount: String = ""
+    var I_Units: String = ""
+    
     struct ingredients{
         let I_ID: Int
         let I_Name: String
@@ -20,9 +26,12 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let I_Unit: String
     }
     var data_array = [ingredients]()
+    
+    
     var radius : Int = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print( "RID = \(R_ID)")
         cTableView.delegate = self
         cTableView.dataSource = self
         cTableView.backgroundColor = UIColor.clear
@@ -59,6 +68,16 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         let row = indexPath.row
         print(data_array[row])
     }
+    
+    @IBAction func unwindToIng(segue: UIStoryboardSegue) {
+        addIng()
+    }
+    
+    func addIng(){
+        
+    }
+    
+    
     
 
     /*

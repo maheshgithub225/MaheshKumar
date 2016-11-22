@@ -131,6 +131,9 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     
     }
     
+    @IBAction func backButton(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "goHome", sender: self)
+    }
     /*
      // MARK: - Navigation
      
