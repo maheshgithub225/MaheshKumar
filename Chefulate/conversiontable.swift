@@ -101,19 +101,19 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     
         else if kflagtwo == 1 {
-        cell.textLabel?.text = "no ingredients loaded yet"
+        cell.textLabel?.text = "No ingredients loaded yet"
             cell.detailTextLabel?.text = " "
         }
         else if kflagtwo == 2{
-        cell.textLabel?.text = "please wait"
+        cell.textLabel?.text = "Please wait"
             cell.detailTextLabel?.text = " "
         }
         else if kflagthree == 1{
           cell.textLabel?.text = "\(self.masterarray[indexPath[1]].ingredientdisplay())"
-            cell.detailTextLabel?.text = "please press calculate to recalculate costs"
+            cell.detailTextLabel?.text = "Please press calculate to recalculate costs"
         }
         else {
-        cell.textLabel?.text = "no ingredients found"
+        cell.textLabel?.text = "No ingredients found"
             cell.detailTextLabel?.text = " "
         }
             
@@ -144,7 +144,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
      
      */
     func promptForAnswer(number: Int) {
-        let ac = UIAlertController(title: "update price", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Update price", message: nil, preferredStyle: .alert)
        
         ac.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Enter price per unit"
@@ -190,7 +190,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         promptForAnswer(number: indexPath[1])
         
         masterarray[indexPath[1]].ispressed = true
-        destext.text = "load the recipe again to change to Walmart prices"
+        destext.text = "Load the recipe again to change to Walmart prices"
         }
         
     }
