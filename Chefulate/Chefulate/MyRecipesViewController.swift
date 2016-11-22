@@ -13,6 +13,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     @IBOutlet weak var backbutton: UIButton!
     @IBOutlet var TableViewCustom: UITableView!
     var radius : Int = Int()
+    var seguerecipeID : Int = Int()
     struct recipes{
         let C_ID: Int
         let R_ID: Int
@@ -21,12 +22,13 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         let S_Size: Int
         let C_Date: String
     }
-    
+    var segueIdentifier : String = String()
     var objectsArray = [recipes]()
     var filteredObjectsArray = [recipes]()
     
     var recipeName : String = String()
     var servingsize : String = String()
+    var Creator_ID : Int = Int()
     
     var recipes: NSDictionary = [:]
     
@@ -49,7 +51,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     
     /// Tasks
     func downloadData(){
-    let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/17/")!
+    let url_download_data = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/17/\(Creator_ID)")!
     let url_request = URLRequest(url: url_download_data)
     let config = URLSessionConfiguration.default
     let session = URLSession(configuration: config)
@@ -73,6 +75,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
                     self.objectsArray.append(recipes(C_ID: (Int)(obj["Creator_ID"] as! String)!, R_ID: (Int)(obj["Recipie_ID"] as! String)!, R_Name: obj["Recipie_Name"]! as! String, C_Name: obj["Creator_Full_Name"]! as! String, S_Size: (Int)(obj["Serving_Size"] as! String)!, C_Date: obj["Creation_Date"]! as! String))
     
                         }
+        
                 self.TableViewCustom.dataSource = self
                 DispatchQueue.main.async{
                     self.TableViewCustom.reloadData()
@@ -102,6 +105,9 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         cell.textLabel?.text = objectsArray[row].R_Name
         cell.detailTextLabel?.text = "Serves: \(objectsArray[row].S_Size)"
         servingsize = "\(objectsArray[row].S_Size)"
+        seguerecipeID = objectsArray[row].R_ID
+        
+        
         cell.backgroundColor = UIColor(white: 1, alpha: 0.25)
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.white
@@ -112,7 +118,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
+        self.performSegue(withIdentifier: "recipeDetailsMyRecipe", sender: self)
     }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
@@ -123,10 +129,12 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        if segue.identifier == "recipeDetailsView"{
+        if segue.identifier == "recipeDetailsMyRecipe"{
             let recipeDetailsView = segue.destination as! RecipeDetailsViewController
             recipeDetailsView.labelName = recipeName
             recipeDetailsView.serving = servingsize
+            recipeDetailsView.recipeID = seguerecipeID
+            recipeDetailsView.detailsSegueIdentifier = "recipeDetailsMyRecipe"
         }
     
     }
@@ -144,6 +152,6 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
      }
      */
     
-    @IBAction func unwindRecipeList(segue: UIStoryboardSegue){}
+    @IBAction func unwindToMyRecipeList(segue: UIStoryboardSegue){}
     
 }

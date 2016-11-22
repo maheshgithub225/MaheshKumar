@@ -100,6 +100,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         return objectsArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
         
@@ -120,6 +121,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        recipeID = objectsArray[indexPath.row].R_ID
         self.performSegue(withIdentifier: "recipeDetailsView", sender: self)
     }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -136,6 +138,7 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
             recipeDetailsView.labelName = recipeName
             recipeDetailsView.serving = servingsize
             recipeDetailsView.recipeID = recipeID
+            recipeDetailsView.detailsSegueIdentifier = "recipeDetailsView"
         }
 
     }

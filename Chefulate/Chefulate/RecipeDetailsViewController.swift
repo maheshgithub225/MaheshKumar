@@ -11,18 +11,22 @@ import UIKit
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var imageView: UIImageView!
 
+    @IBOutlet weak var backToMyRecipes: UIButton!
+    @IBOutlet weak var backToSearchRecipes: UIButton!
     @IBOutlet weak var recipeDetailsTableView: UITableView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var servingsize : UILabel!
     var radius : Int = Int()
     
+    var detailsSegueIdentifier : String = String()
+    
     var recipeID : Int = Int()
     struct Ingedients_List{
         let I_ID: Int
-        let I_Name: String
+        let I_Name: Int
         let I_Amount: Int
+        let Re_ID : Int
         let I_Units : String
-        
     }
     struct Instructions_List{
         let R_ID : Int
@@ -46,8 +50,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.backgroundColor = UIColor.clear
         recipeName.text = labelName
-        
-        
+        if detailsSegueIdentifier == "recipeDetailsView"{
+            backToMyRecipes.isHidden = true
+            backToSearchRecipes.isHidden = false
+        } else if detailsSegueIdentifier == "recipeDetailsMyRecipe" {
+            backToSearchRecipes.isHidden = true
+            backToMyRecipes.isHidden = false
+        }
+        radius = 15
+        backToSearchRecipes.layer.cornerRadius = CGFloat(radius)
+        backToMyRecipes.layer.cornerRadius = CGFloat(radius)
         servingsize.text = "Serving Size: \(serving)"
         
         // Do any additional setup after loading the view.
@@ -67,14 +79,14 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("No data recieved")
                 return
             }
-            
+            print(response)
             do{
                 let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
                 print("JSON data returned: \(jsonResult)")
                 print("Count: \(jsonResult.count)")
                 for x in (1...jsonResult.count){
                     let obj = jsonResult["\(x)"] as! NSDictionary
-                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Recipe_ID"] as! String)!, I_Name: obj["Ingredient_ID"]! as! String,I_Amount: (Int)(obj["Quantity"]! as! String)!, I_Units: obj["Ingredient_Measurement"]! as! String))
+                    self.objectsArray.append(Ingedients_List(I_ID: (Int)(obj["Recipe_ID"] as! String)!, I_Name: (Int)(obj["Ingredient_ID"]! as! String)!,I_Amount: (Int)(obj["Quantity"]! as! String)!, Re_ID:(Int)(obj["RI_ID"]! as! String)!, I_Units: obj["Ingredient_Measurement"]! as! String))
                 }
                 self.recipeDetailsTableView.dataSource = self
                 DispatchQueue.main.async{
@@ -104,7 +116,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 print("No data recieved")
                 return
             }
-            
+            print(response)
             do{
                 let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
                 print("JSON data returned: \(jsonResult)")
@@ -159,12 +171,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         return 30
     }
     
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let sec = indexPath.section
         let row = indexPath.row
         if sec == 0 {
-            cell.textLabel?.text = objectsArray[row].I_Name
+            cell.textLabel?.text = String(objectsArray[row].I_Name)
             cell.detailTextLabel?.text = "\(objectsArray[row].I_Amount) \(objectsArray[row].I_Units)"
             cell.backgroundColor = UIColor.clear
         }
