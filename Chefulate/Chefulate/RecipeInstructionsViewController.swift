@@ -43,8 +43,6 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
-        closebutton.layer.cornerRadius = CGFloat(radius)
-
         
         // Do any additional setup after loading the view.
     }
