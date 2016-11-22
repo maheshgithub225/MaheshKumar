@@ -37,8 +37,8 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         TableViewCustom.dataSource = nil
         downloadData()
         TableViewCustom.backgroundColor = UIColor.clear
-        radius = 15
-        homebutton.layer.cornerRadius = CGFloat(radius)
+        radius = 20
+        homebutton.layer.cornerRadius = homebutton.frame.size.width / 2
         // Do any additional setup after loading the view.
     }
     

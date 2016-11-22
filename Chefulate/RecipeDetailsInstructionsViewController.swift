@@ -72,20 +72,21 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
-            
+            self.instruct()
             DispatchQueue.main.async {
-                self.instruct()
-                // self.populateData()
+               
             }
         })
         task.resume()
+        
     }
     
     func instruct(){
-        
-        for x in (1...(Int)(instructionsArray.count)){
-            textScrollView.text = "\(instructionsArray[x].In_Name)"
+        var ins : String = String()
+        for x in (0...(Int)(instructionsArray.count)){
+            ins = "\(instructionsArray[x].In_Name)" + "\n"
         }
+        textScrollView.text = "test"
         
     }
     
