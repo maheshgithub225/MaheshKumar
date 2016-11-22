@@ -70,14 +70,19 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_array.count
+        return ingRP_array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SearchRecipeTableViewCell
-        
-        let row = indexPath.row
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        var name = ""
+        for x in ingDB_array{
+            if(x.I_ID == ingRP_array[indexPath.row].I_ID){
+                name = x.I_Name
+            }
+        }
+        cell.textLabel?.text = "\(name)"
+        cell.detailTextLabel?.text = "\(ingRP_array[indexPath.row].I_Quant) \(ingRP_array[indexPath.row].I_Unit)"
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,6 +96,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     @IBAction func unwindToIng(segue: UIStoryboardSegue) {
+        ingRP_array.removeAll()
+        ingDB_array.removeAll()
         self.downloadIngredientsFromRecipe()
     }
     
@@ -116,20 +123,21 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
                 print("JSON delete data returned : \(jsonResult)")
-                print("Count: \(jsonResult?.count)")
-                if(jsonResult != nil){
+                print("RID RP: \(self.R_ID)")
+                if(jsonResult?.count != nil){
                     for x in (1...(Int)((jsonResult?.count)!)){
                         let obj = jsonResult?["\(x)"] as! NSDictionary
                         self.ingRP_array.append(ingRP(I_ID: (Int)(obj["Ingredient_ID"] as! String)!, I_Quant: (Int)(obj["Quantity"] as! String)!, I_Unit: obj["Ingredient_Measurement"] as! String))
                     
                     }
                 }
-                self.cTableView.dataSource = self
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
             DispatchQueue.main.async {
                 self.populateData()
+                self.cTableView.reloadData()
+
             }
         }
         task.resume()
