@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IZz-X5-KPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1177,11 +1177,14 @@
                             <outlet property="delegate" destination="QQu-3I-36B" id="cNt-tW-qhE"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="navbar" destination="jFk-tn-dAA" id="u20-0g-P01"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ede-ZI-agb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Trm-7X-va0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3280" y="880"/>
+            <point key="canvasLocation" x="3279" y="865"/>
         </scene>
         <!--Recipe Instructions View Controller-->
         <scene sceneID="nxA-Gn-yZc">

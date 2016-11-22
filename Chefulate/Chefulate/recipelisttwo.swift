@@ -11,30 +11,30 @@ import UIKit
 
 
 class recipelisttwo: UITableViewController {
-    var kflag=0
+    @IBOutlet weak var navbar: UINavigationBar!
+    var kflag=0    //switch variable, turned to 1 to let controller know its okay to save, to avoid error
     var masterarray = [ingredient]()
-    var counter = 1
-    var id = 7
-    var countertwo = 1
-    var counterthree = 1
-    var g:String = ""
-    var kflagtwo = 1
-    var servingsize:String = ""
+    var counter = 1  //stores counts recipes, thisvariable is changed later on.
+    var id = 7      //this needs store the user id from the login screen. right now its a dummy variable
+    var countertwo = 1   //helps with json
+    var counterthree = 1  //helps with json
+    var g:String = ""  //stores recipeid
+    var kflagtwo = 1  //helps with syncing of json
+    var servingsize:String = ""  //stores serving size
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //To Teamred: Change this to your desired height. the more it is the lower the navbar.
+        navbar.frame.size.height = 100
         self.countrecipes()
         
        
-        
-            
-            
         
          let when = DispatchTime.now() + 4
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.selectdb()
             
-            
-        
+       
   
         }
        
@@ -43,15 +43,13 @@ class recipelisttwo: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
-    
-    // MARK: - Table view data source
-    
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+      
         return 1
     }
     
@@ -70,15 +68,10 @@ class recipelisttwo: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
         if kflagtwo == 0 {
-            
-            
-            //   if  indexPath[1] == 0{
-            //   cell.textLabel?.text = "\(masterarray[(indexPath[1]])"
-            //   }
-            //  else{
+         
             cell.textLabel?.text = "\(masterarray[indexPath[1]].ingredientdisplay())"
             cell.detailTextLabel?.text="\(masterarray[indexPath[1]].seconddisplay())"
-            //  }
+           
             if masterarray[indexPath[1]].ispressed == true{
                 cell.backgroundColor = UIColor(red:0.5, green: 0,blue: 0.0, alpha: 1.0)
                 cell.textLabel?.backgroundColor = UIColor(red:0.5, green: 0,blue: 0, alpha: 1.0)
@@ -101,16 +94,15 @@ class recipelisttwo: UITableViewController {
              cell.detailTextLabel?.text = " "
         }
         
-        // cell.textLabel?.text = "\(masterarray[indexPath[1]])"
-        //  cell.detailTextLabel?.text="\(laparray[indexPath[1]].display_time())"
-        
+      
         return cell
     }
-    
+    /*
+ alert function and alerttwo function bring alert controllers in save and go back button and cancel button to guarantee these do not provide issues
+ 
+ */
     
     func alert(){
-        
-        
         
         
         let alertController = UIAlertController(title: "cannot save",message: "please select a recipe",preferredStyle: .alert)
@@ -123,7 +115,6 @@ class recipelisttwo: UITableViewController {
         
     }
     func alerttwo(){
-        
         
         
         
@@ -149,16 +140,19 @@ class recipelisttwo: UITableViewController {
             masterarray.remove(at: item)
         }
         kflagtwo = 0
-        //run select operation
+        
         return true
         
         
     }
   
-
+    /*
+     cancel action button
+     
+     */
     @IBAction func cancelaction(_ sender: UIBarButtonItem) {
         
-       print("BBBBBB")
+      
         if kflagtwo == 0{
             performSegue(withIdentifier: "segue", sender: nil)
         }
@@ -190,7 +184,10 @@ class recipelisttwo: UITableViewController {
         
     }
     
-
+    /*
+    uses a select sql statement to bring in all the recipes and parses it
+     
+     */
     
     func selectdb(){
         
@@ -212,7 +209,7 @@ class recipelisttwo: UITableViewController {
                     
                     let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? Array<Any>
                  
-                    print("LLLLLLLLL")
+                   
                     
                     for index in stride(from: 0, to: self.counter, by: +1) {
                         
@@ -228,7 +225,7 @@ class recipelisttwo: UITableViewController {
                         
                         var fa = fullNameArr[5].characters.split{$0 == " "}.map(String.init)
                         var ta = fullNameArr[4].characters.split{$0 == "\""}.map(String.init)
-                        print("TTTTT")
+                        
                         var string:String = ""
                         if ta.count <= 3 {
                              var taa = ta[2].characters.split{$0 == " "}.map(String.init)
@@ -238,11 +235,7 @@ class recipelisttwo: UITableViewController {
                             
                             string = ta[3]
                         }
-                        //print("\(ta[3])")
-                        print("TTTTT")
-                        
-                        print("TTTTT")
-                        print("\(fa[3])")
+                       
                         let recipe:ingredient = ingredient(init_recipe_id: ca[3], init_ingredient: string, init_serving_size: fa[3])
                         self.masterarray.append(recipe)
                         
@@ -266,7 +259,10 @@ class recipelisttwo: UITableViewController {
             
         }
     }
-    
+    /*
+     brings count of recipes in so the select function above knows how long to perform the json statement
+     
+     */
     func countrecipes(){
         
         let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/7")!
@@ -285,24 +281,18 @@ class recipelisttwo: UITableViewController {
                 
                 
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                print("LLLL")
-                print("\(json)")
+              
                 var sd:String = "\(json)"
                 var Da:[String] = sd.characters.split{$0 == "\""}.map(String.init)
-                print("second")
-                print("\(Da[2])")
+               
                 var ca = Da[2].characters.split{$0 == " "}.map(String.init)
-                print("third")
-                print("\(ca[1])")
+               
                 var ea = ca[1].characters.split{$0 == ";"}.map(String.init)
-                print("fourth")
-                print("\(ea[0])")
+               
                 self.counter = Int(ea[0])!
            
                 
             }
-                
-                
                 
                 
             catch{
@@ -319,10 +309,6 @@ class recipelisttwo: UITableViewController {
         task.resume()
         
     }
-    
-    
-    
-    
     
     
 }

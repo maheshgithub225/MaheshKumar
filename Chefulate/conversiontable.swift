@@ -35,20 +35,20 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     
-    var kflag=0
-    var kflagtwo = 1
-    var kflagthree = 0
-    var g:String = ""
-    var counter = 0
+    var kflag=0 //switchvariable helps for hson
+    var kflagtwo = 1 //switchvariable helps for printing different messages in different states
+    var kflagthree = 0 //switch variable
+    var g:String = "" //holds recipeid
+    var counter = 0  //holds count for recipes
     var count = 2
-    var popuptext:String = ""
+    var popuptext:String = ""  //holds string from alert controller whn clicking on accessory
     var countertwo = 0
     var counterthree = 1
-    var id:String = "0"
-    var counterfour = 1
-    var scaling:Double = 0
-    var fraction:String = ""
-    var y:Double = 0
+    var id:String = "0"  //eventually changes to recipe id
+    var counterfour = 1 //used with jason
+    var scaling:Double = 0   //new serving size divided by original serving size
+    var fraction:String = ""  //shows fractions for converted measurements
+    var y:Double = 0  //used for math funitons in converted measurements
     var masterarray = [recipe_ingredient]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,18 +88,12 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ cellForRowAttableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        
-    //    print("AAAAAAAAAAAAAAAAAA")
+  
         
         let cell = viewc.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
         if kflagtwo == 0 && kflagthree == 0{
         if counterthree == 0{
-            
-            
-        //    print("GGGGG")
-            
-            
-          //  print("\(self.masterarray[indexPath[1]].ingredientdisplay())")
+    
             cell.textLabel?.text = "\(self.masterarray[indexPath[1]].ingredientdisplay())"
             cell.detailTextLabel?.text = "\(self.masterarray[indexPath[1]].locate())"
             
@@ -135,14 +129,20 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         let serving = Double(servingsize.text!)
         scaling = stepper.value / serving!
     }
-    
+    /*
+    calculate button, which converst measurements and cost, changes switch variable(initially changes to let users know to recalculate
+     
+     */
     @IBAction func submit(_ sender: UIButton) {
         convert_measurements()
         kflagthree = 0
         viewc.reloadData()
     }
  
-    
+    /*
+    promts an alert controller with a textfield
+     
+     */
     func promptForAnswer(number: Int) {
         let ac = UIAlertController(title: "update price", message: nil, preferredStyle: .alert)
        
@@ -151,18 +151,15 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             
             textField.keyboardType = UIKeyboardType.numberPad
         })
-        
+       
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             _ = ac.textFields![0]
             
             self.popuptext = "\(ac.textFields![0].text)"
               var fa = self.popuptext.characters.split{$0 == "\""}.map(String.init)
             if fa[1] != ")"{
-            print("EEEEEE")
-            print (self.popuptext)
+           
           
-          //  print("TTTTTTTTTT")
-            print(fa[1])
             self.masterarray[number].manual = Double(fa[1])!
             }
             else{
@@ -174,7 +171,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             let w:Double = self.masterarray[number].manual * E
             self.masterarray[number].manual = w
             self.scaling = Double(self.steplabel.text!)! / Double(self.servingsize.text!)!
-            print("init scale \(self.scaling)")
+           
             E = E * self.scaling
             self.masterarray[number].cost =  w * self.scaling
             self.reload()
@@ -188,7 +185,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
  
      func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-      //  print("ASDASD")
+     
         if(masterarray.count != 0){
         promptForAnswer(number: indexPath[1])
         
@@ -218,14 +215,13 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             servingsize.text = source.servingsize
            
             scaling = 1
-           // print("unwind")
-           // print(g)
+
             id=g
          
         }
         kflagtwo = 2
         self.viewc.reloadData()
-        //  counter=1
+
         countrecipes()
         var when = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -233,12 +229,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                 self.selectdb()
             }
         }
-        //  self.table.reloadData()
+        
         when = DispatchTime.now() + 2.5
         DispatchQueue.main.asyncAfter(deadline: when) {
             
-            
-           
             
             if self.masterarray.count != 0{
             self.kflagtwo = 0
@@ -252,7 +246,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
         
     }
-    
+    /*
+     select all ingredients from the recipe chosen on recipelisttwo
+     
+     */
     func selectdb(){
         print("select")
         if countertwo == 0{
@@ -277,30 +274,23 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
                     for index in stride(from: 0, to: self.counter, by: +1) {
                         
                         var sd: String = "\(json?[index])"
-                //    print("\(sd)")
+               
                         let fullNameArr = sd.characters.split{$0 == ";"}.map(String.init)
                         
                                                var ca = fullNameArr[1].characters.split{$0 == " "}.map(String.init)
                         var ea = fullNameArr[2].characters.split{$0 == "\""}.map(String.init)
-                     //   print("\(ea[3])")
-                     //   print("\(ca[3])")
+                    
                          var qa = fullNameArr[6].characters.split{$0 == "\""}.map(String.init)
                          var qaa = qa[2].characters.split{$0 == " "}.map(String.init)
                         var la = fullNameArr[7].characters.split{$0 == "\""}.map(String.init)
                         //var ga = ea[3].characters.split{$0 == "\""}.map(String.init)
                         var fa = fullNameArr[3].characters.split{$0 == " "}.map(String.init)
-                      //  print("\(fa[3])")
-                      //  print("testing")
-                      //  print("\(qaa[1])")
-                      //  print("testing")
-                    //    print("\(la[3])")
-                        
+                   
                         let recipe:recipe_ingredient = recipe_ingredient(init_ingredient: ea[3], init_measurement:ca[3], init_quantity: fa[3],init_original: fa[3],init_cost_measurement: qaa[1],init_cost: (Double(la[3])!*Double(fa[3])!))
                         self.masterarray.append(recipe)
                         
                     }
-                    
-                    
+
                 }
                     
                 catch{
@@ -318,7 +308,10 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             
         }
     }
-    
+    /*
+    sets up total on way back from load recipe
+     
+     */
     func init_total(){
         var z:Double = 0
         let w:Double = 0
@@ -355,7 +348,10 @@ print("ulta")
     kflagthree = 1
     }
  
-    
+    /*
+    converts measurements for the conversion calculator as well as cost
+     
+     */
     func convert_measurements(){
         print("scaling \(scaling)")
         
@@ -398,7 +394,10 @@ print("ulta")
         totalprice.text = "$\(String(format: "%.04g",ultracounter))"
         
     }
-    
+    /*
+    converts decimals into fractions.  for ease of the user exact fractions are not used, but typical fractions seen in cooking recipes.
+     
+     */
     
     func return_remainder(d:Double)->String{
         y = d
@@ -418,13 +417,16 @@ print("ulta")
             y = 0.5      // y=1/2
             return "1/2"
         }
-        else if(y<=0.85 && y>0.65){
+        else if(y<=0.99 && y>0.65){
             y = 0.75      // y=3/4
             return "3/4"
         }
         return ""
     }
-    
+    /*
+    counts the number of ingredients before selecting them to control the counter loop in select sql
+     
+     */
     func countrecipes(){
         
         let url = URL(string: "https://cs.okstate.edu/~rbryanm/combined_count.php/\(id)")!
@@ -458,9 +460,7 @@ print("ulta")
                 self.counter = Int(ea[0])!
                
             }
-                
-                
-                
+       
                 
             catch{
                 print("error serializing jon data: \(error)")
