@@ -167,7 +167,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
         //kflagthree = 1
         ac.addAction(submitAction)
-        
+        ac.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         present(ac, animated: true)
     }
  
