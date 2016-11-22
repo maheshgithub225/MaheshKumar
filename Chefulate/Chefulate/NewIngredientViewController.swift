@@ -99,7 +99,7 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteRIIDFromDB(id: ingRP_array[indexPath.row].RI_ID)
+            deleteRIIDFromDB(ID: ingRP_array[indexPath.row].RI_ID)
             ingRP_array.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -107,6 +107,33 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         }
     }
     
+    
+    func deleteRIIDFromDB(ID: Int){
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/13/\(ID)"
+        let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let url = URL(string: urlString_Fixed! )!
+        print("URL: \(url)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url){(data,response,error)in
+            guard error == nil else{
+                print("Error in session call: \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data reveived")
+                return
+            }
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(jsonResult)")
+            }catch {
+                print("Error Serializing JSON data : \(error)")
+            }
+        }
+        task.resume()
+    }
     
     
     @IBAction func unwindToIng(segue: UIStoryboardSegue) {
@@ -197,6 +224,28 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         print("Table DB Data: \(ingDB_array)")
         print("Table RP Data: \(ingRP_array)")
     }
+    
+    @IBAction func ToInstructionsButotn(_ sender: AnyObject) {
+        let alertControl = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive){
+            (result : UIAlertAction) in debugPrint("Add")
+        }
+        let save = UIAlertAction(title: "Save", style: .destructive) { (_) -> Void in
+            self.next()
+        }
+        alertControl.addAction(save)
+        alertControl.addAction(cancel)
+        self.present(alertControl, animated: true, completion: nil)
+        
+    }
+    
+    func next(){
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "NewIns") as! NewInstructionViewController
+        vc.R_ID = self.R_ID
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     
     /*
     // MARK: - Navigation

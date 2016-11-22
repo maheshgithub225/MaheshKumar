@@ -16,9 +16,12 @@ class NewInstructionViewController: UIViewController {
     @IBOutlet weak var backbutton: UIButton!
     @IBOutlet weak var saveinstruction: UIButton!
     var radius : Int = Int()
+    var R_ID: Int = Int()
+    var Sequence: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("R_ID :\(R_ID)")
         radius = 15
         addinstructionbutton.layer.cornerRadius = CGFloat(radius)
         backbutton.layer.cornerRadius = CGFloat(radius)
@@ -32,6 +35,17 @@ class NewInstructionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if( segue.identifier == "AddInstruction"){
+            let vc = segue.destination as! RecipeInstructionsViewController
+            vc.R_ID = R_ID
+            vc.Sequence = Sequence
+        }
+    }
+    
+    @IBAction func unwindToIns(segue: UIStoryboardSegue) {
+        
+    }
 
     /*
     // MARK: - Navigation

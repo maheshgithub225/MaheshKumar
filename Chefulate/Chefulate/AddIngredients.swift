@@ -80,6 +80,8 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         ingredientName.text = I_Name
     }
     
+    @IBAction func close(_ sender: AnyObject) {
+    }
     
     @IBAction func backToNewRecipe(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "unwindToNewRecipe", sender: self)

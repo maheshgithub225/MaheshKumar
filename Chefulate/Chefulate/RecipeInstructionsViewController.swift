@@ -12,16 +12,17 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var instruction1: UITextView!
     
-    @IBOutlet weak var instruction2: UITextView!
-    
-    @IBOutlet weak var instruction3: UITextView!
-    
     @IBOutlet weak var closebutton: UIButton!
     @IBOutlet weak var savebutton: UIButton!
+    var Sequence: Int = Int()
+    var R_ID: Int = Int()
+    
     @IBAction func backToNewRecipeFromInstr(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "unwindToNewRecipeFromInstr", sender: self)
     }
+    
     var radius : Int = Int()
+    
     @IBAction func saveInstructions(_ sender: AnyObject) {
         let alertControl = UIAlertController(title: "Ingredient Saved", message: "", preferredStyle: .alert)
         let Addmore = UIAlertAction(title: "Add more..", style: .destructive){
@@ -38,10 +39,10 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("R_ID:\(R_ID) Sequence: \(Sequence)")
+        
         instruction1.delegate = self
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        instruction2.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        instruction3.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
         closebutton.layer.cornerRadius = CGFloat(radius)
