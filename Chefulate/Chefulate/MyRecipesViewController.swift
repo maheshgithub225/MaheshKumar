@@ -128,14 +128,15 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
-        
+        recipeName = objectsArray[row].R_Name
         seguerecipeID = objectsArray[row].R_ID
         self.performSegue(withIdentifier: "recipeDetailsMyRecipe", sender: self)
     }
     private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-    
-            let row = indexPath.row
+        
+        let row = indexPath.row
+        recipeName = objectsArray[row].R_Name
         print(objectsArray[row])
     }
     

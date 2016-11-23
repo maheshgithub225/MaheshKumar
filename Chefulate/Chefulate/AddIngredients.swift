@@ -129,6 +129,9 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     }
 
     func addIng(){
+        if(amount.text! == ""){
+            return
+        }
         I_Amount = (Int)(amount.text!)!
         I_Unit = Units as String
         let RID = R_ID

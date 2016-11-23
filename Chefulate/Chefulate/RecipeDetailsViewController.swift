@@ -74,7 +74,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
         backToMyRecipes.layer.cornerRadius = CGFloat(radius)
         servingsize.text = "Serving Size: \(serving)"
         ingredcount.text = ""
-        downloadIngredientsFromRecipe()
         downloadIngredientsList()
         // Do any additional setup after loading the view.
     }
@@ -100,6 +99,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
                 print("JSON delete data returned : \(jsonResult)")
                 print("RID RP: \(self.recipeID)")
+                print("JSON COUNT \(jsonResult?.count):")
                 if(jsonResult?.count != nil){
                     for x in (1...(Int)((jsonResult?.count)!)){
                         let obj = jsonResult?["\(x)"] as! NSDictionary
@@ -136,7 +136,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
-                
                 for x in (1...(Int)((json?.count)!)){
                     let obj = json?["\(x)"] as! NSDictionary
                     self.ingDB_array.append(ingDB(I_ID: (Int)(obj["Ingredient_ID"] as! String)!,I_Name: obj["Ingredient_Name"] as! String))
