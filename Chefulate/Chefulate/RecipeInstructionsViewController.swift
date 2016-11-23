@@ -60,15 +60,11 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     }
     
     func addInstructionData(Data:String){
-        self.performSegue(withIdentifier: "saveIns", sender: nil)
+        self.performSegue(withIdentifier: "save", sender: nil)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveIns"{
-            let vc = segue.destination as! NewInstructionViewController
-            vc.InsToBeAdded = "TesT"
-        }
     }
     
     
