@@ -22,6 +22,13 @@ class SearchViewController: UIViewController {
     var F_Name: String = ""
     var L_Name: String = ""
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         alertControl1.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { (action: UIAlertAction!) in self.performSegue(withIdentifier: "backTologin", sender: self)}))

@@ -26,6 +26,12 @@ class NewRecipeViewController: UIViewController{
 
     var ins_data = [instructions]()
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         radius = 15
