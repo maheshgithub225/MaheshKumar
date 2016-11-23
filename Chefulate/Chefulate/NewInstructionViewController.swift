@@ -9,9 +9,9 @@
 import UIKit
 
 class NewInstructionViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
     @IBOutlet var cTableView: UITableView!
-
+    
     @IBOutlet weak var addinstructionbutton: UIButton!
     @IBOutlet weak var backbutton: UIButton!
     @IBOutlet weak var saveinstruction: UIButton!
@@ -40,7 +40,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         getInstructions()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -109,15 +109,15 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         Sequence = Sequence + 1
         getInstructions()
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

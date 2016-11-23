@@ -32,7 +32,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         let cancel = UIAlertAction(title: "No", style: .destructive) { (_) in
         }
-
+        
         alertControl.addAction(done)
         alertControl.addAction(cancel)
         self.present(alertControl, animated: true, completion: nil)
@@ -70,7 +70,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         return true
     }
-
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RecipeInstructionsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -79,15 +79,15 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
