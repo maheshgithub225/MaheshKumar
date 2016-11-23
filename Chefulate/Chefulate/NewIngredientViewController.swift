@@ -252,6 +252,8 @@ class NewIngredientViewController: UIViewController,UITableViewDelegate,UITableV
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func BackButton(_ sender: AnyObject) {
+    }
     
     /*
     // MARK: - Navigation

@@ -11,6 +11,7 @@
 		2F1D5C4D1DD8450200AFDBB8 /* recipe_conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */; };
 		2F1D5C4F1DD85A1A00AFDBB8 /* recipelisttwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */; };
 		2F1D5C531DDBDF1D00AFDBB8 /* conversiontable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */; };
+		362024861DE53B1B0060FAE6 /* Image Documentation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 362024851DE53B1B0060FAE6 /* Image Documentation.pdf */; };
 		3625E87F1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */; };
 		365742191DE2206200A61361 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365742181DE2206200A61361 /* TermsViewController.swift */; };
 		93A8317C1DB37526002BF8DE /* darkred.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A8317B1DB37526002BF8DE /* darkred.png */; };
@@ -92,6 +93,7 @@
 		2F1D5C4C1DD8450200AFDBB8 /* recipe_conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipe_conversion.swift; sourceTree = "<group>"; };
 		2F1D5C4E1DD85A1A00AFDBB8 /* recipelisttwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipelisttwo.swift; sourceTree = "<group>"; };
 		2F1D5C521DDBDF1D00AFDBB8 /* conversiontable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversiontable.swift; path = ../conversiontable.swift; sourceTree = "<group>"; };
+		362024851DE53B1B0060FAE6 /* Image Documentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Image Documentation.pdf"; sourceTree = "<group>"; };
 		3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Chefulate Terms and Conditions of Use.pdf"; sourceTree = "<group>"; };
 		365742181DE2206200A61361 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsViewController.swift; path = ../TermsViewController.swift; sourceTree = "<group>"; };
 		93A8317B1DB37526002BF8DE /* darkred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkred.png; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		3625E87D1DE10BBF00236D63 /* docs */ = {
 			isa = PBXGroup;
 			children = (
+				362024851DE53B1B0060FAE6 /* Image Documentation.pdf */,
 				3625E87E1DE10BD300236D63 /* Chefulate Terms and Conditions of Use.pdf */,
 			);
 			name = docs;
@@ -424,6 +427,7 @@
 				CD23625C1DDFBBAE008076C0 /* logout.png in Resources */,
 				BDDCC8C31DAD42400003D984 /* LaunchScreen.storyboard in Resources */,
 				CD2362621DDFBBAE008076C0 /* redcurtain.jpg in Resources */,
+				362024861DE53B1B0060FAE6 /* Image Documentation.pdf in Resources */,
 				BDDCC8C01DAD42400003D984 /* Assets.xcassets in Resources */,
 				CD2362611DDFBBAE008076C0 /* recipewallblur.jpg in Resources */,
 				CD2362511DDFBBAE008076C0 /* button-3.png in Resources */,

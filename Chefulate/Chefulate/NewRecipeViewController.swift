@@ -14,17 +14,9 @@ class NewRecipeViewController: UIViewController{
     @IBOutlet weak var servingSize: UITextField!
     var radius : Int = Int()
     
-    @IBOutlet weak var continuetoingred: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     var UID: Int = 0
     var U_Full: String = ""
     var R_ID: Int = 0
-    struct instructions{
-        let I_ID: Int
-        let I_Data: String
-    }
-
-    var ins_data = [instructions]()
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -34,16 +26,14 @@ class NewRecipeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        radius = 15
-        backButton.layer.cornerRadius = CGFloat(radius)
-        continuetoingred.layer.cornerRadius = CGFloat(radius)
-        
     }
     
     @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){
         print("Test un")
         deleteRecipe()
     }
+    
+    
     @IBAction func unwindToNewRecipeFromInstView(segue: UIStoryboardSegue){}
     
     
@@ -62,13 +52,12 @@ class NewRecipeViewController: UIViewController{
     
     
     func addRecipeData(){
-        let R_Name = RecipeTitle.text!
         let S_Size = servingSize.text!
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let date_formatted = formatter.string(from: date)
-        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_Name)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_ID)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
         let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlString_Fixed! )!
         print("URL: \(url)")
@@ -87,12 +76,14 @@ class NewRecipeViewController: UIViewController{
             do {
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
                 print("JSON test data returned : \(json)")
+                DispatchQueue.main.async{
+                    self.getID()
+                }
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
-            DispatchQueue.main.async{
-                self.getID()
-            }
+            
+            
         }
         task.resume()
     }
@@ -170,7 +161,7 @@ class NewRecipeViewController: UIViewController{
     func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
     
     /*
      // MARK: - Navigation
