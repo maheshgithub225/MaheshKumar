@@ -47,9 +47,6 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("R_ID:\(R_ID) Sequence: \(Sequence)")

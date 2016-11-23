@@ -115,12 +115,13 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         let Firstname = self.firstName.text!
         let Lastname = self.lastName.text!
         
-        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Firstname)/\(Lastname)/\(Password)")!
-        print("URL: \(url)")
+        let url = "https://cs.okstate.edu/~jtsutto/services.php/0/\(Email)/\(Firstname)/\(Lastname)/\(Password)"
+        let urlString_Fixed = url.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        let urlS = URL(string: urlString_Fixed! )!
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let task = session.dataTask(with: url){(data,response,error)in
+        let task = session.dataTask(with: urlS){(data,response,error)in
             guard error == nil else{
                 print("Error in session call: \(error)")
                 return

@@ -85,17 +85,17 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
                 print("No data received")
                 return
             }
-            var json: NSDictionary
             do {
-         /*       json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
-                if(json.count != 0){
-                    for x in (1...json.count){
-                        let obj = json["\(x)"] as! NSDictionary
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(json)")
+                if(json?.count != nil){
+                    for x in (1...(Int)((json?.count)!)){
+                        let obj = json?["\(x)"] as! NSDictionary
                         self.ins_data.append(instructions(I_Data: obj["Instruction"] as! String))
                     }
                 }
                 
-                print("JSON data returned = \(json)")*/
+                print("JSON data returned = \(json)")
             }catch {
                 print("Error serializing JSON data : \(error)")
             }
