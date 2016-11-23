@@ -87,14 +87,15 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
             }
             var json: NSDictionary
             do {
-                json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
+         /*       json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)as! NSDictionary
                 if(json.count != 0){
                     for x in (1...json.count){
                         let obj = json["\(x)"] as! NSDictionary
                         self.ins_data.append(instructions(I_Data: obj["Instruction"] as! String))
                     }
                 }
-                print("JSON data returned = \(json)")
+                
+                print("JSON data returned = \(json)")*/
             }catch {
                 print("Error serializing JSON data : \(error)")
             }
@@ -109,7 +110,8 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         Sequence = Sequence + 1
         getInstructions()
     }
-    
+    @IBAction func backButton(segue: UIStoryboardSegue) {
+    }
     /*
      // MARK: - Navigation
      
