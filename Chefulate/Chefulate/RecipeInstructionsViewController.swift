@@ -53,10 +53,16 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     
     func addInstructionData(Data:String){
         print(Data)
+        
     }
     
     
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToAddIngredientUnwindWithSegue"{
+            let vc = segue.destination as! NewInstructionViewController
+            vc.ins_data.append(Instruction)
+        }
+    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{

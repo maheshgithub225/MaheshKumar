@@ -19,9 +19,9 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     var R_ID: Int = Int()
     var Sequence: Int = 1
     
+    
     struct instructions{
         let I_Data: String
-        let I_ID: String
     }
     
     var ins_data = [instructions]()

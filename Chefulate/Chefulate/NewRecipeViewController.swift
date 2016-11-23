@@ -44,13 +44,12 @@ class NewRecipeViewController: UIViewController{
     
     
     func addRecipeData(){
-        let R_Name = RecipeTitle.text!
         let S_Size = servingSize.text!
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let date_formatted = formatter.string(from: date)
-        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/4/\(R_ID)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
+        let urlString = "https://cs.okstate.edu/~jtsutto/services.php/5/\(R_ID)/\(U_Full)/\(UID)/\(date_formatted)/\(S_Size)"
         let urlString_Fixed = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlString_Fixed! )!
         print("URL: \(url)")
@@ -69,12 +68,14 @@ class NewRecipeViewController: UIViewController{
             do {
                 let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
                 print("JSON test data returned : \(json)")
+                DispatchQueue.main.async{
+                    self.getID()
+                }
             }catch {
                 print("Error Serializing JSON data : \(error)")
             }
-            DispatchQueue.main.async{
-                self.getID()
-            }
+            
+            
         }
         task.resume()
     }
