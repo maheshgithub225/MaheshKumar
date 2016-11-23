@@ -108,6 +108,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
             while(flag == true){print("Waiting on Seq: \(Sequence)")}
             Sequence += 1
         }
+        performSegue(withIdentifier: "home", sender: nil)
     }
     
     
@@ -153,6 +154,9 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         }
     }
     
+    @IBAction func saveIns(_ sender: AnyObject) {
+        populateDBIns()
+    }
     
     
     @IBAction func backButton(segue: UIStoryboardSegue) {
