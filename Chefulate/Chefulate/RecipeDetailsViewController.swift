@@ -158,12 +158,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     
     
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows : Int = Int()
-        if section == 0 {
+        
             rows = ingRP_array.count
             if ingRP_array.count == 0{
                 ingredcount.text! = "No Ingredients Found"
@@ -171,10 +171,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
                 ingredcount.text! = ""
             }
             
-        }else {
-            return instructionsArray.count
-        }
-        return rows
+                return rows
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -191,7 +188,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         
-        let row = indexPath.row
         var name = ""
       
             for x in ingDB_array{

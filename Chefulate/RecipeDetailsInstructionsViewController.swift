@@ -97,29 +97,4 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
         self.performSegue(withIdentifier: "toRecipeDetails", sender: self)
     }
     
-    
-    
-//    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
-//     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return instructionsArray.count
-//    }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Instructions"
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 30
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-//       // let row = indexPath.row
-//       // cell.textLabel?.text = String(instructionsArray[row].In_ID)
-//        //cell.detailTextLabel?.text = "\(instructionsArray[row].In_Name)"
-//            cell.backgroundColor = UIColor.clear
-//    
-//        return cell
-//    }
-
-
 }
