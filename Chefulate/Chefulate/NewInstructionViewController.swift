@@ -91,7 +91,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
                 if(json.count != 0){
                     for x in (1...json.count){
                         let obj = json["\(x)"] as! NSDictionary
-                        self.ins_data.append(instructions(I_Data: obj["Instruction"] as! String, I_ID: obj["Sequence_ID"] as! String))
+                        self.ins_data.append(instructions(I_Data: obj["Instruction"] as! String))
                     }
                 }
                 print("JSON data returned = \(json)")

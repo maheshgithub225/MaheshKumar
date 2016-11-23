@@ -60,7 +60,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backToAddIngredientUnwindWithSegue"{
             let vc = segue.destination as! NewInstructionViewController
-            vc.ins_data.append(Instruction)
+            //vc.ins_data.append(Instruction)
         }
     }
     
