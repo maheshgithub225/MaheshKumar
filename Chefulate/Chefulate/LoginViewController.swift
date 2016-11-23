@@ -32,6 +32,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var L_Name = ""
     
     @IBOutlet weak var signInbutton: UIButton!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

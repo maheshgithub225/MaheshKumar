@@ -228,4 +228,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate,UITable
      }
      */
     
+    
+    @IBAction func unwindRecipeDetails(segue: UIStoryboardSegue){}
+    
 }
