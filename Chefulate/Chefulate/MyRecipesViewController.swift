@@ -41,7 +41,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         TableViewCustom.backgroundColor = UIColor.clear
         radius = 15
        
-        backbutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = backbutton.frame.size.width / 2
     // Do any additional setup after loading the view.
     }
     
