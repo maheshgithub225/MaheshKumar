@@ -37,7 +37,7 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         super.viewDidLoad()
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
-        self.ingredientsTableView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        self.ingredientsTableView.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
         selectbutton.layer.cornerRadius = CGFloat(radius)
         backbutton.layer.cornerRadius = CGFloat(radius)
@@ -96,7 +96,8 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         // Configure the cell...*/
         cell.textLabel?.text = data_array[indexPath.row].I_Name
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.textColor = UIColor.black
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         cell.backgroundColor = UIColor.clear
         
         return cell
