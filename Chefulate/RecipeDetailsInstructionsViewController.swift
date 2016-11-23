@@ -28,6 +28,7 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
     var instructionsArray = [Instructions_List]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        radius = 15
         //instructionsTableView.delegate = self
         //instructionsTableView.dataSource = self
         textScrollView.delegate = self
@@ -72,9 +73,9 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
             }catch{
                 print("Error seralizing JSON Data: \(error)")
             }
-            self.instruct()
+           
             DispatchQueue.main.async {
-               
+                self.instruct()
             }
         })
         task.resume()
@@ -83,10 +84,10 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
     
     func instruct(){
         var ins : String = String()
-        for x in (0...(Int)(instructionsArray.count)){
-            ins = "\(instructionsArray[x].In_Name)" + "\n"
+        for x in instructionsArray{
+            ins.append("\(x.In_ID). \(x.In_Name)" + "\n\n")
         }
-        textScrollView.text = "test"
+        textScrollView.text = ins
         
     }
     
