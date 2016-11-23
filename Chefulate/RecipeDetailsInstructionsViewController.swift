@@ -93,6 +93,12 @@ class RecipeDetailsInstructionsViewController: UIViewController,  UITextViewDele
     
     
     
+    @IBAction func backButtonTouched(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "toRecipeDetails", sender: self)
+    }
+    
+    
+    
 //    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        return 1
 //    }
