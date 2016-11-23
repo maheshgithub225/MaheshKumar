@@ -96,7 +96,14 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         return 1
     }
     
+    @IBOutlet var NoRecipiesFound: UILabel!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print( "Count \(objectsArray.count)")
+        if(objectsArray.count == 0){
+            NoRecipiesFound.isHidden = false
+        }else{
+            NoRecipiesFound.isHidden = true
+        }
         return objectsArray.count
     }
     
