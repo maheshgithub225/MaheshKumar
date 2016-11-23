@@ -63,7 +63,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.hideKeyboardWhenTappedAround()
         radius = 15
         calculatebutton.layer.cornerRadius = CGFloat(radius)
-        backbutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = backbutton.frame.width/2
         loadrecipebutton.layer.cornerRadius = CGFloat(radius)
     }
     

@@ -46,6 +46,7 @@ class AddIngredients: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
         pickerData.layer.cornerRadius = CGFloat(radius)
+        closebutton.layer.cornerRadius = 15
         
         // Do any additional setup after loading the view.
     }

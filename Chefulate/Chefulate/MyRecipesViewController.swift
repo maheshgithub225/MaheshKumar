@@ -41,7 +41,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         TableViewCustom.backgroundColor = UIColor.clear
         radius = 15
        
-        backbutton.layer.cornerRadius = CGFloat(radius)
+        backbutton.layer.cornerRadius = backbutton.frame.size.width / 2
     // Do any additional setup after loading the view.
     }
     
@@ -115,12 +115,7 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
         cell.textLabel?.font = UIFont(name: "Verdana", size: 20)
         cell.detailTextLabel?.font = UIFont(name: "Verdana", size: 16)
         cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
-        cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
-        //  cell.textLabel?.backgroundColor = UIColor.clear
-      //  cell.detailTextLabel?.backgroundColor = UIColor.clear
-//        cell.layer.cornerRadius = 15
-//        cell.layer.borderColor = UIColor.white.cgColor
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

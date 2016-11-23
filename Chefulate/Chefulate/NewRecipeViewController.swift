@@ -14,6 +14,7 @@ class NewRecipeViewController: UIViewController{
     @IBOutlet weak var servingSize: UITextField!
     var radius : Int = Int()
     
+    @IBOutlet weak var homeButton: UIButton!
     var UID: Int = 0
     var U_Full: String = ""
     var R_ID: Int = 0
@@ -26,6 +27,7 @@ class NewRecipeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeButton.layer.cornerRadius = homeButton.frame.width/2
     }
     
     @IBAction func unwindToNewRecipe(segue: UIStoryboardSegue){
