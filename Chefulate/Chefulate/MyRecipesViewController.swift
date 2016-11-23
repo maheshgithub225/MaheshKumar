@@ -67,20 +67,21 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     return
     }
     
-    do{
-    let jsonResult = try(JSONSerialization.jsonObject(with: result, options: .allowFragments) as! NSDictionary)
+        do{
+            let jsonResult = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
             print("JSON data returned: \(jsonResult)")
-            print("Count: \(jsonResult.count)")
-            for x in (1...jsonResult.count){
-                    let obj = jsonResult["\(x)"] as! NSDictionary
+            if(jsonResult?.count != nil){
+
+            for x in (1...(Int)((jsonResult?.count)!)){
+                    let obj = jsonResult?["\(x)"] as! NSDictionary
                     self.objectsArray.append(recipes(C_ID: (Int)(obj["Creator_ID"] as! String)!, R_ID: (Int)(obj["Recipie_ID"] as! String)!, R_Name: obj["Recipie_Name"]! as! String, C_Name: obj["Creator_Full_Name"]! as! String, S_Size: (Int)(obj["Serving_Size"] as! String)!, C_Date: obj["Creation_Date"]! as! String))
     
                         }
-        
+            }
                 self.TableViewCustom.dataSource = self
                 DispatchQueue.main.async{
                     self.TableViewCustom.reloadData()
-                }
+            }
         }catch{
                 print("Error seralizing JSON Data: \(error)")
                 }
