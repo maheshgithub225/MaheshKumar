@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
         }else{
             if("\(F_Name) \(L_Name)" == "Team Chefulate"){
                 FirstNamelabel.text = "Team Chefulate"
-
+                
             }else{
                 FirstNamelabel.text = F_Name
             }
@@ -67,7 +67,7 @@ class SearchViewController: UIViewController {
     @IBAction func homeUnwind(segue: UIStoryboardSegue){
         print("Home")
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,22 +83,30 @@ class SearchViewController: UIViewController {
             let vc = segue.destination as! MyRecipesViewController
             vc.Creator_ID = UID
         }
+        if segue.destination is conversiontable{
+            let vc = segue.destination as! conversiontable
+            
+            vc.UID = UID
+            
+        }
+        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue){
         
     }
 }
+

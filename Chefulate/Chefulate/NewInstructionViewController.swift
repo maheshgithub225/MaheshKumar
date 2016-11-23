@@ -19,7 +19,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     var R_ID: Int = Int()
     var Sequence: Int = 1
     var InsToBeAdded = ""
-    
+    var flag = true
     struct instructions{
         let I_Data: String
     }
@@ -47,11 +47,6 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if( segue.identifier == "AddInstruction"){
-            let vc = segue.destination as! RecipeInstructionsViewController
-            vc.R_ID = R_ID
-            vc.Sequence = Sequence
-        }
     }
     
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -106,6 +101,43 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         task.resume()
     }
     
+    func populateDBIns(){
+        for x in ins_data{
+            flag = true
+            addInstructions(Ins: x.I_Data, Seq: Sequence)
+            while(flag == true){print("Waiting on Seq: \(Sequence)")}
+            Sequence += 1
+        }
+    }
+    
+    
+    func addInstructions(Ins: String, Seq: Int){
+        let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/4/\(R_ID)/\(Seq)/\(Ins)")
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: url!){ (data, response, error)in
+            guard error == nil else {
+                print("Error in session call \(error)")
+                return
+            }
+            guard let result = data else {
+                print("No data received")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments) as? NSDictionary
+                print("JSON delete data returned : \(json)")
+                print("JSON data returned = \(json)")
+                self.flag = false
+            }catch {
+                print("Error serializing JSON data : \(error)")
+            }
+        }
+        task.resume()
+    }
+    
+    
     @IBAction func unwindToIns(segue: UIStoryboardSegue) {
         
     }
@@ -114,11 +146,15 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         let vc = segue.source as? RecipeInstructionsViewController
         InsToBeAdded = (vc?.InstructionBox.text)!
         if(InsToBeAdded != ""){
-            getInstructions()
+            ins_data.append(instructions(I_Data: InsToBeAdded))
+            self.cTableView.reloadData()
             print("Ins:"+InsToBeAdded)
             InsToBeAdded = ""
         }
     }
+    
+    
+    
     @IBAction func backButton(segue: UIStoryboardSegue) {
     }
     /*
