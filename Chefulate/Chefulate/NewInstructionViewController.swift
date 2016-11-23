@@ -18,7 +18,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     var radius : Int = Int()
     var R_ID: Int = Int()
     var Sequence: Int = 1
-    
+    var InsToBeAdded = ""
     
     struct instructions{
         let I_Data: String
@@ -107,8 +107,10 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     @IBAction func unwindToIns(segue: UIStoryboardSegue) {
-        Sequence = Sequence + 1
-        getInstructions()
+        if(InsToBeAdded != ""){
+            getInstructions()
+            InsToBeAdded = ""
+        }
     }
     @IBAction func backButton(segue: UIStoryboardSegue) {
     }
