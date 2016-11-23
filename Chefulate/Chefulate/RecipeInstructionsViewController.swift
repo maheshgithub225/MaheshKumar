@@ -59,12 +59,13 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func addInstructionData(Data:String){        
+    func addInstructionData(Data:String){
+        self.performSegue(withIdentifier: "saveIns", sender: nil)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToAddInstructionUnwindWithSegue"{
+        if segue.identifier == "saveIns"{
             let vc = segue.destination as! NewInstructionViewController
             vc.InsToBeAdded = "TesT"
         }

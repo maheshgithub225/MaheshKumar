@@ -109,6 +109,7 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     @IBAction func unwindToIns(segue: UIStoryboardSegue) {
         if(InsToBeAdded != ""){
             getInstructions()
+            print(InsToBeAdded)
             InsToBeAdded = ""
         }
     }
