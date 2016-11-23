@@ -38,6 +38,7 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     var kflag=0 //switchvariable helps for hson
     var kflagtwo = 1 //switchvariable helps for printing different messages in different states
     var kflagthree = 0 //switch variable
+    var seguewayflag = 0
     var g:String = "" //holds recipeid
     var counter = 0  //holds count for recipes
     var count = 2
@@ -211,24 +212,29 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     @IBAction func myUnwindAction(segue: UIStoryboardSegue){
         if let source = segue.source as? recipelisttwo{
+            seguewayflag = source.kflag
+            print("look here, \(seguewayflag)")
+            if source.kflag != 0{
             g = source.g
             servingsize.text = source.servingsize
            
             scaling = 1
 
             id=g
-         
+            }
         }
-        kflagtwo = 2
+        if seguewayflag != 0 {
+        
+        self.kflagtwo = 2
         self.viewc.reloadData()
 
-        countrecipes()
+        self.countrecipes()
         var when = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: when) {
             if self.counterfour == 1{
                 self.selectdb()
             }
-        }
+            }
         
         when = DispatchTime.now() + 2.5
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -243,8 +249,14 @@ class conversiontable: UIViewController, UITableViewDataSource, UITableViewDeleg
             self.viewc.reloadData()
             self.init_total()
             
+            }
         }
-        
+        else{
+        self.viewc.reloadData()
+            self.totalprice.text = "$0"
+            self.servingsize.text = "0"
+            
+        }
     }
     /*
      select all ingredients from the recipe chosen on recipelisttwo
@@ -360,6 +372,7 @@ print("ulta")
         var z:Double = 0
         var w:Double = 0
         var ultracounter:Double = 0
+        if masterarray.count != 0{
         for index in stride(from: 0, to: self.counter, by: +1) {
             if masterarray[index].ispressed == true {
                 z = masterarray[index].manual
@@ -392,7 +405,10 @@ print("ulta")
         
        
         totalprice.text = "$\(String(format: "%.04g",ultracounter))"
-        
+        }
+        else {
+        totalprice.text = "$0"
+        }
     }
     /*
     converts decimals into fractions.  for ease of the user exact fractions are not used, but typical fractions seen in cooking recipes.

@@ -26,6 +26,9 @@ class recipelisttwo: UITableViewController {
         
         //To Teamred: Change this to your desired height. the more it is the lower the navbar.
         navbar.frame.size.height = 100
+        navbar.isTranslucent = true
+       
+        navbar.backgroundColor = UIColor(red:1.0, green: 0,blue: 0.0, alpha: 1.0)
         self.countrecipes()
         
        
@@ -212,7 +215,8 @@ class recipelisttwo: UITableViewController {
                    
                     
                     for index in stride(from: 0, to: self.counter, by: +1) {
-                        
+                        print("counter")
+                        print(index)
                         var sd: String = "\(json?[index])"
                         print(sd)
                         
