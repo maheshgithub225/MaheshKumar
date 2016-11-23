@@ -18,7 +18,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var savebutton: UIButton!
     var Sequence: Int = Int()
     var R_ID: Int = Int()
-    
+
     
     var radius : Int = Int()
     

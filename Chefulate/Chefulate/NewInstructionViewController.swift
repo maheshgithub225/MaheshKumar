@@ -107,9 +107,11 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     @IBAction func unwindToIns(segue: UIStoryboardSegue) {
+        let vc = segue.source as? RecipeInstructionsViewController
+        InsToBeAdded = (vc?.InstructionBox.text)!
         if(InsToBeAdded != ""){
             getInstructions()
-            print(InsToBeAdded)
+            print("Ins:"+InsToBeAdded)
             InsToBeAdded = ""
         }
     }
