@@ -148,9 +148,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewall" translatesAutoresizingMaskIntoConstraints="NO" id="is1-7F-Drv">
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recipewall" translatesAutoresizingMaskIntoConstraints="NO" id="is1-7F-Drv">
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1C7-Md-cSG">
                                 <frame key="frameInset" minX="75" minY="369" width="256" height="51"/>
@@ -325,7 +326,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEL-hj-Gnr">
-                                <frame key="frameInset" minX="20" minY="92" width="374" height="47"/>
+                                <frame key="frameInset" minX="20" minY="90" width="374" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,6 +343,13 @@
                                     <segue destination="nVY-P0-9zD" kind="unwind" identifier="toHome" unwindAction="unwindToHomeWithSegue:" id="hph-Zn-vXY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Recipes Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBP-Ko-W7v">
+                                <frame key="frameInset" minX="20" minY="209" width="374" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -349,6 +357,7 @@
                     <connections>
                         <outlet property="TableViewCustom" destination="Kdf-Cy-unR" id="idV-jp-cBu"/>
                         <outlet property="homebutton" destination="Vkj-hC-D7P" id="dIu-V7-kr4"/>
+                        <outlet property="recipecount" destination="tBP-Ko-W7v" id="7WN-EN-XXu"/>
                         <outlet property="tableViewCustom" destination="Kdf-Cy-unR" id="a2u-uR-sd9"/>
                         <segue destination="EIc-fF-ZZA" kind="show" identifier="recipeDetailsView" id="Heu-6X-4ZR"/>
                     </connections>
@@ -428,7 +437,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USI-FX-2Bw">
-                                <frame key="frameInset" minX="23" minY="199" width="374" height="47"/>
+                                <frame key="frameInset" minX="20" minY="205" width="374" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,7 +545,7 @@
                                         </state>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k53-fi-hMS">
-                                        <frame key="frameInset" minY="179" width="414" height="557"/>
+                                        <frame key="frameInset" minX="20" minY="179" width="374" height="557"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,12 +643,20 @@
                                 <frame key="frameInset" minX="170" minY="29" width="161" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Recipes Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p61-TC-pkv">
+                                <frame key="frameInset" minX="20" minY="207" width="374" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="TableViewCustom" destination="bID-Tb-gih" id="wrQ-3Z-bdT"/>
                         <outlet property="backbutton" destination="vwS-EE-rbr" id="WJi-Oq-r0q"/>
+                        <outlet property="recipecount" destination="p61-TC-pkv" id="uzu-kg-v8S"/>
                         <segue destination="JUc-au-7Zr" kind="unwind" identifier="goHome" unwindAction="unwindToHomeWithSegue:" id="Dka-Wg-3Bu"/>
                         <segue destination="EIc-fF-ZZA" kind="show" identifier="recipeDetailsMyRecipe" id="BCi-R0-rhD"/>
                     </connections>
@@ -938,7 +955,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur" translatesAutoresizingMaskIntoConstraints="NO" id="BSJ-Z0-lDb">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredientsblur" translatesAutoresizingMaskIntoConstraints="NO" id="BSJ-Z0-lDb">
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

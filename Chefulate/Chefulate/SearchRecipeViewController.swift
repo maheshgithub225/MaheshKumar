@@ -91,7 +91,13 @@ class SearchRecipeViewController: UIViewController,UITableViewDelegate, UITableV
         return 1
     }
     
+    @IBOutlet weak var recipecount: UILabel!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if objectsArray.count == 0{
+            recipecount.isHidden = false
+        }else {
+            recipecount.isHidden = true
+        }
         return objectsArray.count
     }
     

@@ -91,12 +91,20 @@ class MyRecipesViewController: UIViewController,UITableViewDelegate, UITableView
     
     }
     
+    @IBOutlet weak var recipecount: UILabel!
+    
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if objectsArray.count == 0{
+            recipecount.isHidden = false
+        }else {
+            recipecount.isHidden = true
+        }
         return objectsArray.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

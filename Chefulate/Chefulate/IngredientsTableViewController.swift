@@ -96,8 +96,8 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate,UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         // Configure the cell...*/
         cell.textLabel?.text = data_array[indexPath.row].I_Name
-        cell.textLabel?.textColor = UIColor.white
-        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.blue
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.6)
         
         return cell
     }
