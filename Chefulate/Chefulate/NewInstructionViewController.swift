@@ -66,6 +66,23 @@ class NewInstructionViewController: UIViewController,UITableViewDelegate,UITable
         
     }
     
+    // Override to support conditional editing of the table view.
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            ins_data.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    
     func getInstructions(){
         let url = URL(string: "https://cs.okstate.edu/~jtsutto/services.php/20/\(R_ID)")
         let config = URLSessionConfiguration.default
