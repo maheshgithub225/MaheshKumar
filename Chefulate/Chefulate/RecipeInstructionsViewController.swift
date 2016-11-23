@@ -14,7 +14,6 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var instruction1: UITextView!
     @IBOutlet var InstructionBox: UITextView!
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var closebutton: UIButton!
     @IBOutlet weak var savebutton: UIButton!
     var Sequence: Int = Int()
@@ -33,7 +32,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         let cancel = UIAlertAction(title: "No", style: .destructive) { (_) in
         }
-
+        
         alertControl.addAction(done)
         alertControl.addAction(cancel)
         self.present(alertControl, animated: true, completion: nil)
@@ -43,21 +42,27 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("R_ID:\(R_ID) Sequence: \(Sequence)")
-        instructionLabel.text! = "Instruction #\(Sequence)"
+        instructionLabel.text! = "Instruction:"
         instruction1.delegate = self
         instruction1.backgroundColor = UIColor(white: 1, alpha: 0.5)
         radius = 15
         savebutton.layer.cornerRadius = CGFloat(radius)
-        backButton.layer.cornerRadius = CGFloat(radius)
         
         // Do any additional setup after loading the view.
     }
+    
     func addInstructionData(Data:String){
         print(Data)
+        
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToAddIngredientUnwindWithSegue"{
+            let vc = segue.destination as! NewInstructionViewController
+            //vc.ins_data.append(Instruction)
+        }
+    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -65,7 +70,7 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
         
         return true
     }
-
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RecipeInstructionsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -74,15 +79,15 @@ class RecipeInstructionsViewController: UIViewController,UITextViewDelegate {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
